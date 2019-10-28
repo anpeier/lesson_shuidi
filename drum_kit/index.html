@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wesbos</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*css可以被inherit*/
+        body,html{
+            font-family: sans-serif;
+        }
+        /*keys样式*/
+        .keys{
+            /*弹性布局*/
+            display: flex;
+            min-height: 100vh;
+            align-items: center;/*垂直居中*/
+            justify-content: center;/*水平居中*/
+            flex:1;
+        }
+        .key{
+            transition: all .07s ease;/*过渡样式*/
+            border:.4rem solid #000; 
+            border-radius: 0.5rem;
+            margin: 1rem;
+            font-size: 1.5rem;
+            padding: 1rem 0.5rem;
+            width: 10rem;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            text-shadow: 0 0 .5rem black;
+        }
+        /*.key的状态类*/
+        .playing{
+            transform: scale(1.1);
+            border-color: #ffc600;
+            box-shadow: 0 0 1rem #ffc600;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="key">
+        <div>A</div>
+        <span class="sound">clap</span>
+    </div> -->
+    <div class="keys">
+        <div class="key">
+            <div>A</div>
+            <span class="sound">clap</span>
+        </div>
+        <div class="key">
+            <div>S</div>
+            <span class="sound">hihat</span>
+        </div>
+        <div class="key">
+            <div>D</div>
+            <span class="sound">kick</span>
+        </div>
+        <div class="key">
+            <div>F</div>
+            <span class="sound">openhat</span>
+        </div>
+        <div class="key">
+            <div>G</div>
+            <span class="sound">boom</span>
+        </div>
+        <div class="key">
+            <div>H</div>
+            <span class="sound">ride</span>
+        </div>
+        <div class="key">
+            <div>J</div>
+            <span class="sound">snare</span>
+        </div>
+        <div class="key">
+            <div>K</div>
+            <span class="sound">tom</span>
+        </div>
+        <div class="key">
+            <div>L</div>
+            <span class="sound">tink</span>
+        </div>
+    </div>
+    <audio src="sounds/clap.wav" autoplay/>
+    <script>
+        const key = document.querySelector('.key');
+        const audio = document.querySelector('audio');
+        // audio.play();
+        // console.log(key);      
+        // setTimeout(()=>{
+        //     key.classList.add('plliveaying');
+        // },3000)
+        function playSound(){
+            key.classList.add('playing');
+            audio.play();
+        }
+        window.addEventListener('keydown',playSound)
+    </script>
+</body>
+</html>
