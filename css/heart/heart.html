@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>heart</title>
+</head>
+    <style>
+    body {
+        display: flex;/*弹性布局*/
+        justify-content: center;/*水平居中*/
+        align-items: center;/*垂直居中*/
+        height: 100vh;
+        margin: 0;
+        }
+            
+    .heart {
+        --size: 200px;
+            
+        position: relative;
+        width: var(--size);
+        text-align: center;
+        line-height: var(--size);
+        font-size: calc(var(--size) / 10);
+        color: #c00;
+        filter: drop-shadow(0 0 calc(var(--size) / 4));
+        animation: Blink 1s linear 520;
+        }
+            
+    .heart::first-line {
+        color: #fff;
+        }
+            
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 11px;
+        z-index: -1;
+        width: 61.8%;
+        height: 100%;
+        transform: rotate(-45deg);
+        background: currentColor;
+        border-radius: var(--size) var(--size) 0 0;
+        }
+            
+    .heart::after {
+        left: auto;
+        right: 11px;
+        transform: rotate(45deg);
+        }
+            
+    @keyframes Blink {
+        50% {transform: scale(.8);}
+        }
+    </style>
+<body>
+    <div class="heart">晶宝贝</div>
+</body>
+</html>
