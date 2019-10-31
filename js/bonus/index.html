@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bonus</title>
+</head>
+<body>
+    <!-- 写一函数 -->
+    <script>
+        // S 12
+        // A 6
+        // B 4
+        // C 2
+        // D 1
+        // salary
+        /*
+        *@param salary{number}
+        *@param type{string}
+        @return {number}
+        */
+        window.onload=function(){
+
+            function performanceS(salary){
+                return salary *24;
+            }
+            function performanceA(salary){
+                return salary *18;
+            }
+            function performanceB(salary){
+                return salary *16;
+            }
+            function performanceC(salary){
+                return salary *14;
+            }
+            
+            function performanceD(salary){
+                return salary *13;
+            }
+            function performanceMvp(salary){
+                return salary *112;
+            }
+
+            function bonus(salary,performanceLevel){      
+                if(performanceLevel =='S'){
+                    return performanceS(salary);
+                }
+                if(performanceLevel =='A'){
+                    return performanceA(salary);
+                }
+                if(performanceLevel =='B'){
+                    return performanceB(salary);
+                }
+                if(performanceLevel =='C'){
+                    return performanceC(salary);
+                }
+                if(performanceLevel =='D'){
+                    return performanceD(salary);
+                }
+                if(performanceLevel =='Mvp'){
+                    return performanceMvp(salary);
+                }
+            }
+            console.log(bonus(20000,'Mvp'));
+    //        //局部作用域
+    //     function bonus(salary,type){
+    //         let total=0;
+    //         switch(type){
+    //             case 'S':
+    //                 toyal=salary*12+salary*12;
+    //                 break;
+    //             case 'A':
+    //                 toyal=salary*12+salary*6;
+    //                 break;
+    //             case 'B':
+    //                 toyal=salary*12+salary*4;
+    //                 break;
+    //             case 'C':
+    //                 toyal=salary*12+salary*2;
+    //                 break;
+    //             case 'D':
+    //                 toyal=salary*12+salary*1;
+    //                 break;                                       
+    //         }
+    //         return total;
+    //     }
+    //     Console.log(bonus(10000,'A'));
+   }        
+    </script>
+    
+</body>
+<ml>
