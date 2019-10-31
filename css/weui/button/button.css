@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: 1.6;
+  font-family: -apple-system-font, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.btn {
+  display: block;
+  width: 184px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px 24px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.4;
+  border-radius: 4px;
+  overflow: hidden;
+  color: #fff;
+}
+.btn-primary {
+  background-color: #07c160;
+}
