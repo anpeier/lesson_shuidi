@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Phaser</title>
+    <script src="https://cdn.bootcss.com/phaser/2.6.2/phaser.min.js"></script>
+</head>
+<body>
+    <div id="game"></div>
+    <!-- <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul> -->
+    <script>
+        // 游戏框大小
+        const width = 800,
+        height = 600;
+        //Phaser 游戏框架提供Game对象，
+        const game = new Phaser.Game(width,height,Phaser.Auto,'#game',{
+            preload:preload,
+            create:create,
+            update:update
+        })
+        let back,//背景
+        mummy,//精灵
+        anim,//运动
+        loopText;
+        //预加载资源 游戏的加载
+        function preload(){
+        // back = game.add.image(0,-400,'lazur')
+        game.load.image('lazur','bg.png')
+        //精灵图 
+        game.load.spritesheet('mummy','mummy.png',37,45,18);
+        }
+        //创建什么场景
+        function create(){
+            back = game.add.image(0,-400,'lazur');
+            back.scale.set(2);//放大2倍
+            back.smoothed = false;
+
+            mummy = game.add.sprite(200,360,'mummy',10);
+            mummy.scale.set(2);
+            mummy.smoothed = false;
+            anim = mummy.animations.add('walk');
+            anim.play(10,true);
+        }
+        //更新
+        function update(){
+            back.x -= 1;
+        }
+        // const mrRight = {//JSON 对象表达式
+        //     name:'王',
+        //     age:18
+        // }
+        // mrRight.age = 19;
+        // mrRight = 200;
+        // var a = 2;//window
+        // {  //代码块,局部变量
+        //     let a = 1; //es6 2015 es5
+        //     console.log(a);
+        //     // var 块级作用域，没用，
+        //     // js 定义变量，一定会找到相应的作用域再定义scope
+        // }
+        // a++; // 访问不到
+        // console.log(a);
+        const items = document.querySelectorAll('ul>li');
+        // 同步的
+        for(let i = 0; i < items.length; i++){ // 10个i
+            // 事件 JS异步的，
+            items[i].addEventListener('click',function(){
+                //点击时才会发生
+                alert(++i);//最后的i 定义在window上的
+            });
+        }
+    </script>
+</body>
+</html>
