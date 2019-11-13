@@ -13,3 +13,10 @@ new 将我们的现实思维和代码规则结合 将情商发挥出来
 - 用沸水冲泡咖啡
 - 把咖啡倒进杯子
 - 加糖和牛奶
+
+类 抽象概念 不是用来运行的，对象是内存变量，new出来的
+调用方法 构造函数 constructor
+function Coffee(){
+    //构造函数
+}
+Coffee.prototype.boilWater = function(){}
