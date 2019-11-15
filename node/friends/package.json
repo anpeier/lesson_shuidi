@@ -1,0 +1,15 @@
+{
+  "name": "friends",
+  "version": "1.0.0",
+  "description": "- 前端领域 最佳DOM实践\r   最佳的时机 DomContentLoaded事件\r   数据驱动界面  \r   es6 字符串模板符号  `li`\r   一句代码搞定 有点python风\r   ul.innerHTML = friends->htmlArr->join('')",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}

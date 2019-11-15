@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 挂载点 mounted  DOM 动态 -->
+    <ul id="friends">
+    </ul>
+    <script>
+    fetch('/students')  
+    .then(data => data.json())
+    .then(data => {
+        // console.log(data);
+       document.getElementById('friends').innerHTML = data.map(item => {
+            return `
+            <li>
+                ${item.name}
+                ${item.hometown}
+                ${item.email}
+                ${item.phone}
+            </li>
+            `
+        }).join('');
+    })
+    // const friends = [{
+    //     name: 'xiaoming',
+    //     hometown: '新余',
+    //     email: '66669999@qq.com'
+    // },{
+    //     name: 'xiaohong',
+    //     hometown: '抚州',
+    //     email: '99996666@qq.com'
+    // }];
+
+
+    // // window.onload = function () {
+    // //     //最佳时机 生命周期
+
+    // // }
+    // // DOM ready .friends  挂载到页面上，就可以开始。
+    // // 页面加载过程。。。 浏览器拿到html文件后，body标签拿出来，解析DOM树 看到html了
+    // document.addEventListener('DOMContentLoaded',function () {
+    //     // friends -> ul
+    //     document
+    //         .querySelector('#friends')
+    //         .innerHTML = ''
+    //     //es6 的字符串模板
+    //     // friends.forEach(friends => {
+    //     //     document
+    //     //      .querySelector('#friends')
+    //     //      .innerHTML += `
+    //     //        <li>
+    //     //         ${friends.name} ${friends.hometown}
+    //     //         </li>
+    //     //      `
+    //     // });
+
+    //     // json 数组 =》 html数组
+    //     document.querySelector('#friends').innerHTML = friends.map(friend => {
+    //         return `
+    //             <li>
+    //                 ${friend.name}
+    //                 ${friend.hometown}
+    //                 ${friend.email}
+    //             </li>
+    //         `
+    //     }).join('')  
+    //     // console.log(htmlArr.join(''));
+    //     // document.querySelector('#friends').innerHTML = htmlArr.join('');
+    // })
+    // // console.log(htmlArr,ul);
+    
+    </script>
+</body>
+</html>
