@@ -1,6 +1,6 @@
 Page({
   data:{
-    slides:[
+    "slides": [
       {
         "id": 5,
         "header": "全新一代发现",
@@ -22,6 +22,18 @@ Page({
         "description": "发现的绝佳时刻。",
         "image": "https://resources.ninghao.net/landrover/discovery-sport-1.jpg"
       }
-    ]
+    ],
+  
+  },
+   testDrive() {
+    console.log('试驾在此处理')
+  },
+  readMore(event) {
+    //跳转详情页
+    let id =event.target.dataset.id;
+    console.log(id);
+    wx.navigateTo({
+      url: '/pages/vehicles/show?id=' +id,
+    })
   }
 })

@@ -1,5 +1,6 @@
-.selection{
-  /* 相对单位 不管什么设备 响应用户手机*/
-  height:100vh;
-  /* background-color: red; */
-}
+ .section{
+  /*相对单位 不管什么设备，手机
+  响应用户手机*/
+  height: 100vh;
+  /* background-color: chartreuse; */
+} 

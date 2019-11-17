@@ -1,0 +1,33 @@
+<!--pages/vehicles/show.wxml-->
+
+<view class="section">
+  <view class="cover">
+    <image src="{{ entity.image }}" mode="aspectFill" />
+    <view class="content">
+      <view class="header">
+        {{ entity.header }}
+      </view>
+      <view class="sub-header">
+        {{entity.sub_header}}
+      </view>
+    </view>
+    <view class="meta">{{entity.meta.price}}</view>
+  </view>
+  <view class="spec">
+
+    <view class="item">
+      <view class="header">二氧化碳排放</view>
+      <view class="value">
+        <text>{{entity.meta.carbon_dioxide}}</text>克/公里
+      </view>
+    </view>
+
+    <view class="item">
+      <view class="header">综合燃油</view>
+      <view class="value">
+        <text>{{entity.meta.fuel}}</text>
+      </view>
+    </view>
+    
+  </view>
+</view>

@@ -1,0 +1,35 @@
+.hero image, .hero video {
+    height: 38.2vh;
+  }
+  .hero.white {
+    background-color: #ffffff;
+  }
+  .hero.small .header {
+    font-size: 56rpx;
+    margin-bottom: 48rpx;
+  }
+  .hero.small .sub-header {
+    font-size: 24rpx;
+  }
+  .hero .content {
+    padding-top: 10%;
+  }
+  .hero .content.centered {
+    text-align: center;
+  }
+  .hero .sub-headoer{
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      color:rgb(0,0,0.85);
+  }
+  .hero .header{
+      font-size: 72rpx;
+      font-weight: bold;
+      margin: 0 12% 8px;
+  }
+  .hero .descripion{
+      padding: 0px 12%;
+      margin-bottom: 32px;
+  }

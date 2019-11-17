@@ -13,8 +13,8 @@
 		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.1",
-	"appid": "wx075e5439cf2c86a4",
+	"libVersion": "2.0.4",
+	"appid": "wx065b99c5d0d9a22b",
 	"projectname": "car",
 	"debugOptions": {
 		"hidedInDevtools": []
