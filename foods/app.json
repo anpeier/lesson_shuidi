@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add/add",
+    "pages/logs/logs",
+    "pages/users/show"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#06AD56",
+    "navigationBarTitleText": "美食天下",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar":{
+    "selectedColor":"#000",
+    "borderStyle":"white",
+    "backgoundColor":"#ededed",
+    "list":[
+      {
+        "text":"首页",
+        "pagePath":"pages/index/index",
+        "iconPath":"assets/icons/home.png",
+        "selectedIconPath":"assets/icons/home-active.png"
+      },
+      {
+         "text":"创作",
+         "pagePath":"pages/add/add",
+         "iconPath":"assets/icons/add.png",
+         "selectedIconPath":"assets/icons/add-active.png"
+      },
+      {
+        "text":"我",
+        "pagePath":"pages/users/show",
+        "iconPath":"assets/icons/face.png",
+        "selectedIconPath":"assets/icons/face-active.png"
+     }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

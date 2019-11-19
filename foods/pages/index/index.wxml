@@ -1,0 +1,13 @@
+<!-- 显示食物列表 -->
+<!-- 界面+css 组件开发 -->
+<view 
+  wx:for="{{entities}}"
+  class="media-box media-box_appmsg">
+  <view class="media-box__hd media-box__hd_in-appmsg">
+    <image class="media-box__thumb" src="{{item.imageUrl}}"></image>
+  </view>
+  <view class="media-box__bd">
+    <view class="media-box__title">{{item.title}}</view>
+    <view class="media-box__desc">{{item.description}}</view>
+  </view>
+</view>
