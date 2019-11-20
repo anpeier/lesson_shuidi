@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+    <div id="content">
+        <canvas id="canvas">
+
+        </canvas>
+        <audio src="//m8.music.126.net/21180815163607/04976f67866d4b4d11575ab418904467/ymusic/515a/5508/520b/f0cf47930abbbb0562c9ea61707c4c0b.mp3?infoId=92001" id="audio"  crossOrigin="anonymous">
+        </audio>
+        <a href="javascript:;" id="play-btn">play</a>
+    </div>
+    <script>
+        var btn = document.getElementById('play-btn');
+        var audio = document.getElementById('audio');
+        btn.addEventListener('click',function(){
+            btn.style.display = 'none';
+            audio.play();
+            onloadAudio();
+        })
+
+        function onloadAudio () {
+            var canvas = document.getElementById('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            var ctx = canvas.getContext('2d');
+            var WIDTH = canvas.width;
+            var HEIGHT = canvas.height;
+
+            // 音量再强，输入量化的，
+            var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            //对音乐做分析
+            var analyser = audioCtx.createAnalyser();
+            analyser.fftSize = 512;
+            //audio 歌
+            var source = audioCtx.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(audioCtx.destination);
+
+            var bufferLength = analyser.frequencyBinCount;//频率
+            var dataArray = new Uint8Array(bufferLength);//创建了一个数组
+            console.log(dataArray);
+            var barWidth = WIDTH / bufferLength*1.5;//定义音柱的宽度
+            var barHeight;
+            function renderFrame(){
+                requestAnimationFrame(function(){
+                    renderFrame();
+                    // console.log('---');
+                    ctx.clearRect(0,0,WIDTH,HEIGHT);
+                    analyser.getByteFrequencyData(dataArray);
+                    console.log(dataArray);
+                    for(var i =0,x=0;i < bufferLength;i++){
+                        barHeight = dataArray[i];
+                        // ctx.fillStyle = "rgba(Math.random()*255,Math.random()*255+1,Math.random()*255+1)";
+                        // var r = barHeight + 25 * (i / bufferLength);
+                        // var g = 250 * (i / bufferLength);
+                        // // console.log(i);
+                        // var b = 50;
+                        var r = Math.random()*100+30;
+                        var g = 0;
+                        var b = Math.random()*100+30;
+                        // console.log("rgb(" + r + "," + g + "," + b + ")");
+                        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+                        ctx.fillRect(x,HEIGHT-barHeight,barWidth,barHeight);
+                        x += barWidth+2;
+                    }
+                })
+            }
+            renderFrame();
+        }
+    </script>
+</body>
+</html>
