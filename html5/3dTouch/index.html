@@ -29,9 +29,9 @@
             i = 0;
         }else{
             i++;
+            sloth.style.backgroundPosition = `-${i*247}px -${j*194}px`;
         }
-        // console.log(i,j);
-        sloth.style.backgroundPosition = `-${i*247}px -${j*194}px`;
+        // console.log(i,j);        
         mask.style.transform = `scale(${(((j*4+i)/24)*1.7)})`
     },50)
 </script>
