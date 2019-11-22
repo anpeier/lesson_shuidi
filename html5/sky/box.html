@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="animate.css">
+</head>
+<body>
+    <div id="skyscrapper">
+        <div id="box_1" class="box"></div>
+        <div id="box_2" class="box"></div>
+        <div id="box_3" class="box"></div>
+        <div id="box_4" class="box"></div>
+    </div>
+    <script src="gasp.min.js"></script>
+    <script src="animate.js"></script>
+    <script>
+        // 第四个元素 跟第二个元素一样动box.html有 a.html没有
+        // new Animation(['#box_1','#box_2','#box_3'])
+        var skyObj = {
+            leftAnimated:['#box_1','#box_3'],
+            rightAnimated:['#box_2','#box_4']
+        }
+        new Animation(skyObj);
+    </script>
+</body>
+</html>

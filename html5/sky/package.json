@@ -1,0 +1,15 @@
+{
+  "name": "sky",
+  "version": "1.0.0",
+  "description": "- 页面特效 + 动作特效就是一个特牛的邻域\r     gasp.min.js\r     TweenMax.to(ele,1, {\r         delay:1, \r         ease:Back.easeOut,\r     })\r     元素 时间 延迟",
+  "main": "gasp.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gasp": "0.0.2"
+  }
+}

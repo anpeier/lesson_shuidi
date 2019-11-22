@@ -2,3 +2,5 @@
 git branch xxx
 git checkout xxx
 以上可以合并为git checkout -b xxx
+git merge xxx 合并分支
+git branch -d 删除分支
