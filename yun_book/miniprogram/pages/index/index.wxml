@@ -1,0 +1,7 @@
+<!-- 使用van-weapp 快速构建界面 -->
+<van-row>
+  <van-col offset="5">
+    <van-button type="primary" bind:click="scanCode">扫码加书</van-button>
+  </van-col>
+  <view>{{qrCodeMsq}}</view>
+</van-row>

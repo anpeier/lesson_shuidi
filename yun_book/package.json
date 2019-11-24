@@ -1,0 +1,15 @@
+{
+  "name": "yun_book",
+  "version": "1.0.0",
+  "description": "- 图书馆的管理小程序     开发快，不用安装  () - 选择一款框架     weui 有赞vant-weapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vant-weapp": "^0.5.23"
+  }
+}

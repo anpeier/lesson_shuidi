@@ -1,0 +1,12 @@
+{
+  "name": "yun_product",
+  "version": "1.0.0",
+  "description": "<!-- # 云开发 quickstart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
