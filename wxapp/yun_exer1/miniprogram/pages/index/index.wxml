@@ -1,0 +1,11 @@
+<view class="content">
+    <view class="box" wx:for="{{products}}">
+        <view class="img_box"><image class="img" src="{{item.images}}" />
+        </view>
+        <view class="title">{{item.title}}</view>
+        <view class="box2">
+        <view class="price">￥{{item.price}}</view>
+        <view class="number">{{item.buy_number}}人付款</view>
+        </view>
+    </view>
+</view>

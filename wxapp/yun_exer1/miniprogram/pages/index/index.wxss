@@ -1,0 +1,35 @@
+.box{
+  display:inline-block;
+  width: 49%;
+  height: 40vh;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+.box:nth-child(2n+1){
+  border-right: 1px solid #ddd;
+}
+.img_box{
+  width: 100%;
+  height: 70%;
+}
+.title{
+  font-size: 1.5em;
+  text-align: center;
+}
+.price{
+  display: inline-block;
+  padding-left: 5px;
+  font-weight: bolder;
+  width: 20%;
+}
+.number{
+  display: inline-block;
+  margin-left: 10vh;
+  font-size: 0.7em;
+  font-weight:lighter;
+  width: 13vh;
+}
+.img{
+  width: 100%;
+  height: 100%;
+}
