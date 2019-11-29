@@ -45,7 +45,7 @@ var MongoClient = require('mongodb').MongoClient;
 // mysql 3306
 var url = 'mongodb://192.168.31.128:27017/runoob';
 var dbbase;
-MongoClient.connect(url, {useNewUrlParser:true},{
+MongoClient.connect(url,{
   useNewUrlParser: true
 }, function(err, db) {
   if (err) {
