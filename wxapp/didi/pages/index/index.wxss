@@ -1,0 +1,69 @@
+page{
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f6f8;
+}
+.container{
+  /* 任何设备在小程序里都是750rpx */
+  /* rpx 对应的是750 设计师给的设计稿是 */
+  position: fixed;
+  width: 686rpx;
+  height: 438rpx;
+  background-color: green;
+  margin-top: 32rpx;
+  margin-left: 32rpx;
+  top: 140rpx;
+  box-shadow: 1px 1px 6px #f4f6f8;
+}
+.section{
+  height: 108rpx;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.nav-me,.nav-all{
+  height: 30rpx;
+  width: 30rpx;
+  background-color: #fff;
+  z-index: 999;
+}
+.nav-me{ 
+  left: 0;
+  margin-top: 10rpx; 
+  transform: scale(.15);
+}
+.nav-all{
+  right: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(.18);
+  margin-right: 80rpx;
+}
+
+.nav{
+  height: 108rpx;
+  width: 550rpx;
+  position: fixed;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 108rpx;
+  background-color: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+  top: 0;
+  left: 100rpx;
+  right: 100rpx;
+  z-index: 99;
+  margin-bottom: 32px;
+}
+.nav-item{
+  display: inline-block;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.nav-item.active {
+  color: #fc975C;
+}

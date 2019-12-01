@@ -1,0 +1,20 @@
+<view class="container">
+<!-- navBar -->
+  <view class="section">
+    <view class="nav-me" bindtap="showUser">
+      <image src="../../assets/images/nav-me.png" />
+    </view>
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+      <!-- block 专门承载小程序的指令 -->
+      <block wx:for="{{navData}}" wx:for-index="id" wx:for-item="navItem" wx:key="id">
+        <view class="nav-item {{currentTab == id?'active':''}}" data-name="{{navItem.name}}" data-current="{{id}}" bind:tap="switchNav">{{navItem.name}}</view>
+      </block>
+    </scroll-view>
+    <!-- 单纯的跳转 -->
+    <navigator url="/pages/carts/carts">
+      <view class="nav-all">
+        <image src="../../assets/images/nav-all.png" />
+      </view>
+    </navigator>
+  </view>
+</view>
