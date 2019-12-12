@@ -43,7 +43,7 @@ Component({
         this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100,
         this.data.movableDis = event.detail.x
         isMoving = true
-        console.log('change',isMoving)
+        // console.log('change',isMoving)
       }
     },
     onTouchEnd(){
@@ -55,7 +55,7 @@ Component({
       })
       backgroundAudioManager.seek(duration * this.data.progress / 100)
       isMoving = false
-      console.log('end',isMoving)
+      // console.log('end',isMoving)
     },
     _getMovableDis(){
       const query = this.createSelectorQuery()
@@ -110,6 +110,11 @@ Component({
               ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`,
             })
             currentSec = sec
+
+            //联动歌词
+            this.triggerEvent('timeUpdate', {
+              currentTime
+            })
           }
         }        
       })

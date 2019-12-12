@@ -11,7 +11,9 @@ Page({
    */
   data: {
     picUrl: '',
-    isPlaying: false // false 表示不播放 true 表示播放
+    isPlaying: false, // false 表示不播放 true 表示播放
+    isLyricShow: false, // 歌词是否显示
+    lyric: ''
   },
 
   /**
@@ -24,6 +26,7 @@ Page({
     this._loadMuiscDetail(options.musicId)
   },
 
+  // 获取歌数据
   _loadMuiscDetail(musicId){
     backgroundAudioManager.stop()
     let music = musiclist[nowPlayingIndex]
@@ -41,7 +44,7 @@ Page({
     wx.cloud.callFunction({
       name: 'music',
       data: {
-        musicId,
+        musicId, // 相当于 musicId : musicId,
         $url: 'musicUrl',
       }
     }).then((res) => {
@@ -58,6 +61,25 @@ Page({
         isPlaying: true
       })
       wx.hideLoading()
+
+      // 加载歌词
+      wx.cloud.callFunction({
+        name: 'music',
+        data: {
+          musicId,
+          $url: 'lyric',
+        }
+      }).then((res) => {
+        console.log(res)
+        let lyric = '暂无歌词'
+        const lrc = JSON.parse(res.result).lrc
+        if(lrc){
+          lyric = lrc.lyric
+        }
+        this.setData({
+          lyric
+        })
+      })
     })
   },
 
@@ -86,52 +108,14 @@ Page({
     }
     this._loadMuiscDetail(musiclist[nowPlayingIndex].id)
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
+  onChangeLyricShow(){
+    this.setData({
+      isLyricShow: !this.data.isLyricShow
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  timeUpdate(event){
+    this.selectComponent('.lyric').update(event.detail.currentTime)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
