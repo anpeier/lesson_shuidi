@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>three.js canvas - geometry - earth</title>
+  <!-- 内容分发网络  从cdn引入 更快 -->
+  <script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+</head>
+<body>
+  <canvas id="webglcanvas"></canvas>
+  <script>
+  var canvas,  // 3d 渲染 webgl 
+    camera, //相机功能 
+    scene, // 场景 
+    renderer; //渲染器
+  var mouseX = mouseY = 0;
+  
+  var windowHalfX = window.innerWidth / 2;
+  var windowHalfY = window.innerHeight / 2;
+  init();
+  animate();
+
+  function init() {
+    // 导演， 拿着相机，找到演员， 摆好pose, 动起来， 
+    // canvas 录影机， 播放出来
+    canvas = document.getElementById('webglcanvas');
+//  THREE.PerspectiveCamera(fov, aspect, near, far) 
+// 　　- fov 可视角度 
+// 　　- aspect 实际窗口的纵横比 
+// 　　- near 近处的裁面的距离
+// 　　- far 远处的裁面的距离 
+    camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 1, 2000);
+    camera.position.z = 500;
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffffff);
+
+    group = new THREE.Group();
+    scene.add(group);
+
+    var loader = new THREE.TextureLoader();
+    loader.load('earth.jpg', function(texture) {
+      // 图片已加载完
+      var geometry = new THREE.SphereGeometry(200, 20, 20);
+      var material = new THREE.MeshBasicMaterial({
+        map: texture
+      });
+      // 建模
+      var mesh = new THREE.Mesh(geometry, material);
+      group.add(mesh);
+    })
+
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      antialias: true 
+    })
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.addEventListener('mousemove', onDocumentMouseMove,false);
+    window.addEventListener('resize', onWindowResize, false);
+  }
+
+  function animate() {
+    requestAnimationFrame(animate); //请求关键帧
+    render();
+  }
+
+  function render() {
+    camera.position.x += (mouseX - camera.position.x)*0.05;
+    camera.position.y += (-mouseY - camera.position.y)*0.05;
+    camera.lookAt(scene.position);
+    group.rotation.y -= 0.01;
+    renderer.render(scene, camera);
+  }
+  function onDocumentMouseMove(event) {
+    //   console.log(event.clientX, event.clientY);
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+  }
+  function onWindowResize(){
+      windowHalfX = window.innerWidth / 2;
+      windowHalfY = window.innerHeight / 2;
+      camera.aspect = window.innerWidth / window.innerHeight;
+      renderer.setSize(window.innerWidth,window.innerHeight);
+  }
+  </script>
+</body>
+</html>

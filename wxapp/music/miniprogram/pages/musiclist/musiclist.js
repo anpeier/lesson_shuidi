@@ -7,7 +7,6 @@ Page({
   data: {
     musiclist: [],
     listInfo: {},
-    
   },
 
   /**

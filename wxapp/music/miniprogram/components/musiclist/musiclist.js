@@ -11,7 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    playingId : -1
+    playingId: -1,
   },
 
   /**
@@ -20,7 +20,8 @@ Component({
   methods: {
     onSelect(event){
       // 事件源 事件处理函数 事件对象 事件类型
-      // console.log(event.currentTarget.dataset.musicid)
+      console.log(event)
+      console.log(event.currentTarget.dataset.musicid)
       const ds = event.currentTarget.dataset
       const musicid = ds.musicid
       this.setData({

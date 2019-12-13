@@ -4,6 +4,7 @@ let musiclist = []
 let nowPlayingIndex = 0
 // 获取全局唯一的背景音频管理器
 const backgroundAudioManager = wx.getBackgroundAudioManager()
+
 Page({
 
   /**
@@ -30,7 +31,8 @@ Page({
   _loadMuiscDetail(musicId){
     backgroundAudioManager.stop()
     let music = musiclist[nowPlayingIndex]
-    console.log(music)
+    // console.log(music)
+    console.log(nowPlayingIndex)
     wx.setNavigationBarTitle({
       title: music.name,
       isPlaying: false
@@ -56,7 +58,6 @@ Page({
       backgroundAudioManager.coverImgUrl = music.al.picUrl
       backgroundAudioManager.singer = music.ar[0].name
       backgroundAudioManager.epname = music.al.name
-
       this.setData({
         isPlaying: true
       })
