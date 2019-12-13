@@ -8,7 +8,7 @@ module.exports = app => {
   router.get('/', controller.home.index);
   // 网站 多个模块 /register ？ /login/register
   // 注册 req res
-  router.post('/login/register',controller.login.register)
+  router.post('/login/register', controller.login.register);
   // 登陆 post 请求login
-  router.post('/login',controller.login.loginIn)
+  router.post('/login', controller.login.loginIn);
 };
