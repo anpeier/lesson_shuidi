@@ -4,7 +4,7 @@
   "description": "- 界面的宏观视角",
   "main": "index.js",
   "scripts": {
-    "dev":"live-server --port=8090", 
+    "dev":"live-server", 
     "styl":"stylus -w cell.styl -o cell.css"
   
   },

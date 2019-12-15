@@ -1,0 +1,17 @@
+{
+  "name": "eleme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server",
+    "styl": "stylus -w comm.styl -o comm.css",
+    "api": "json-server seller.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.15.1"
+  }
+}

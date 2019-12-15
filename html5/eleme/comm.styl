@@ -1,0 +1,82 @@
+bg-image($url)
+    background-image: url($url + "@2x.png")
+    @media (-webkit-min-device-pixel-ration:3),
+    (min-device-pixel-ration:3)
+        background-image: url($url + "@3x.png")
+
+@font-face
+  font-family: 'sell-icon'
+  src: url('../fonts/sell-icon.eot?k5xf13');
+  src: url('../fonts/sell-icon.eot?k5xf13#iefix') format('embedded-opentype'),
+          url('../fonts/sell-icon.ttf?k5xf13') format('truetype'),
+          url('../fonts/sell-icon.woff?k5xf13') format('woff'),
+          url('../fonts/sell-icon.svg?k5xf13#sell-icon') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.icon
+    font-family 'sell-icon' !important
+    font-weight normal
+    font-style normal
+    line-height 1
+
+body, html
+  line-height 1
+  font-weight 200
+  font-family -apple-system, sans-serif
+*
+  margin 0
+  padding 0
+
+.header
+  position relative
+  overflow hidden
+  color #ffffff
+  background-color rgba(7,17,27,0.5)
+  .content-wrapper
+    position relative
+    padding 24px 12px 18px 24px
+    // font-size 0
+    .avatar
+      // width 50%
+      display inline-block
+      vertical-align top
+      img
+        border-radius 2px
+    .content
+      display inline-block
+      // width 50%
+      margin-left 15px
+      .title
+        margin 2px 0 8px 0
+        .name
+          margin-left 6px
+          font-size 16px
+          line-height 18px
+          font-weight bold
+        .brand
+          display inline-block
+          vertical-align top
+          width 30px
+          height 18px
+          bg-image('brand')
+          background-size 30px 18px
+          background-repeat no-repeat
+      .description
+        margin-bottom 10px
+        line-height 12px
+        font-size 12px
+      .support
+        .icon
+          display inline-block
+          width 12px
+          height 12px
+          vertical-align top
+          margin-right 4px
+          background-size 12px 12px
+          background-repeat no-repeat
+          &.decrease:before
+            content:'\e902'
+        .text
+          line-height 12px
+          font-size 10px

@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'sell-icon';
+  src: url("../fonts/sell-icon.eot?k5xf13");
+  src: url("../fonts/sell-icon.eot?k5xf13#iefix") format('embedded-opentype'), url("../fonts/sell-icon.ttf?k5xf13") format('truetype'), url("../fonts/sell-icon.woff?k5xf13") format('woff'), url("../fonts/sell-icon.svg?k5xf13#sell-icon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon {
+  font-family: 'sell-icon' !important;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+}
+body,
+html {
+  line-height: 1;
+  font-weight: 200;
+  font-family: -apple-system, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background-color: rgba(7,17,27,0.5);
+}
+.header .content-wrapper {
+  position: relative;
+  padding: 24px 12px 18px 24px;
+}
+.header .content-wrapper .avatar {
+  display: inline-block;
+  vertical-align: top;
+}
+.header .content-wrapper .avatar img {
+  border-radius: 2px;
+}
+.header .content-wrapper .content {
+  display: inline-block;
+  margin-left: 15px;
+}
+.header .content-wrapper .content .title {
+  margin: 2px 0 8px 0;
+}
+.header .content-wrapper .content .title .name {
+  margin-left: 6px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+}
+.header .content-wrapper .content .title .brand {
+  display: inline-block;
+  vertical-align: top;
+  width: 30px;
+  height: 18px;
+  background-image: url("brand@2x.png");
+  background-size: 30px 18px;
+  background-repeat: no-repeat;
+}
+@media (-webkit-min-device-pixel-ration: 3), (min-device-pixel-ration: 3) {
+  .header .content-wrapper .content .title .brand {
+    background-image: url("brand@3x.png");
+  }
+}
+.header .content-wrapper .content .description {
+  margin-bottom: 10px;
+  line-height: 12px;
+  font-size: 12px;
+}
+.header .content-wrapper .content .support .icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: top;
+  margin-right: 4px;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+}
+.header .content-wrapper .content .support .icon.decrease:before {
+  content: '\e902';
+}
+.header .content-wrapper .content .support .text {
+  line-height: 12px;
+  font-size: 10px;
+}
