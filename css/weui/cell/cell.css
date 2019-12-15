@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.weui-cell {
+  padding: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.weui-cell::after,
+.weui-cell::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+.weui-cell::after {
+  bottom: 0;
+  border-bottom: 1px solid #000;
+  transform-origin: 0 100%;
+}
+.weui-cell::before {
+  top: 0;
+  border-top: 1px solid #000;
+  transform-origin: 0 100%;
+}
+.weui-cell .weui-cell__hd img {
+  width: 20px;
+  margin-right: 16px;
+  display: block;
+}
+.weui-cell .weui-cell__bd {
+  flex: 1;
+}
+.weui-cell .weui-cell__ft {
+  text-align: right;
+  color: #000;
+}
