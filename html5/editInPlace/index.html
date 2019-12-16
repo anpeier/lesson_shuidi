@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div>这个家伙很懒，什么都没有留下</div> -->
+    <div id="profile"></div>
+    <!-- 双击一下，文字，变成输入框 立即输入，回车。
+    - 事件
+    - 状态的改变 DOM
+    - 本地存储
+    - 将这些整合起来 面向对象封装处理 -->
+    <script>
+        // 在线编辑 类
+        // 封装内部的实现细节
+        function EditInPlace(id, parent, value) {
+            this.id = id;
+            this.value = value || 'default value';
+            this.parentElement = document.getElementById(parent);
+            this.createElements(); // 把节点显示到页面上
+            this.attachEvents();
+        }
+
+        EditInPlace.prototype.attachEvents = function() {
+            // this 这个 -> 实例过后的对象
+            // console.log(this);
+            // var that = this;
+            this.staticElement.addEventListener('click', () => {
+                this.staticElement.style.display = 'none';
+                this.fieldElement.style.display = 'inline';
+                this.saveButton.style.display = 'inline';
+                this.cancelButton.style.display = 'inline';
+            }, false)
+        }
+
+        // 构造函数
+        EditInPlace.prototype.createElements = function() {
+            // console.log('显示文本');
+            this.containerElement = document.createElement('div');
+            this.staticElement = document.createElement('span');
+            this.staticElement.innerHTML = this.value;
+            this.containerElement.appendChild(this.staticElement);
+
+            this.fieldElement = document.createElement('input');
+            this.fieldElement.type = 'text';
+            this.fieldElement.value = this.value;
+            this.fieldElement.style.display = 'none';
+            this.fieldElement.style.width = '200px';
+            this.containerElement.appendChild(this.fieldElement);
+
+            this.saveButton = document.createElement('input');
+            this.saveButton.type = 'button';
+            this.saveButton.value = 'save';
+            this.saveButton.style.display = 'none';
+            this.cancelButton = document.createElement('input');
+            this.cancelButton.type = 'button';
+            this.cancelButton.value = 'cancel';
+            this.cancelButton.style.display = 'none';
+            this.containerElement.appendChild(this.saveButton);
+            this.containerElement.appendChild(this.cancelButton);
+
+            this.parentElement.appendChild(this.containerElement);
+        }
+        var profileEditor = new EditInPlace('titleClassical','profile','这个家伙很懒，什么都没有留下');
+    </script>
+</body>
+</html>

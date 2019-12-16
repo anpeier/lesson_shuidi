@@ -14,6 +14,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -48,6 +49,12 @@
 					"name": "musiclist",
 					"pathName": "pages/musiclist/musiclist",
 					"query": "playlistId=2635359836",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/blog/blog",
+					"pathName": "pages/blog/blog",
 					"scene": null
 				}
 			]

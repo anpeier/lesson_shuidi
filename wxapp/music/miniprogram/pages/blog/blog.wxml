@@ -1,0 +1,12 @@
+<view class="content">
+    <!-- 头部 -->
+    <view class="header">
+        <view class="publish-container" bind:tap="onPublish">
+            <i class="iconfont .icon-fabu"></i>
+        </view>
+        <view class="search-container">
+            <!-- 可以将样式传入另一个组件 -->
+            <x-search iconfont="iconfont" icon-soushuo="icon-soushuo"/>
+        </view>
+    </view>
+</view>
