@@ -17,93 +17,93 @@
     <script>
         // 在线编辑 类
         // 封装内部的实现细节
-        // function EditInPlace(id, parent, value) {
-        //     this.id = id;
-        //     this.value = value || '这家伙很懒，什么都没留下';
-        //     this.parentElement = document.getElementById(parent);
-        //     this.createElements(); // 把节点显示到页面上
-        //     this.attachEvents();
-        // }
+        function EditInPlace(id, parent, value) {
+            this.id = id;
+            this.value = value || '这家伙很懒，什么都没留下';
+            this.parentElement = document.getElementById(parent);
+            this.createElements(); // 把节点显示到页面上
+            this.attachEvents();
+        }
 
-        // EditInPlace.prototype.attachEvents = function() {
-        //     // this 这个 -> 实例过后的对象
-        //     // console.log(this);
-        //     // var that = this;
-        //     this.cancelButton.addEventListener('click', () => {
-        //         this.fieldElement.value = this.value;
-        //         this.convertToText();
-        //     })
+        EditInPlace.prototype.attachEvents = function() {
+            // this 这个 -> 实例过后的对象
+            // console.log(this);
+            // var that = this;
+            this.cancelButton.addEventListener('click', () => {
+                this.fieldElement.value = this.value;
+                this.convertToText();
+            })
 
-        //     this.saveButton.addEventListener('click', () => { 
-        //         var text = this.fieldElement.value;
-        //         this.value = text;
-        //         // 本地存储
-        //         window.localStorage.setItem('profile',text);              
-        //         this.staticElement.innerText = text;
-        //         this.convertToText();
-        //     })
+            this.saveButton.addEventListener('click', () => { 
+                var text = this.fieldElement.value;
+                this.value = text;
+                // 本地存储
+                window.localStorage.setItem('profile',text);              
+                this.staticElement.innerText = text;
+                this.convertToText();
+            })
 
-        //     this.staticElement.addEventListener('click', () => {
-        //         this.convertToEdit();
-        //     }, false)
-        // }
+            this.staticElement.addEventListener('click', () => {
+                this.convertToEdit();
+            }, false)
+        }
 
-        // // 构造函数
-        // EditInPlace.prototype.createElements = function() {
-        //     // console.log('显示文本');
-        //     this.containerElement = document.createElement('div');
-        //     this.staticElement = document.createElement('span');
-        //     this.staticElement.innerHTML = this.value;
-        //     this.containerElement.appendChild(this.staticElement);
+        // 构造函数
+        EditInPlace.prototype.createElements = function() {
+            // console.log('显示文本');
+            this.containerElement = document.createElement('div');
+            this.staticElement = document.createElement('span');
+            this.staticElement.innerHTML = this.value;
+            this.containerElement.appendChild(this.staticElement);
 
-        //     this.fieldElement = document.createElement('input');
-        //     this.fieldElement.type = 'text';
-        //     this.fieldElement.value = this.value;
-        //     this.fieldElement.style.display = 'none';
-        //     this.fieldElement.style.width = '200px';
-        //     this.containerElement.appendChild(this.fieldElement);
+            this.fieldElement = document.createElement('input');
+            this.fieldElement.type = 'text';
+            this.fieldElement.value = this.value;
+            this.fieldElement.style.display = 'none';
+            this.fieldElement.style.width = '200px';
+            this.containerElement.appendChild(this.fieldElement);
 
-        //     this.saveButton = document.createElement('input');
-        //     this.saveButton.type = 'button';
-        //     this.saveButton.value = 'save';
-        //     this.saveButton.style.display = 'none';
-        //     this.cancelButton = document.createElement('input');
-        //     this.cancelButton.type = 'button';
-        //     this.cancelButton.value = 'cancel';
-        //     this.cancelButton.style.display = 'none';
-        //     this.containerElement.appendChild(this.saveButton);
-        //     this.containerElement.appendChild(this.cancelButton);
+            this.saveButton = document.createElement('input');
+            this.saveButton.type = 'button';
+            this.saveButton.value = 'save';
+            this.saveButton.style.display = 'none';
+            this.cancelButton = document.createElement('input');
+            this.cancelButton.type = 'button';
+            this.cancelButton.value = 'cancel';
+            this.cancelButton.style.display = 'none';
+            this.containerElement.appendChild(this.saveButton);
+            this.containerElement.appendChild(this.cancelButton);
 
-        //     this.parentElement.appendChild(this.containerElement);
-        // }
+            this.parentElement.appendChild(this.containerElement);
+        }
 
-        // EditInPlace.prototype.convertToEdit = function() {
-        //     this.staticElement.style.display = 'none';
-        //     this.fieldElement.style.display = 'inline';
-        //     this.saveButton.style.display = 'inline';
-        //     this.cancelButton.style.display = 'inline';
-        // }
+        EditInPlace.prototype.convertToEdit = function() {
+            this.staticElement.style.display = 'none';
+            this.fieldElement.style.display = 'inline';
+            this.saveButton.style.display = 'inline';
+            this.cancelButton.style.display = 'inline';
+        }
 
-        // EditInPlace.prototype.convertToText = function() {
-        //     this.staticElement.style.display = 'inline';
-        //     this.fieldElement.style.display = 'none';
-        //     this.saveButton.style.display = 'none';
-        //     this.cancelButton.style.display = 'none';
-        // }
+        EditInPlace.prototype.convertToText = function() {
+            this.staticElement.style.display = 'inline';
+            this.fieldElement.style.display = 'none';
+            this.saveButton.style.display = 'none';
+            this.cancelButton.style.display = 'none';
+        }
 
-        function EditInPlace(id, parent, value) {}
-        EditInPlace.prototype = {
-            createElement() {}, // 创建结点
-            attachEvents() {}, // 管理所有的事件
-            convertToText() {},
-            convertToEdit() {},
-            save() {},
-            setValue(val) {
-                this.value = value;
-                this.staticElement.innerText = value;
-                localStorage.setItem('profile', value);
-            },
-            cancel() {},
+        // function EditInPlace(id, parent, value) {}
+        // EditInPlace.prototype = {
+        //     createElement() {}, // 创建结点
+        //     attachEvents() {}, // 管理所有的事件
+        //     convertToText() {},
+        //     convertToEdit() {},
+            // save() {},
+            // setValue(val) {
+            //     this.value = value;
+            //     this.staticElement.innerText = value;
+            //     localStorage.setItem('profile', value);
+            // },
+            // cancel() {},
         }
 
         window.onload = function() {
