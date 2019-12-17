@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单例模式</title>
+    <style>
+        #modal {
+            height: 200px;
+            width: 200px;
+            line-height: 200px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            transform: translate(-50%, -50%);
+            border: 1px solid #000;
+            text-align: center;
+            /* background-color: rgba(0, 0, 0, 0); */
+        }
+        #open:hover,#close:hover {
+            cursor: pointer;
+        }
+        /* #open:disabled {
+            cursor: not-allowed;
+        } */
+    </style>
+</head>
+<body>
+    <button id="open">打开弹框</button>
+    <button id="close">关闭弹框</button>
+    <script>
+
+        const Modal = (function() {
+            let modal = null; // 模态框 闭包区域
+            return function() {
+                if(!modal){
+                    // 创建一次
+                    modal = document.createElement('div');
+                    modal.innerHTML = '我是全局唯一的Modal';
+                    modal.id = 'modal';
+                    modal.style.display = 'none';
+                    document.body.appendChild(modal);
+                }
+                return modal; // Modal 被运行时
+            }
+        })();
+
+        document.getElementById('open').addEventListener('click', function() {
+            const modal = new Modal();
+            modal.style.display = 'block';
+            // 做一个弹窗
+            // 90%网站都是不登录 就不用加载login 点击后动态的去加载
+            // if(!document.getElementById('modal')){
+            //     const modal = document.createElement('div');
+            //     modal.innerHTML = '我是一个全局的唯一的modal';
+            //     modal.id = 'modal';
+            //     document.body.appendChild(modal);
+            //     this.setAttribute('disabled', true);
+            // }else{
+            //     document.getElementById('modal').style.display = 'inline';
+            // }
+            // 显示或隐藏
+        })
+        document.getElementById('close').addEventListener('click', () => {
+            // const modal = new Modal();
+            modal.style.display = 'none';
+            // if(document.getElementById('modal')){
+            //     document.body.removeChild(document.getElementById('modal'));
+            //     // document.getElementById('modal').style.display = 'none';
+            //     document.getElementById('open').removeAttribute('disabled');
+            // }
+        })
+    </script>
+</body>
+</html>
