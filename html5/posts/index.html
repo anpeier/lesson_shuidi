@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let authors = [], posts = [];
+        const postsPromise = fetch('/posts.json');
+        const authorsPromise = fetch('/authors.json');
+
+        // const postsPromise = new Promise((resolve, reject) => {
+        //     fetch('/posts.json')
+        //      .then(data => data.json())
+        //      .then(data => {
+        //         resolve(data);
+        //      })
+        // })
+        // const authorsPromise = new Promise((resolve, reject) => {
+        //     fetch('/authors.json')
+        //      .then(data => data.json())
+        //      .then(data => {
+        //         resolve(data);
+        //      })
+        // })
+
+        Promise
+         .all([postsPromise, authorsPromise])
+         .then(responses => {
+            //  console.log(responses);
+            return Promise.all(responses.map(res => res.json()))
+         })
+         .then(responses => {
+             console.log(responses);
+         })
+
+        // fetch('/posts.json').then(data => data.json())
+        // .then(data => {
+        //     // console.log(data)
+        //     posts = data; // 得到posts
+        //     return new Promise((resolve, reject) => {
+        //         fetch('/authors.json') // 异步
+        //          .then(data => data.json())
+        //          .then(data => {
+        //             // console.log(data)
+        //             authors = data;
+        //             resolve(authors)
+        //          })
+        //     });
+        // })
+        // .then(data => {
+        //     console.log([authors, posts]);
+        // })
+
+        // fetch('/authors.json').then(data => data.json())
+        // .then(data => {
+        //     console.log(data);
+        // })
+    </script>
+</body>
+</html>

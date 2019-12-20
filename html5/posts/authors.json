@@ -1,0 +1,5 @@
+[
+    { "name": "Wes Bos", "twitter": "@wesbos", "bio": "Canadian Developer" },
+    { "name": "Chris Coyier", "twitter": "@chriscoyier", "bio": "CSS Tricks and CodePen" },
+    { "name": "Addy Osmani", "twitter": "@addyosmani", "bio": "Googler" }
+]
