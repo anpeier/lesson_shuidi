@@ -1,0 +1,22 @@
+<view class="wrapper page">
+  <!-- 登录页 wrapper main -->
+  <view class="mian">
+    <view class="log">
+      <image src="../../images/mark-github.svg"></image>
+    </view>
+    <tabs>
+      <tab title="账号密码">
+        <form bindsubmit="commitAcount" report-submit="{{true}}" class="form">
+          <view>
+            <input name="username" placeholder="输入账号" focus value="{{username}}"/>
+            <input name="password" placeholder="输入密码" password="{{true}}" value="{{password}}"/>
+          </view>
+          <button class="login" form-type="submit">登陆</button>
+        </form>
+      </tab>
+      <tab title="Token">
+        
+      </tab>
+    </tabs>
+  </view>
+</view>

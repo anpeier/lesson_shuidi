@@ -1,0 +1,49 @@
+.wrapper{
+  height: 100vh;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 主轴上的对齐 */
+  /* align-items: center; */
+}
+.log{
+  text-align: center;
+  padding: 40rpx 0;
+}
+.log image {
+  width: 94rpx;
+  height: 94rpx;
+}
+/* 覆盖原来vant中的样式 */
+.van-tab_pane {
+  margin-top: 48rpx;
+}
+.form view {
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.form input {
+  width: 100%;
+  padding-left: 30rpx;
+  color: #000;
+  box-sizing: border-box;
+  height: 100rpx;
+  border-radius: 4rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+.form input:last-child {
+  border-bottom: none;
+}
+
+.login {
+  padding:0;
+  width: 100%;
+  margin-top: 24px;
+  color: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border-radius: 8px;
+  background-image: linear-gradient(-180deg, #2fcb53, #269f42 90%);
+}
