@@ -1,0 +1,13 @@
+<view class="container">
+  <scroll-view class="lists" scroll-y>
+    <block wx:if="{{curLists.length < 1}}">
+      <view class="nodata">暂无数据</view>
+    </block>
+    <view class="item" wx:for="{{curLists}}" wx:key="index">
+      <view class="content">
+        <text class="title">{{item.title}}</text>
+        <view class="time"></view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

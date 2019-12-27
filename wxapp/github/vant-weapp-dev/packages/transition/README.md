@@ -34,7 +34,7 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 
 可以通过外部样式类自定义过渡效果，还可以定制进入和移出的持续时间：
 
-```html
+<!-- ```html
 <van-transition
   show="{{ show }}"
   name=""
@@ -44,7 +44,7 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
   leave-active-class="van-leave-active-class"
   leave-to-class="van-leave-to-class"
 />
-```
+``` -->
 
 ```css
 .van-enter-active-class,
