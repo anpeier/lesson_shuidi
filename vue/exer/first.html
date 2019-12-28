@@ -22,10 +22,10 @@
         <p>{{ message3 }}</p>
         <input v-model="message3">
         <p>组件：</p>
-        <ol>
+        <ul>
             <!-- 创建一个 todo-item 组件的实例 -->
             <todo-item></todo-item>
-        </ol>
+        </ul>
         <ol>
         <!--
         现在我们为每个 todo-item 提供 todo 对象
@@ -46,13 +46,15 @@
         Vue.component('todo-item', {
             template: '<li>这是个待办项</li>'
         })
+
         Vue.component('todo-item2', {
-        // todo-item 组件现在接受一个
+        // todo-item2 组件现在接受一个
         // "prop"，类似于一个自定义特性。
         // 这个 prop 名为 todo。
             props: ['todo'],
             template: '<li>{{ todo.text }}</li>'
         })
+
         var app = new Vue({
             el: '#app',
             data: {
