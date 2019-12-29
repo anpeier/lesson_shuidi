@@ -10,6 +10,7 @@ Component({
     }
   },
 
+  // 接收外部传入的样式
   externalClasses: [
     'iconfont',
     'icon-soushuo',

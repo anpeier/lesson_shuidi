@@ -5,12 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 控制底部弹出层是否显示
+    modalShow: false,
   },
 
   // 发布
   onPublish() {
-
+    this.setData({
+      modalShow: true
+    })
   },
 
   /**

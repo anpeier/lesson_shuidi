@@ -1,0 +1,9 @@
+<!-- hidden true显示 false隐藏 -->
+<view class="modal" hidden="{{!modalShow}}">
+  <view class="panel">
+    <i class="iconfont icon-delete" bind:tap="onClose"></i>
+    <!-- slot插槽 具名插槽-->
+    <slot name="slot1"></slot>
+    <slot name="slot2"></slot>
+  </view>
+</view>
