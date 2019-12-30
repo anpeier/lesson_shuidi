@@ -10,7 +10,7 @@ Component({
   options: {
     // 解决组件内部样式隔离
     styleIsolation: 'apply-shared',
-    multipleSlots: true
+    multipleSlots: true, // 具名插槽的声明
   },
 
   /**
