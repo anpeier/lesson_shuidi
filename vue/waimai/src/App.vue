@@ -14,7 +14,7 @@
       </div>
     </div>
     <router-view />
-    <v-footer />
+    <!-- <v-footer /> -->
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import { urlParse } from './common/js/util';
 export default {
   data() {
     return {
+      currentIndex: 0,
       seller: {
         id: (() => {
           let queryParam = urlParse();
@@ -41,7 +42,7 @@ export default {
   },
   created() {
     this.seller = Object.assign({}, this.seller, response.data)
-    console.log(this.seller);
+    // console.log(this.seller);
   },
 }
 </script>
@@ -60,6 +61,7 @@ export default {
   border-1px(rgba(7, 17, 27, 0.5))
   .tab-item
     flex 1
+    text-align center
     & > a
       display block
       font-size 14px
