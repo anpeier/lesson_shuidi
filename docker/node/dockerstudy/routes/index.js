@@ -5,5 +5,10 @@ router.get('/', async(ctx, next) => {
     await ctx.render('index', {title: '首页'});
 })
 
+router.post('/form', async(ctx, next) => {
+    console.log('form');
+    ctx.body = ctx.request.body
+})
+
 // COMMONJS 规范
 module.exports = router;
