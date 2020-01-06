@@ -15,8 +15,8 @@ exports.main = async (event, context) => {
 
   app.router('playlist', async(ctx,next) => {
     ctx.body = await cloud.database().collection('playlist')
-      .skip(event.start)
-      .limit(event.count)
+      .skip(event.start)  // 返回的起始位置
+      .limit(event.count) // 返回结果条数 小程序端默认20,最大20 云函数 默认且最大100
       .orderBy('createTime', 'desc')
       .get()
       .then((res) => {
