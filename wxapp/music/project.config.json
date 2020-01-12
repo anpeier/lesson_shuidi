@@ -55,6 +55,14 @@
 					"id": -1,
 					"name": "pages/blog/blog",
 					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/blog-edit/blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName= \"随遇而安\",& avatarUrl= \"https://wx.qlogo.cn/mmopen/vi_32/Nwt7LpBz2eTTNls4U…icWAmYwBhyVAQagadclFiaGTcHboRTBqmlNxtA7JE5iaQ/132\"",
 					"scene": null
 				}
 			]

@@ -11,11 +11,40 @@ Page({
 
   // 发布
   onPublish() {
-    this.setData({
-      modalShow: true
+    // 判断用户是否授权
+    wx.getSetting({
+      success: (res) => {
+        console.log(res)
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: (res) => {
+              // console.log(res)
+              this.onLoginSuccess({
+                detail: res.userInfo
+              })
+            }
+          })
+        }else {
+          this.setData({
+            modalShow: true
+          })
+        }
+      }
     })
   },
-
+  onLoginSuccess(event) {
+    // console.log(event)
+    const detail = event.detail
+    wx.navigateTo({
+      url: `../blog-edit/blog-edit?nickName=${detail.nickName}&avatarUrl=${detail.avatarUrl}`
+    })
+  },
+  onLoginFail() {
+    wx.showModal({
+      title: '用户授权才能发布',
+      content: ''
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
