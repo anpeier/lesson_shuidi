@@ -13,7 +13,9 @@
     <!-- 博客卡片列表 -->
     <view class="blog-list">
       <block wx:for="{{blogList}}" wx:key="_id">
-        <x-blog-card blog="item"/>
+        <view class="blog-panel">
+          <x-blog-card blog="{{item}}"/>
+        </view>
       </block>
     </view>
 

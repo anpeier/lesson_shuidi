@@ -27,3 +27,12 @@
 .search-container {
     flex: 1;
 }
+
+.blog-list {
+    margin-top: 120rpx;
+}
+
+.blog-panel {
+    margin-bottom: 20rpx;
+    box-sizing: border-box;
+}
