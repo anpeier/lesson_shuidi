@@ -9,6 +9,14 @@
             <x-search iconfont="iconfont" icon-soushuo="icon-soushuo"/>
         </view>
     </view>
+
+    <!-- 博客卡片列表 -->
+    <view class="blog-list">
+      <block wx:for="{{blogList}}" wx:key="_id">
+        <x-blog-card blog="item"/>
+      </block>
+    </view>
+
     <!-- 底部弹出层 -->
     <x-login modalShow="{{modalShow}}"
     bind:loginSuccess="onLoginSuccess"
