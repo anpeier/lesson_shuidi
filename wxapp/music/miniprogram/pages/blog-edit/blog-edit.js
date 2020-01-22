@@ -100,6 +100,7 @@ Page({
     
     wx.showLoading({
       title: '发布中',
+      mask: true
     })
 
     let fileIds = [] // 上传图片在云存储的fileId集
@@ -144,6 +145,10 @@ Page({
         })
         //返回blog页面,并且刷新
         wx.navigateBack()
+        const pages = getCurrentPages()
+        // console.log(pages)
+        const prevPage = pages[pages.length - 2]
+        prevPage.onPullDownRefresh()
       })
     }).catch((err) => {
         wx.hideLoading()

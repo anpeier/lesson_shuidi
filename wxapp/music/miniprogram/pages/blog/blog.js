@@ -15,7 +15,7 @@ Page({
     // 判断用户是否授权
     wx.getSetting({
       success: (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: (res) => {
@@ -53,12 +53,15 @@ Page({
     this._loadBlogList()
   },
 
-  _loadBlogList() {
+  _loadBlogList(start = 0) {
+    wx.showLoading({
+      title: '拼命加载中'
+    })
     wx.cloud.callFunction({
       name: 'blog',
       data: {
+        start,
         $url: 'list',
-        start: 0,
         count: 10,
       }
     }).then((res) => {
@@ -66,49 +69,35 @@ Page({
       this.setData({
         blogList: this.data.blogList.concat(res.result)
       })
+      wx.hideLoading()
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  goComment(event) {
+    // console.log(event)
+    wx.navigateTo({
+      url: '../../pages/blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onShow: function() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      blogList: []
+    })
+    this._loadBlogList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this._loadBlogList(this.data.blogList.length)
   },
 
   /**
