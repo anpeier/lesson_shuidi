@@ -1,6 +1,7 @@
 <view class="container">
     <!-- 外部接收的样式不能修改 -->
     <i class="iconfont icon-soushuo find"></i>
-    <input class="bar" placeholder="{{placeholder}}" placeholder-class="in-bar"/>
-    <button size="mini" class="search">搜索</button>
+    <input class="bar" placeholder="{{placeholder}}" 
+        placeholder-class="in-bar" bindinput="onInput"/>
+    <button size="mini" class="search" bind:tap="onSearch">搜索</button>
 </view>
