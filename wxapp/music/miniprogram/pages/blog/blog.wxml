@@ -6,7 +6,8 @@
         </view>
         <view class="search-container">
             <!-- 可以将样式传入另一个组件 -->
-            <x-search iconfont="iconfont" icon-soushuo="icon-soushuo"/>
+            <x-search iconfont="iconfont" icon-soushuo="icon-soushuo"
+              bind:search="onSearch"/>
         </view>
     </view>
 

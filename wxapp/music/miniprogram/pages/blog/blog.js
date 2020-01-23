@@ -1,4 +1,6 @@
 // miniprogram/pages/blog/blog.js
+// 搜索关键字
+let keyword = ''
 Page({
 
   /**
@@ -51,6 +53,20 @@ Page({
    */
   onLoad: function (options) {
     this._loadBlogList()
+
+    // 小程序端调用云数据库
+    // const db = wx.cloud.database()
+    // db.collection('blog').orderBy('createTime', 'desc').get().then((res) => {
+    //   console.log(res)
+    //   const data = res.data
+    //   // 将时间Object类型转化成字符串
+    //   for(let i = 0, len = data.length; i < len; i++) {
+    //     data[i].createTime = data[i].createTime.toString()
+    //   }
+    //   this.setData({
+    //     blogList: data
+    //   })
+    // })
   },
 
   _loadBlogList(start = 0) {
@@ -60,6 +76,7 @@ Page({
     wx.cloud.callFunction({
       name: 'blog',
       data: {
+        keyword,
         start,
         $url: 'list',
         count: 10,
@@ -80,8 +97,13 @@ Page({
     })
   },
 
-  onShow: function() {
-
+  onSearch(event) {
+    console.log(event.detail.keyword)
+    this.setData({
+      blogList: []
+    })
+    keyword = event.detail.keyword
+    this._loadBlogList(0)
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
