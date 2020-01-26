@@ -82,7 +82,7 @@ Page({
         count: 10,
       }
     }).then((res) => {
-      // console.log(res)
+      console.log(res)
       this.setData({
         blogList: this.data.blogList.concat(res.result)
       })
