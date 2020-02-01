@@ -19,7 +19,8 @@
           <x-blog-ctrl iconfont=".iconfont" 
             icon-pinglun=".icon-pinglun"
             icon-fenxiang=".icon-fenxiang"
-            blogId="{{item._id}}"/>
+            blogId="{{item._id}}"
+            blog="{{item}}"/>
         </view>
       </block>
     </view>

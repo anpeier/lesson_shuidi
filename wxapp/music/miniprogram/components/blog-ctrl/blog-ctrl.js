@@ -7,6 +7,7 @@ Component({
    */
   properties: {
     blogId: String,
+    blog: Object,
   },
   externalClasses: ['iconfont', 'icon-pinglun', 'icon-fenxiang'],
 
@@ -119,6 +120,8 @@ Component({
         })
       })
 
+      // 父元素刷新评论页面
+      this.triggerEvent('refreshCommentList')
     },
   }
 })
