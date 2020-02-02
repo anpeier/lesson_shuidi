@@ -80,10 +80,17 @@ Page({
         backgroundAudioManager.coverImgUrl = music.al.picUrl
         backgroundAudioManager.singer = music.ar[0].name
         backgroundAudioManager.epname = music.al.name
-        this.setData({
-        isPlaying: true
-      })
+        app.setIsPlaying(true)
+        // 保存播放历史
+        this.savePlayHistory()
       }
+
+      if (app.getIsPlaying()) {
+        this.setData({
+          isPlaying: true
+        })
+      }
+      
       wx.hideLoading()
 
       // 加载歌词
@@ -110,8 +117,10 @@ Page({
   togglePlaying(){
     if(this.data.isPlaying){
       backgroundAudioManager.pause()
+      app.setIsPlaying(false)
     }else{
       backgroundAudioManager.play()
+      app.setIsPlaying(true)
     }
     this.setData({
       isPlaying: !this.data.isPlaying
@@ -154,4 +163,27 @@ Page({
       isPlaying: false
     })
   },
+
+  // 保存播放历史
+  savePlayHistory() {
+    // 当前正在播放的歌曲
+    const music = musiclist[nowPlayingIndex]
+    const openid = app.globalData.openid
+    const history = wx.getStorageSync(openid)
+    // let bHave = false
+    for (let i = 0, len = history.length; i < len; i++) {
+      if (history[i].id == music.id) {
+        // bHave = true
+        history.splice(i,1)
+        // console.log('history')
+        console.log(history)
+        break
+      }
+    }
+    history.unshift(music)
+    wx.setStorage({
+      key: openid,
+      data: history,
+    })
+  }
 })
