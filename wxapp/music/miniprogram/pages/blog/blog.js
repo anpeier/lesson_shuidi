@@ -52,6 +52,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.scene)
     this._loadBlogList()
 
     // 小程序端调用云数据库
@@ -93,7 +94,7 @@ Page({
   goComment(event) {
     // console.log(event)
     wx.navigateTo({
-      url: '../../pages/blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
+      url: '../blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
     })
   },
 

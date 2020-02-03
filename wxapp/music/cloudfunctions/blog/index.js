@@ -11,6 +11,7 @@ const MAX_LIMIT = 100
 
 // 云函数入口函数
 exports.main = async (event, context) => {
+  console.log(event)
   const app = new tcbRouter({
     event
   })
@@ -76,6 +77,16 @@ exports.main = async (event, context) => {
       commentList,
       detail,
     }
+  })
+
+  const wxContext = cloud.getWXContext()
+  app.router('getListByOpenid', async(ctx, next) => {
+    ctx.body = await blogCollection.where({
+        _openid: wxContext.OPENID,
+      }).skip(event.start).limit(event.count)
+      .orderBy('createTime', 'desc').get().then((res) => {
+        return res.data
+      })
   })
 
   return app.serve()

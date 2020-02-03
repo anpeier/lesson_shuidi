@@ -175,8 +175,7 @@ Page({
       if (history[i].id == music.id) {
         // bHave = true
         history.splice(i,1)
-        // console.log('history')
-        console.log(history)
+        // console.log(history)
         break
       }
     }
