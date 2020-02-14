@@ -1,0 +1,17 @@
+<swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="2000" duration="1000">
+    <block wx:for="{{swiperImgUrls}}" wx:key="url">
+        <swiper-item >
+            <image class="img" src="{{item.fileid}}" mode="widthFix"></image>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="search-container">
+    <!-- 可以将样式传入另一个组件 -->
+    <x-search iconfont="iconfont" icon-soushuo="icon-soushuo"
+        bind:search="onSearch" placeholder="请输入歌曲名称"/>
+    </view>
+<view class="playlist-container">
+    <block wx:for="{{playlist}}" wx:key="_id">
+        <x-playlist playlist="{{item}}"></x-playlist>
+    </block>
+</view>

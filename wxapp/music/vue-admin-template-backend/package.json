@@ -1,0 +1,19 @@
+{
+  "name": "vue-admin-template-backend",
+  "version": "1.0.0",
+  "description": "晶儿音乐后台管理系统",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-router": "^8.0.7",
+    "koa2-cors": "^2.0.6",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
+  }
+}
