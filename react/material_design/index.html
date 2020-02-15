@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Materail Design & Flutter</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root">
+        <!-- 带波浪感觉 很好的交互感觉 手指按下去，晕开来的感觉 -->
+        <!-- <div class="xButton ripper ">按钮</div>
+        <div class="xButton ripper circle">按钮</div>
+        <div class="xButton ripper primary">按钮</div>
+        <div class="xButton ripper warning">按钮</div> -->
+    </div>
+    <script type="text/babel">
+        // 页面有以一个root元素 写的不是具体代码，
+        // 而是未来要用到的组件，公用的组件代码
+        // document.body.appendChild()
+        // react 里一个返回html的就是组件
+        // 函数用来做封装的 html css js
+        function Button(props) {
+            // 百般变化 适应需求
+            // props 参数管家
+            console.log(props)
+            let { children,onClick, type, shap } = props
+            return (
+              <div onClick={onClick} className={`xButton ripper ${type?type:''} ${shap?shap:''}`}>
+                {children}
+              </div>
+            )
+        }
+        // 渲染组件API
+        ReactDOM.render(
+            // 不写基本的html 而用封装过后的组件
+            <div>
+              <Button>default</Button>
+              <Button type="primary">primary</Button>
+              <Button type="warning">warning</Button>
+              <Button type="warning" shap="circle">circle</Button>
+              <Button onClick={()=>{alert('hiha')}}>hiha</Button>
+            </div> 
+            // button组件 Button不是html，
+            // 是一个想把css类名变量 js交互点击 组装到一起的 名字叫 Button El-Button
+            ,
+            document.getElementById('root')
+        )
+    </script>
+</body>
+</html>

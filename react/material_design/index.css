@@ -1,0 +1,47 @@
+.xButton {
+  margin: 5px;
+  box-sizing: border-box /* mobile border 以内的设置都是width height 
+  传统的只是内容 */;
+  display: inline-block;
+  padding: 6px 1em;
+  border-radius: 4px;
+  font-family: inherit;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  user-select: none /* 解决长按选中文字 */;
+}
+.xButton.primary {
+  background-color: #09f;
+}
+.xButton.cicle {
+  border-radius: 1.5em;
+}
+.xButton.warning {
+  background-color: #f90;
+}
+.ripper {
+  position: relative;
+}
+.ripper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: block;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12);
+  transition: transform 0.6s, opacity 0.6s;
+  opacity: 0;
+}
+.ripper:active::after {
+  opacity: 0.6;
+  transform: scale(0);
+  transition: 0s;
+}
