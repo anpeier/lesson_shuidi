@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  [v-cloak]{
+    display: none
+  }
+  </style>
+  <!-- MVVM 响应式 数据驱动的界面 -->
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <!-- 样式， 布局  -->
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <!-- element-ui vue + bootstrap -->
+</head>
+<body>
+  <!-- vue 目前最新版是3.0  typescript 来编写  -->
+  <!-- 命令行？ 引入式   -->
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Hello Vue.js!</h1>
+    </div>
+    <div id="app"> 
+      <!-- {{title}} -->
+      <!-- MVVM的区域 -->
+      <table class="table table-hover" v-cloak>
+        <thead>
+          <tr>
+            <th class="text-right" @click="sortBy('id')">序号</th>
+            <th class="text-right" @click="sortBy('name')">书名</th class="text-right">
+            <th class="text-right" @click="sortBy('author')">作者</th class="text-right">
+            <th class="text-right" @click="sortBy('price')">价格</th class="text-right">
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="book in books" :key="book.id">
+            <td class="text-right">{{book.id}}</td>
+            <td class="text-right">{{book.name}}</td>
+            <td class="text-right">{{book.author}}</td>
+            <td class="text-right">{{book.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 表单， json data  book -->
+      <div id="add-book">
+        <!-- html标签， form 解释 -->
+        <legend>添加书籍</legend>
+        <div class="form-group">
+          <label >书名</label>
+          <!-- 双向绑定 -->
+          <input type="text" class="form-control"
+           v-model="book.name">
+        </div>
+        <div class="form-group">
+          <label>作者</label>
+          <!-- 双向绑定 -->
+          <input type="text" class="form-control"
+           v-model="book.author">
+        </div>
+        <div class="form-group">
+          <label>价格</label>
+          <!-- 双向绑定 -->
+          <input type="number" class="form-control"
+           v-model="book.price">
+        </div>
+        <button class="btn btn-primary btn-block" 
+        @click="addBook()">添加</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  // vue 是用来做单页应用的， app  启动vue  只做一次
+  // 接管 vue  compile 
+  var app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        books: [{
+          id: 1,
+          author: '曹雪芹',
+          name: '红楼梦',
+          price: 32.0
+        }, {
+          id: 2,
+          author: '施耐庵',
+          name: '水浒传',
+          price: 30.0
+        },{
+          id: 3,
+          author: '罗贯中',
+          name: '三国演义',
+          price: 28.0
+        },{
+          id: 4,
+          author: '吴承恩',
+          name: '西游记',
+          price: 20.0
+        }],
+        book: { /*为了表单服务*/
+          id: 0,
+          name: '',
+          author: '',
+          price: ''
+        },
+        sortparam: '', /*排序的类型*/
+        // title: '标题'
+      }
+    },
+    methods: {
+      addBook() {
+        // console.log(this.book);
+        // 维护数据， 页面会自动更新
+        // 对象 引用类型
+        this.book.id = this.books.length + 1;
+        this.books.push(this.book);
+        this.book = '';
+      },
+      sortBy (sortparam) {
+        // 支持所有type的排序 
+        // mvvm 排序， this.books 排序
+        // arr.sort  函数
+        this.sortparam = sortparam;
+        this.books.sort(function(a, b) {
+          let aVal = a[sortparam];
+          let bVal = b[sortparam];
+          console.log(aVal, bVal);
+          // console.log(aVal, bVal);
+          if (typeof aVal == 'number' && typeof bVal == 'number') {
+            return aVal - bVal;
+          } else {
+            return  aVal.charCodeAt(0) - bVal.charCodeAt(0)
+          }
+        })
+        console.log(this.books);
+      }
+    }
+  })
+  </script>
+</body>
+</html>
