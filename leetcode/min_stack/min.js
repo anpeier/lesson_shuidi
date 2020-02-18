@@ -41,7 +41,7 @@ stack.push(-2);
 stack.push(0);
 stack.push(-3);
 console.log(stack.toString())
-console.log(stack.getMin());
+console.log(stack.getMin())
 stack.pop();
 stack.pop();
 console.log(stack.toString())
