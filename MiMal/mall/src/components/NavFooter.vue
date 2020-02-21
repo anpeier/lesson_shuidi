@@ -1,6 +1,5 @@
 <template>
   <div>
-    nav-header
   </div>
 </template>
 

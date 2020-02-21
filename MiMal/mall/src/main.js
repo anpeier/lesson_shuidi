@@ -6,7 +6,7 @@ import App from './App.vue'
 // import env from './env'
 
 // mock 开关
-const mock = true
+const mock = false
 if(mock) {
   require('./mock/api')
 }

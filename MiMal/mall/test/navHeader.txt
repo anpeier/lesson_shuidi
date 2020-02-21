@@ -1,0 +1,76 @@
+<div class="children">
+  <ul>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+    <li class="product">
+      <a href="" target="_blank">
+        <div class="pro-img">
+          <img
+            src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ddffd7562c54f9166fa876c143ff22.png?thumb=1&w=200&h=138"
+            alt=""
+          />
+        </div>
+        <div class="pro-name">小米10 Pro</div>
+        <div class="pro-price">4999</div>
+      </a>
+    </li>
+  </ul>
+</div>
