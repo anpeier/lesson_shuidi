@@ -4,8 +4,14 @@
     "pages/topic/main",
     "pages/category/main",
     "pages/cart/main",
-    "pages/my/main"
+    "pages/my/main",
+    "pages/mappage/main"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置信息" 
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
