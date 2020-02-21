@@ -25,7 +25,7 @@ const userSchema = new Schema({
 // 操作数据库更容易
 const User = mongoose.model('User', userSchema);
 // 最耗性能 IO开销
-mongoose.connect('mongodb://192.168.31.128:27017/test');
+mongoose.connect('mongodb://127.0.0.1:27017/test');
 let db = mongoose.connection;
 db.on('error', function() {
     console.log('数据库连接失败');
@@ -43,7 +43,7 @@ db.once('open', function() {
 //     createdTime: Date.now(),
 //     articles: [],
 // }).save(function(err) {
-    
+//     console.log('保存成功')
 // });
 
 User.findOne({name: 'lap'}, function(err, doc) {
