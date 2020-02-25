@@ -233,6 +233,7 @@ export default {
           &:hover {
             color: $colorA;
             .children {
+              z-index: 99;
               height: 220px;
               opacity: 1;
             }
