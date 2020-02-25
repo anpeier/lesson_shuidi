@@ -20,7 +20,7 @@ export function formatTime (date) {
 
 // -------------请求的封装
 
-const host = "http://localhost:5757/lm"
+const host = "http://localhost:3000/lm"
 export { host };
 
 // 请求封装
