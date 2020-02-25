@@ -78,17 +78,17 @@
           <div class="list-box">
             <div class="list" v-for="(arr, idx) in phoneList" :key="idx">
               <div class="item" v-for="(item, jdx) in arr" :key="jdx">
-                <span>新品</span>
+                <span :class="{ 'new-pro':jdx%2==0}">新品</span>
                 <div class="item-img">
                   <img
-                    src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0099822e42b4428cb25c4cdebc6ca53d.jpg?thumb=1&w=250&h=250"
+                    :src="item.mainImage"
                     alt
                   />
                 </div>
                 <div class="item-info">
-                  <h3>小米9</h3>
-                  <p>晓龙855 索尼4300万超广角微距晓龙855</p>
-                  <p class="price">2999</p>
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price">{{item.price}}元</p>
                 </div>
               </div>
             </div>
@@ -202,10 +202,25 @@ export default {
         }
       ],
       phoneList: [
-        [1, 1, 1, 1],
-        [1, 1, 1, 1]
+        []
       ]
     };
+  },
+  mounted() {
+    this.init()
+  },
+  methods: {
+    init() {
+      this.axios.get('/products', {
+        params: {
+          categoryId: 100012,
+          pageSize: 8
+        }
+      }).then((res) => {
+        console.log(res)
+        this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
+      })
+    }
   }
 };
 </script>
@@ -338,9 +353,22 @@ export default {
             height: 302px;
             text-align: center;
             span {
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              font-size: 14px;
+              line-height: 24px;
+              color: $colorG;
+              &.new-pro{
+                background-color: #7ECF68;
+              }
+              &.kill-pro{
+                background-color: #E82626;
+              }
             }
             .item-img {
               img {
+                width: 100%;
                 height: 195px;
               }
             }
