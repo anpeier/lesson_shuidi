@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-<div class=''>
+<div class='rating'>
     Ratings
 </div>
 </template>
@@ -45,5 +45,4 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 </script>
 <style lang='stylus'>
 //@import url(); 引入公共css类
-
 </style>
