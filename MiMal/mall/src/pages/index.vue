@@ -57,12 +57,12 @@
           v-for="(item, idx) in adsList"
           :key="idx"
         >
-          <img :src="item.img" alt />
+          <img v-lazy="item.img" alt />
         </a>
       </div>
       <div class="banner">
         <a href="/#/product/30">
-          <img src="/imgs/banner-1.png" alt />
+          <img v-lazy="'/imgs/banner-1.png'" alt />
         </a>
       </div>
     </div>
@@ -72,23 +72,22 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img src="/imgs/mix-alpha.jpg" alt />
+              <img v-lazy="'/imgs/mix-alpha.jpg'" alt />
             </a>
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr, idx) in phoneList" :key="idx">
               <div class="item" v-for="(item, jdx) in arr" :key="jdx">
-                <span :class="{ 'new-pro':jdx%2==0}">新品</span>
+                <span :class="jdx % 2 == 0 ? 'new-pro' : 'kill-pro'">{{
+                  jdx % 2 == 0 ? "新品" : "秒杀"
+                }}</span>
                 <div class="item-img">
-                  <img
-                    :src="item.mainImage"
-                    alt
-                  />
+                  <img v-lazy="item.mainImage" alt />
                 </div>
                 <div class="item-info">
-                  <h3>{{item.name}}</h3>
-                  <p>{{item.subtitle}}</p>
-                  <p class="price">{{item.price}}元</p>
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.subtitle }}</p>
+                  <p class="price" @click="addCart(item.id)">{{ item.price }}元</p>
                 </div>
               </div>
             </div>
@@ -97,11 +96,24 @@
       </div>
     </div>
     <service-bar></service-bar>
+    <modal
+      title="提示"
+      sureText="查看购物车"
+      btnType="1"
+      modalType="middle"
+      :showModal="showModal"
+      @submit="goToCart"
+      @cancle="showModal=false">
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+      </modal>
   </div>
 </template>
 
 <script>
 import ServiceBar from "./../components/ServiceBar";
+import Modal from "./../components/Modal";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 export default {
@@ -109,7 +121,8 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    ServiceBar
+    ServiceBar,
+    Modal
   },
   data() {
     return {
@@ -201,25 +214,43 @@ export default {
           img: "/imgs/ads/ads-4.jpg"
         }
       ],
-      phoneList: [
-        []
-      ]
+      phoneList: [[]],
+      showModal: false
     };
   },
   mounted() {
-    this.init()
+    this.init();
   },
   methods: {
     init() {
-      this.axios.get('/products', {
-        params: {
-          categoryId: 100012,
-          pageSize: 8
-        }
-      }).then((res) => {
-        console.log(res)
-        this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
-      })
+      this.axios
+        .get("/products", {
+          params: {
+            categoryId: 100012,
+            pageSize: 14
+          }
+        })
+        .then(res => {
+          console.log(res);
+          res.list = res.list.slice(6, 14);
+          this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
+        });
+    },
+    addCart() {
+      this.showModal = true
+      return;
+      // this.axios.post('/carts', {
+      //   productId: id,
+      //   selected: true
+      // }).then((res) => {
+      //   console.log(res)
+      // }).catch((err) => {
+      //   console.log(err)
+      //   this.showModal = true
+      // })
+    },
+    goToCart() {
+      this.$router.push('/cart')
     }
   }
 };
@@ -359,11 +390,11 @@ export default {
               font-size: 14px;
               line-height: 24px;
               color: $colorG;
-              &.new-pro{
-                background-color: #7ECF68;
+              &.new-pro {
+                background-color: #7ecf68;
               }
-              &.kill-pro{
-                background-color: #E82626;
+              &.kill-pro {
+                background-color: #e82626;
               }
             }
             .item-img {
