@@ -15,6 +15,10 @@ func main() { // 入口函数
 	e.Subject = "晶崽崽？" //标题
 	// byte? go 类型 byte
 	e.Text = []byte("我想你了") //内容
+	e.HTML = []byte(`
+		<a onclick="alert('猪婆')">点击一下有惊喜</a>
+	`)
+	e.AttachFile("头像.jpg")
 	err := e.Send("smtp.qq.com:25", smtp.PlainAuth("", "1490343356@qq.com", "sqblzzwgcbnbiddg", "smtp.qq.com"))
 	if err != nil {
 		log.Fatal(err)
