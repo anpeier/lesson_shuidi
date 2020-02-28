@@ -113,7 +113,6 @@
 
 <script>
 import ServiceBar from "./../components/ServiceBar";
-import Modal from "./../components/Modal";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
 export default {
@@ -122,7 +121,6 @@ export default {
     swiper,
     swiperSlide,
     ServiceBar,
-    Modal
   },
   data() {
     return {
@@ -236,18 +234,17 @@ export default {
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)];
         });
     },
-    addCart() {
-      this.showModal = true
-      return;
-      // this.axios.post('/carts', {
-      //   productId: id,
-      //   selected: true
-      // }).then((res) => {
-      //   console.log(res)
-      // }).catch((err) => {
-      //   console.log(err)
-      //   this.showModal = true
-      // })
+    addCart(id) {
+      this.axios.post('/carts', {
+        productId: id,
+        selected: true
+      }).then((res={cartTotalQuantity:0}) => {
+        this.showModal = true
+        this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+      }).catch((err) => {
+        console.log(err)
+        this.showModal = true
+      })
     },
     goToCart() {
       this.$router.push('/cart')

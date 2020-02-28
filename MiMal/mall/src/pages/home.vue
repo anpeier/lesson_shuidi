@@ -2,7 +2,7 @@
   <div>
       <nav-header></nav-header>
       <router-view />
-      <nav-footer></nav-footer>
+      <nav-footer :showLogo="true"></nav-footer>
   </div>
 </template>
 
