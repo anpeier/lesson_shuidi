@@ -25,6 +25,21 @@ export default {
     //   this.res = res
     //   console.log(this.res)
     // })
+    this.getUser()
+    this.getCartCount()
+  },
+  methods: {
+    getUser() {
+      this.axios.get('/user').then((res) => {
+        // to-do 保存到vuex里面
+        this.$store.dispatch('saveUserName', res.username)
+      })
+    },
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then(() => {
+        // to-do 保存到vuex里面
+      })
+    }
   }
 }
 </script>
