@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-const api = require('./routes/api')
+const api = require('./api/index')
 
 var app = express();
 
@@ -35,8 +35,7 @@ mongoose.connect(`mongodb://localhost:27017/test`);
 // 跨域
 app.use(cors({
     origin:['http://localhost:8080'],  //指定接收的地址
-    methods:['all'],  //指定接收的请求类型
-    alloweHeaders:['Content-Type','Authorization']  //指定header
+    credentials: true
 }))
 
 app.use(logger('dev'));
