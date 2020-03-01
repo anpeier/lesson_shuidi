@@ -39,6 +39,7 @@
 <script>
 import FooterBar from './../components/NavFooter'
 import { mapActions } from 'vuex'
+import { Message } from 'element-ui'
 export default {
   components: {
     FooterBar
@@ -59,11 +60,24 @@ export default {
       }).then((res) => {
         console.log(res)
         // 默认一天 1
-        this.$cookie.set('userId', res.id, {expires: '1M'})
+        // cookie有有效期 session浏览器关闭时删除
+        this.$cookie.set('userId', res.id, {expires: 'Session'})
         // to-do 保存用户名
         // this.$store.dispatch('saveUserName', res.username)
         this.saveUserName(res.username)
-        this.$router.push('/index')
+        // query 传参
+        // this.$router.push({
+        //   path: '/index',
+        //   query:{
+        //     from : 'login'
+        //   }
+        // })
+        this.$router.push({
+          name: 'index',
+          params:{
+            from : 'login'
+          }
+        })
       })
     },
     ...mapActions(['saveUserName']),
@@ -73,7 +87,7 @@ export default {
         password: '123456',
         email: 'anpeier@qq.com'
       }).then(() => {
-        alert('注册成功')
+        Message.success('注册成功')
       })
     }
   }

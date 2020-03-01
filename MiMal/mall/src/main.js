@@ -6,6 +6,7 @@ import App from './App.vue'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import store from './store'
+import { Message } from 'element-ui'
 import Modal from './components'
 // import env from './env'
 
@@ -32,7 +33,7 @@ axios.interceptors.response.use(function (response) {
     }
     return Promise.reject(res)
   } else {
-    alert(res.msg)
+    Message.warning(res.msg)
     return Promise.reject(res)
   }
 })
@@ -43,6 +44,7 @@ Vue.use(Modal)
 Vue.use(VueLazyLoad,{
   loading: '/imgs/loading-svg/loading-bars.svg'
 })
+Vue.prototype.$message = Message
 Vue.config.productionTip = false
 
 new Vue({

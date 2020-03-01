@@ -28,7 +28,7 @@ export default {
   props: {
     showLogo: {
       type: Boolean,
-      default: false
+      default: true
     }
   }
 };

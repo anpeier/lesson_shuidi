@@ -6,13 +6,12 @@
 
 <script>
 export default {
-  name: 'App',
-  components: {
-  },
-  data () {
+  name: "App",
+  components: {},
+  data() {
     return {
-      res: ''
-    }
+      res: ""
+    };
   },
   mounted() {
     // 本地加载请求静态json文件的形式
@@ -25,29 +24,31 @@ export default {
     //   this.res = res
     //   console.log(this.res)
     // })
-    this.getUser()
-    this.getCartCount()
+    if (this.$cookie.get("userId")) {
+      this.getUser();
+      this.getCartCount();
+    }
   },
   methods: {
     getUser() {
-      this.axios.get('/user').then((res={}) => {
+      this.axios.get("/user").then((res = {}) => {
         // to-do 保存到vuex里面
-        this.$store.dispatch('saveUserName', res.username)
-      })
+        this.$store.dispatch("saveUserName", res.username);
+      });
     },
     getCartCount() {
-      this.axios.get('/carts/products/sum').then((res=0) => {
+      this.axios.get("/carts/products/sum").then((res = 0) => {
         // to-do 保存到vuex里面
-        this.$store.dispatch('saveCartCount', res)
+        this.$store.dispatch("saveCartCount", res);
         // console.log(res)
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import './assets/scss/reset.scss';
-@import './assets/scss/config.scss';
-@import './assets/scss/button.scss';
+@import "./assets/scss/reset.scss";
+@import "./assets/scss/config.scss";
+@import "./assets/scss/button.scss";
 </style>

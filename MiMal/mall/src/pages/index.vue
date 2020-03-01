@@ -52,11 +52,7 @@
         </swiper>
       </div>
       <div class="ads-box">
-        <a
-          :href="'/#/product/' + item.id"
-          v-for="(item, idx) in adsList"
-          :key="idx"
-        >
+        <a :href="'/#/product/' + item.id" v-for="(item, idx) in adsList" :key="idx">
           <img v-lazy="item.img" alt />
         </a>
       </div>
@@ -78,9 +74,11 @@
           <div class="list-box">
             <div class="list" v-for="(arr, idx) in phoneList" :key="idx">
               <div class="item" v-for="(item, jdx) in arr" :key="jdx">
-                <span :class="jdx % 2 == 0 ? 'new-pro' : 'kill-pro'">{{
+                <span :class="jdx % 2 == 0 ? 'new-pro' : 'kill-pro'">
+                  {{
                   jdx % 2 == 0 ? "新品" : "秒杀"
-                }}</span>
+                  }}
+                </span>
                 <div class="item-img">
                   <img v-lazy="item.mainImage" alt />
                 </div>
@@ -103,11 +101,12 @@
       modalType="middle"
       :showModal="showModal"
       @submit="goToCart"
-      @cancle="showModal=false">
+      @cancle="showModal=false"
+    >
       <template v-slot:body>
         <p>商品添加成功！</p>
       </template>
-      </modal>
+    </modal>
   </div>
 </template>
 
@@ -120,7 +119,7 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    ServiceBar,
+    ServiceBar
   },
   data() {
     return {
@@ -235,19 +234,22 @@ export default {
         });
     },
     addCart(id) {
-      this.axios.post('/carts', {
-        productId: id,
-        selected: true
-      }).then((res={cartTotalQuantity:0}) => {
-        this.showModal = true
-        this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
-      }).catch((err) => {
-        console.log(err)
-        this.showModal = true
-      })
+      this.axios
+        .post("/carts", {
+          productId: id,
+          selected: true
+        })
+        .then((res = { cartTotalQuantity: 0 }) => {
+          this.showModal = true;
+          this.$store.dispatch("saveCartCount", res.cartTotalQuantity);
+        })
+        .catch(err => {
+          console.log(err);
+          this.showModal = true;
+        });
     },
     goToCart() {
-      this.$router.push('/cart')
+      this.$router.push("/cart");
     }
   }
 };
