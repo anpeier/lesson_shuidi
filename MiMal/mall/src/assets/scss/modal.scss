@@ -17,7 +17,7 @@
     top: -100%;
   }
   .modal-dialog {
-    @include position(absolute, 40%, 50%, 560px, auto);
+    @include position(absolute, 40%, 50%, 600px, auto);
     background-color: $colorG;
     transform: translate(-50%, -50%);
     .modal-header {

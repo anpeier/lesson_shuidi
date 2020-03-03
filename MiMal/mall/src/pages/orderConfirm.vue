@@ -48,12 +48,12 @@
           <div class="item-address">
             <h2 class="addr-title">收货地址</h2>
             <div class="addr-list clearfix">
-              <div class="addr-info" v-for="(item, idx) in list" :key="idx">
+              <div class="addr-info" :class="{'checked': idx == checkIndex}" @click="checkIndex=idx" v-for="(item, idx) in list" :key="idx">
                 <h2>{{ item.receiverName }}</h2>
                 <div class="phone">{{ item.receiverMobile }}</div>
                 <div class="street">
                   {{
-                  `${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`
+                    `${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`
                   }}
                 </div>
                 <div class="action">
@@ -62,7 +62,7 @@
                       <use xlink:href="#icon-del" />
                     </svg>
                   </a>
-                  <a href="javascript:;" class="fr">
+                  <a href="javascript:;" class="fr" @click="editAddressModal(item)">
                     <svg class="icon icon-edit">
                       <use xlink:href="#icon-edit" />
                     </svg>
@@ -83,8 +83,12 @@
                   <img v-lazy="item.productMainImage" alt />
                   <span>{{ item.productName }} {{ item.productSubtitle }}</span>
                 </div>
-                <div class="good-price">{{ item.productPrice }}元x{{ item.quantity }}</div>
-                <div class="good-total">{{ item.productPrice * item.quantity }}元</div>
+                <div class="good-price">
+                  {{ item.productPrice }}元x{{ item.quantity }}
+                </div>
+                <div class="good-total">
+                  {{ item.productPrice * item.quantity }}元
+                </div>
               </li>
             </ul>
           </div>
@@ -121,7 +125,9 @@
           </div>
           <div class="btn-group">
             <a href="/#/cart" class="btn btn-default btn-large">返回购物车</a>
-            <a href="javascript:;" class="btn btn-large" @click="orderSubmit">去结算</a>
+            <a href="javascript:;" class="btn btn-large" @click="orderSubmit"
+              >去结算</a
+            >
           </div>
         </div>
       </div>
@@ -135,6 +141,60 @@
     >
       <template v-slot:body>
         <p>是否确认删除此地址！</p>
+      </template>
+    </modal>
+
+    <modal
+      :title="title"
+      btnType="1"
+      :showModal="showEditModal"
+      @cancle="cancle"
+      @submit="submitAddress"
+    >
+      <template v-slot:body>
+        <div class="edit-wrapper">
+          <div class="item">
+            <input
+              type="text"
+              class="input"
+              placeholder="姓名"
+              v-model="checkItem.receiverName"
+            />
+            <input
+              type="text"
+              class="input"
+              placeholder="手机号"
+              v-model="checkItem.receiverMobile"
+            />
+          </div>
+          <div class="item">
+            <select name="province" v-model="checkItem.receiverProvince">
+              <option value="江西">江西</option>
+            </select>
+            <select name="city" v-model="checkItem.receiverCity">
+              <option value="南昌">南昌</option>
+              <option value="宜春">宜春</option>
+            </select>
+            <select name="district" v-model="checkItem.receiverDistrict">
+              <option value="高安市">高安市</option>
+              <option value="新建区">新建区</option>
+            </select>
+          </div>
+          <div class="item">
+            <textarea
+              name="street"
+              v-model="checkItem.receiverAddress"
+            ></textarea>
+          </div>
+          <div class="item">
+            <input
+              type="text"
+              class="input"
+              placeholder="邮政编码"
+              v-model="checkItem.receiverZip"
+            />
+          </div>
+        </div>
       </template>
     </modal>
   </div>
@@ -151,7 +211,10 @@ export default {
       count: 0, // 商品结算数量
       checkItem: {}, // 选中的地址对象
       userAction: "", // 用户行为 0新增 1编辑 2删除
-      showDelModal: false
+      showDelModal: false,
+      showEditModal: false,
+      checkIndex: 0, // 当前选中的收货地址
+      title: ''
     };
   },
   mounted() {
@@ -165,15 +228,31 @@ export default {
       });
     },
     delAddress(item) {
-      console.log("sss");
       this.checkItem = item;
       this.userAction = 2;
       this.showDelModal = true;
       console.log(this.showDelModal);
     },
+    openAddressModal() {
+      this.title = '新增地址'
+      this.checkItem = {};
+      this.userAction = 0;
+      this.showEditModal = true;
+    },
+    editAddressModal(item) {
+      this.title = '修改地址'
+      this.checkItem = item;
+      this.userAction = 1;
+      this.showEditModal = true;
+    },
+    cancle() {
+      this.showEditModal = false;
+      this.getAddressList()
+    },
     submitAddress() {
       let { checkItem, userAction } = this;
-      let method, url;
+      console.log(checkItem);
+      let method, url, params;
       if (userAction == 0) {
         method = "post";
         url = "/shippings";
@@ -184,7 +263,46 @@ export default {
         method = "delete";
         url = `/shippings/${checkItem.id}`;
       }
-      this.axios[method](url).then(() => {
+      if (userAction == 0 || userAction == 1) {
+        let {
+          receiverName,
+          receiverMobile,
+          receiverProvince,
+          receiverCity,
+          receiverDistrict,
+          receiverAddress,
+          receiverZip
+        } = checkItem;
+        let errMsg;
+        let reg = /^1(3[0-9]|4[5,7]|5[0,1,2,3,5,6,7,8,9]|6[2,5,6,7]|7[0,1,7,8]|8[0-9]|9[1,8,9])\d{8}$/;
+        if(!receiverName) {
+          errMsg = '请输入收货人名称'
+        }else if(!receiverMobile || !reg.test(receiverMobile)){
+          errMsg = '请输入正确格式的手机号'
+        }else if(!receiverProvince) {
+          errMsg = '请输入省份'
+        }else if(!receiverCity) {
+          errMsg = '请输入城市'
+        }else if(!receiverDistrict || !receiverAddress) {
+          errMsg = '请输入详细地址'
+        }else if(!/^\d{6}$/.test(receiverZip)){
+          errMsg = '请输入正确的邮编'
+        }
+        if(errMsg) {
+          this.$message.error(errMsg)
+          return ;
+        }
+        params = {
+          receiverName,
+          receiverMobile,
+          receiverProvince,
+          receiverCity,
+          receiverDistrict,
+          receiverAddress,
+          receiverZip
+        };
+      }
+      this.axios[method](url, params).then(() => {
         this.closeModal();
         this.getAddressList();
         this.$message.success("操作成功");
@@ -194,8 +312,8 @@ export default {
       this.checkItem = {};
       this.userAction = "";
       this.showDelModal = false;
+      this.showEditModal = false;
     },
-    openAddressModal() {},
     getCartList() {
       this.axios.get("/carts").then(res => {
         let list = res.cartProductVoList; //获取购物车中所有商品信息
@@ -206,7 +324,24 @@ export default {
         });
       });
     },
-    orderSubmit() {}
+    // 订单提交
+    orderSubmit() {
+      let item = this.list[this.checkIndex]
+      if(!item){
+        this.$message.error('请选择收货地址')
+        return
+      }
+      this.axios.post('/orders', {
+        shippingId: item.id
+      }).then((res) => {
+        this.$router.push({
+          path: '/order/pay',
+          query: {
+            orderNo: res.orderNo
+          }
+        })
+      })
+    }
   }
 };
 </script>
@@ -367,24 +502,25 @@ export default {
       }
     }
   }
-  .edit-wrap {
+  .edit-wrapper {
     font-size: 14px;
     .item {
       margin-bottom: 15px;
       .input {
         display: inline-block;
-        width: 283px;
+        width: 250px;
         height: 40px;
         line-height: 40px;
         padding-left: 15px;
         border: 1px solid #e5e5e5;
         & + .input {
-          margin-left: 14px;
+          margin-left: 15px;
         }
       }
       select {
         height: 40px;
-        line-height: 40px;
+        width: 51px;
+        line-height: 40;
         border: 1px solid #e5e5e5;
         margin-right: 15px;
       }
