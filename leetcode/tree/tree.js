@@ -56,9 +56,6 @@ a3.right = a7;
 //     } else { // 为空
 //       cur = stack.pop(); //出栈 4
 //       result.push(cur.val); //进入结果数组
-//       if (cur.val == 4) {
-//         console.log(cur,cur.right); 
-//       }
 //       cur  = cur.right; // ?
 //       // console.log(cur);
 //     }
@@ -79,31 +76,25 @@ a3.right = a7;
 //     return res
 // }
 
-// var inorderTraversal = function (root) {
-//     var res = []
-//     var stack = []
+// 前序
+// var preorderTraversal = function(root) {
+//     if(root == null) return []
+//     var res = [],
+//         stack = [],
+//         cur
 //     stack.push(root)
 //     while (stack.length > 0) {
-//     //     let cur = stack.pop()
-//     //     res.push(cur.val)
-//     //     if (cur.right != null) {
-//     //         stack.push(cur.right)
-//     //     }
-//     //     if (cur.left != null) {
-//     //         stack.push(cur.left)
-//     //     }
-//         let cur = arr.pop()
+//         cur = stack.pop()
 //         res.push(cur.val)
 
-//         cur.right && arr.push(cur.right)
-//         cur.left && arr.push(cur.left)
-
+//         cur.right && stack.push(cur.right)
+//         cur.left && stack.push(cur.left)
 //     }
     
 //     return res
-// }
+// };
 
-
+// 后序
 var postorderTraversal = function(root) {
     // if (root === null) return []
     // let res = []
