@@ -1,5 +1,10 @@
 <template>
   <div class="order-pay">
+    <order-header title="订单支付">
+      <template v-slot:tips>
+        <span>请确认商品信息及支付金额</span>
+      </template>
+    </order-header>
     <div class="wrapper">
       <div class="container">
         <div class="order-wrap">
@@ -16,13 +21,13 @@
             <div class="order-total">
               <p>
                 应付总额：
-                <span>{{payment}}</span>元
+                <span>{{ payment }}</span>元
               </p>
               <p>
                 订单详情
                 <em
                   class="icon-down"
-                  :class="{ 'up': showDetail }"
+                  :class="{ up: showDetail }"
                   @click="showDetail = !showDetail"
                 ></em>
               </p>
@@ -58,34 +63,51 @@
           <h3>选择以下支付方式付款</h3>
           <div class="pay-way">
             <p>支付平台</p>
-            <div class="pay pay-ali" :class="{'checked': payType == 1}" @click="paySubmit(1)"></div>
-            <div class="pay pay-wechat" :class="{'checked': payType == 2}" @click="paySubmit(2)"></div>
+            <div class="pay pay-ali" :class="{ checked: payType == 1 }" @click="paySubmit(1)"></div>
+            <div class="pay pay-wechat" :class="{ checked: payType == 2 }" @click="paySubmit(2)"></div>
           </div>
         </div>
       </div>
     </div>
     <scan-pay-code v-if="showPay" @close="closePayModal" :img="payImg"></scan-pay-code>
+    <modal
+      title="支付确认"
+      btnType="3"
+      :showModal="showPayModal"
+      sureText="查看订单"
+      cancleText="未支付"
+      @cancle="showPayModal=false"
+      @submit="goOrderList"
+    >
+      <template v-slot:body>
+        <p>请确认是否支付完成！</p>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
-import QRCode from 'qrcode'
-import ScanPayCode from './../components/ScanPayCode'
+import QRCode from "qrcode";
+import ScanPayCode from "./../components/ScanPayCode";
+import OrderHeader from './../components/OrderHeader'
 export default {
   name: "order-pay",
+  components: {
+    OrderHeader,
+    ScanPayCode
+  },
   data() {
     return {
       orderId: this.$route.query.orderNo,
       addressInfo: "", //收货人地址
       orderDetail: [], // 订单详情
       showDetail: false,
-      payment: 0,
-      payType: '',
+      payment: 0, // 订单总金额
+      payType: "",
       showPay: false, // 微信支付弹框
-      payImg: '' // 微信支付二维码
+      payImg: "", // 微信支付二维码
+      showPayModal: false,
+      T: '' // 定时器ID
     };
-  },
-  components: {
-    ScanPayCode
   },
   mounted() {
     this.getOrderDetail();
@@ -96,35 +118,54 @@ export default {
         let item = res.shippingVo;
         this.addressInfo = `${item.receiverName} ${item.receiverMobile} ${item.receiverProvince} ${item.receiverCity} ${item.receiverDistrict} ${item.receiverAddress}`;
         this.orderDetail = res.orderItemVoList;
-        this.payment = res.payment
+        this.payment = res.payment;
       });
     },
     paySubmit(payType) {
-      if(payType == 1) {
-        window.open('/#/order/alipay?orderId=' + this.orderId, '_blank')
-      }else{
+      if (payType == 1) {
+        window.open("/#/order/alipay?orderId=" + this.orderId, "_blank");
+      } else {
         this.axios
-        .post("/pay", {
-          orderId: this.orderId,
-          orderName: "Vue学习",
-          amount: 0.01,
-          payType: 2 // 1支付宝 2 微信
-        })
-        .then((res) => {
-          console.log(res.content)
-          QRCode.toDataURL(res.content).then(url => {
-              this.showPay = true
-              this.payImg = url
-              console.log(this.payImg)
-          }).catch(() => {
-            this.$message.error('二维码生成失败，请稍后重试')
+          .post("/pay", {
+            orderId: this.orderId,
+            orderName: "Vue学习",
+            amount: 0.01,
+            payType: 2 // 1支付宝 2 微信
           })
-        });
+          .then(res => {
+            // console.log(res.content);
+            QRCode.toDataURL(res.content)
+              .then(url => {
+                this.showPay = true;
+                this.payImg = url;
+                this.loopOrderState()
+                // console.log(this.payImg);
+              })
+              .catch(() => {
+                this.$message.error("二维码生成失败，请稍后重试");
+              });
+          });
       }
     },
     // 关闭微信支付弹框
     closePayModal() {
-      this.showPay = false
+      this.showPay = false;
+      this.showPayModal = true;
+      clearInterval(this.T)
+    },
+    // 轮询订单支付状态
+    loopOrderState() {
+      this.T = setInterval(() => {
+        this.axios.get(`/orders/${this.orderId}`).then((res) => {
+          if(res.status == 20){
+            clearInterval(this.T)
+            this.goOrderList()
+          }
+        })
+      },1000)
+    },
+    goOrderList() {
+      this.$router.push('/order/list')
     }
   }
 };
