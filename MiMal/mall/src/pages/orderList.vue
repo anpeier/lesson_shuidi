@@ -8,6 +8,7 @@
     <div class="wrapper">
       <div class="container">
         <div class="order-box">
+          <loading v-if="loading"></loading>
           <div class="order" v-for="(item,index) in orderList" :key="index">
             <div class="order-title">
               <div class="item-info fl">
@@ -25,11 +26,15 @@
                 <span>元</span>
               </div>
             </div>
-            <div class="order-content clearfix" v-for="(jtem,jdx) in item.orderItemVoList" :key="jdx">
+            <div
+              class="order-content clearfix"
+              v-for="(jtem,jdx) in item.orderItemVoList"
+              :key="jdx"
+            >
               <div class="good-box fl">
                 <div class="good-list">
                   <div class="good-img">
-                    <img :src="jtem.productImage" alt="">
+                    <img v-lazy="jtem.productImage" alt />
                   </div>
                   <div class="good-name">
                     <div class="p-name">{{jtem.productName}}</div>
@@ -45,6 +50,16 @@
               </div>
             </div>
           </div>
+          <el-pagination
+            class="pagination"
+            v-if="!loading && orderList.length !=0"
+            background
+            layout="prev, pager, next"
+            :total="total"
+            :pageSize="10"
+            @current-change="handleChange"
+          ></el-pagination>
+          <no-data v-if="!loading && orderList.length ==0"></no-data>
         </div>
       </div>
     </div>
@@ -52,102 +67,133 @@
 </template>
 
 <script>
-import OrderHeader from './../components/OrderHeader'
+import OrderHeader from "./../components/OrderHeader";
+import Loading from "./../components/Loading";
+import NoData from "./../components/NoData";
+import { Pagination } from "element-ui";
 export default {
-  name: 'order-list',
+  name: "order-list",
   components: {
-    OrderHeader
+    OrderHeader,
+    Loading,
+    NoData,
+    [Pagination.name]: Pagination // 动态加载变量
   },
   data() {
-    return{
-      orderList: []
-    }
+    return {
+      orderList: [],
+      loading: true,
+      pageNum: 1,
+      total: 0
+    };
   },
   mounted() {
-    this.getOrderList()
+    this.getOrderList();
   },
   methods: {
     getOrderList() {
-      this.axios.get('orders').then((res) => {
-        this.orderList = res.list
-      })
+      this.axios
+        .get("orders", {
+          params: {
+            pageNum: this.pageNum
+          }
+        })
+        .then(res => {
+          this.loading = false;
+          this.orderList = res.list;
+          this.total = res.total;
+        })
+        .catch(() => {
+          this.loading = false;
+        });
     },
     goPay(orderNo) {
       // this.$router.push(`/order/pay?orderNo=${orderNo}`)
       this.$router.push({
-        path: '/order/pay',
+        path: "/order/pay",
         query: {
           orderNo
         }
-      })
+      });
+    },
+    handleChange(pageNum) {
+      this.pageNum = pageNum;
+      this.getOrderList();
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-  @import './../assets/scss/config.scss';
-  @import './../assets/scss/mixin.scss';
-  .order-list{
-    .wrapper{
-      background-color:$colorJ;
-      padding-top:33px;
-      padding-bottom:110px;
-      .order-box{
-        .order{
-          @include border();
-          background-color:$colorG;
-          margin-bottom:31px;
-          &:last-child{
-            margin-bottom:0;
-          }
-          .order-title{
-            @include height(74px);
-            background-color:$colorK;
-            padding:0 43px;
-            font-size:16px;
-            color:$colorC;
-            .item-info{
-              span{
-                margin:0 9px;
-              }
-            }
-            .money{
-              font-size:26px;
-              color:$colorB;
+@import "./../assets/scss/config.scss";
+@import "./../assets/scss/mixin.scss";
+.order-list {
+  .wrapper {
+    background-color: $colorJ;
+    padding-top: 33px;
+    padding-bottom: 110px;
+    .order-box {
+      .order {
+        @include border();
+        background-color: $colorG;
+        margin-bottom: 31px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .order-title {
+          @include height(74px);
+          background-color: $colorK;
+          padding: 0 43px;
+          font-size: 16px;
+          color: $colorC;
+          .item-info {
+            span {
+              margin: 0 9px;
             }
           }
-          .order-content{
-            padding:0 43px;
-            .good-box{
-              width:88%;
-              .good-list{
-                display: flex;
-                align-items: center;
-                height:145px;
-                .good-img{
-                  width:112px;
-                  img{
-                    width:100%;
-                  }
+          .money {
+            font-size: 26px;
+            color: $colorB;
+          }
+        }
+        .order-content {
+          padding: 0 43px;
+          .good-box {
+            width: 88%;
+            .good-list {
+              display: flex;
+              align-items: center;
+              height: 145px;
+              .good-img {
+                width: 112px;
+                img {
+                  width: 100%;
                 }
-                .good-name{
-                  font-size:20px;
-                  color:$colorB;
-                }
+              }
+              .good-name {
+                font-size: 20px;
+                color: $colorB;
               }
             }
-            .good-state{
-              @include height(145px);
-              font-size: 20px;
-              color:$colorA;
-              a{
-                color:$colorA;
-              }
+          }
+          .good-state {
+            @include height(145px);
+            font-size: 20px;
+            color: $colorA;
+            a {
+              color: $colorA;
             }
           }
         }
       }
+      .pagination {
+        text-align: right;
+      }
+      // 覆盖element-ui分页器颜色
+      // .el-pagination.is-background .el-pager li:not(.disabled).active {
+      //   background-color: #ff6600;
+      // }
     }
   }
+}
 </style>
