@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      /* width: 200px;
+      height: 200px;
+      background: green;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto; */
+
+      /* width: 200px;
+      height: 200px;
+      background: green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -100px;
+      margin-top: -100px; */
+
+      /* width: 200px;
+      height: 200px;
+      background: green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); */
+
+      /* height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center; */
+    }
+    .box > .content {
+      /* width: 200px;
+      height: 200px;
+      background-color: green; */
+    }
+
+    /*
+table-cell实现居中
+将父盒子设置为table-cell元素，设置
+text-align:center,vertical-align: middle;
+子盒子设置为inline-block元素
+*/
+    .tableCell {
+      display: table;
+      width: 500px;
+      height: 500px;
+    }
+    .tableCell > .innerBox {
+      width: 200px;
+      height: 200px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      background-color: green;
+    }
+  </style>
+  <body>
+    <!-- <div class="box">
+      <div class="content">aaa</div>
+    </div> -->
+
+    <div class="tableCell">
+      <div class="innerBox">tableCell</div>
+    </div>
+  </body>
+</html>
