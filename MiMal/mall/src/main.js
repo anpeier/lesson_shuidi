@@ -7,7 +7,7 @@ import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import store from './store'
 import { Message } from 'element-ui'
-import './assets/scss/element-variables.scss'
+import './assets/scss/element-ui.scss'
 import Modal from './components'
 // import env from './env'
 

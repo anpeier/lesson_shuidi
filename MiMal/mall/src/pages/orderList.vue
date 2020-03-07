@@ -50,15 +50,33 @@
               </div>
             </div>
           </div>
+          <!-- 分页器 -->
           <el-pagination
             class="pagination"
             v-if="!loading && orderList.length !=0"
             background
             layout="prev, pager, next"
             :total="total"
-            :pageSize="10"
+            :pageSize="pageSize"
+            :current-page="pageNum"
             @current-change="handleChange"
           ></el-pagination>
+
+          <!-- 加载更多按钮 -->
+          <!-- <div class="load-more" v-if="loadButton">
+            <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
+          </div> -->
+
+          <!-- npm 滚动加载插件 -->
+          <div
+            class="scroll-more"
+            v-infinite-scroll="scrollMore"
+            infinite-scroll-disabled="busy"
+            infinite-scroll-distance="400"
+            v-if="false"
+          >
+            <img v-show="loading" src="/imgs/loading-svg/loading-spinning-bubbles.svg" alt />
+          </div>
           <no-data v-if="!loading && orderList.length ==0"></no-data>
         </div>
       </div>
@@ -70,43 +88,80 @@
 import OrderHeader from "./../components/OrderHeader";
 import Loading from "./../components/Loading";
 import NoData from "./../components/NoData";
-import { Pagination } from "element-ui";
+import { Pagination, Button } from "element-ui";
+// 滚动加载插件
+import infiniteScroll from "vue-infinite-scroll";
 export default {
   name: "order-list",
   components: {
     OrderHeader,
     Loading,
     NoData,
-    [Pagination.name]: Pagination // 动态加载变量
+    [Pagination.name]: Pagination, // 动态加载变量
+    [Button.name]: Button
   },
   data() {
     return {
       orderList: [],
-      loading: true,
+      loading: false,
       pageNum: 1,
-      total: 0
+      total: 0,
+      busy: false, // 是否触发滚动加载 true: 禁止
+      pageSize: 10
+      // loadButton: false // 加载更多按钮
     };
   },
+  directives: { infiniteScroll },
   mounted() {
     this.getOrderList();
   },
   methods: {
+    // 分页器使用
     getOrderList() {
+      this.loading = true;
+      this.busy = true
       this.axios
         .get("orders", {
           params: {
+            pageSize: this.pageSize,
             pageNum: this.pageNum
           }
         })
         .then(res => {
           this.loading = false;
+          //分页器模式
           this.orderList = res.list;
           this.total = res.total;
+          this.busy = false // 允许滚动加载
         })
         .catch(() => {
           this.loading = false;
         });
     },
+    // 加载更多按钮使用
+    // getOrderList() {
+    //   this.loading = true;
+    //   this.axios
+    //     .get("orders", {
+    //       params: {
+    //         pageSize: this.pageSize,
+    //         pageNum: this.pageNum
+    //       }
+    //     })
+    //     .then(res => {
+    //       this.loading = false;
+    //       // 加载更多按钮模式
+    //       if (res.list.length < this.pageSize) {
+    //         this.loadButton = false;
+    //       } else {
+    //         this.loadButton = true;
+    //       }
+    //       this.orderList = this.orderList.concat(res.list);
+    //     })
+    //     .catch(() => {
+    //       this.loading = false;
+    //     });
+    // },
     goPay(orderNo) {
       // this.$router.push(`/order/pay?orderNo=${orderNo}`)
       this.$router.push({
@@ -116,9 +171,43 @@ export default {
         }
       });
     },
+    // 分页器方法
     handleChange(pageNum) {
       this.pageNum = pageNum;
       this.getOrderList();
+    },
+    // 加载更多按钮方法
+    loadMore() {
+      this.pageNum++;
+      this.getOrderList();
+    },
+    // scrollMore使用
+    getList() {
+      this.loading = true;
+      this.axios
+        .get("orders", {
+          params: {
+            pageSize: this.pageSize,
+            pageNum: this.pageNum
+          }
+        })
+        .then(res => {
+          this.loading = false
+          this.orderList = this.orderList.concat(res.list);
+          if(res.list.length < this.pageSize) {
+            this.busy = true
+          }else{
+            this.busy = false
+          }
+        });
+    },
+    // npm 插件 滚动加载更多方法
+    scrollMore() {
+      this.busy = true
+      setTimeout(() => {
+        this.pageNum++
+        this.getList()
+      },500)
     }
   }
 };
@@ -189,10 +278,10 @@ export default {
       .pagination {
         text-align: right;
       }
-      // 覆盖element-ui分页器颜色
-      // .el-pagination.is-background .el-pager li:not(.disabled).active {
-      //   background-color: #ff6600;
-      // }
+      // 加载更多按钮居中样式
+      .load-more,.scroll-more{
+        text-align: center;
+      }
     }
   }
 }
