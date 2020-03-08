@@ -1,9 +1,13 @@
 const express = require('express');
+const http = require('http')
 const app = express();
 const path = require('path');
+
+
 // 路由的模块化
 // api
 const router = require('./routes/index.js');
+
 // web  express.static 启用静态服务器
 app.use('/', express.static(path.join(__dirname, 'web')));
 app.use(express.static(path.join(__dirname, 'public')));
