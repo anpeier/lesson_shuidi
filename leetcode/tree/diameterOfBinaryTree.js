@@ -22,45 +22,24 @@ var a2 = new TreeNode(2);
 var a3 = new TreeNode(3);   //一棵小树
 a1.left = a2;
 a1.right = a3;
-// 2 它的子树？  形成是不是可以用递归的思想去形成?
 var a4 = new TreeNode(4);
 var a5 = new TreeNode(5);
 var a6 = new TreeNode(6);
 a2.left = a4;
 a2.right = a5;
-// a5.right = a6
-var diameterOfBinaryTree = function(root) {
-    if (root.left == null && root.right == null) {
-        return 0
-    }
-    let cur = root,count = 1,stack=[]
-    stack.push(cur)
-    while (stack.length) {
-        cur = stack.pop()
-        count--
-        if(cur.right){
-            stack.push(cur.right)
-            count++
-        } 
-        if(cur.left) {
-            stack.push(cur.left)
-            count++
-        }
-    }
-    return count-1
-};
+a5.right = a6
 
-// var diameterOfBinaryTree = function(root) {
-//     let res = 0
-//     depth(root)
-//     return res
-//     function depth (node) {
-//         if (!node) return 0 // 节点不存在返回0
-//         let left = depth(node.left) // left为左子树的深度
-//         let right = depth(node.right)//right 为右子树的深度
-//         res = Math.max(left + right, res) //计算l+r 更新res
-//         return Math.max(left, right)+1 //返回该节点为根的子树的深度
-//     }
-// };
+var diameterOfBinaryTree = function(root) {
+    let res = 0
+    depth(root)
+    return res
+    function depth (node) {
+        if (!node) return 0 // 节点不存在返回0
+        let left = depth(node.left) // left为左子树的深度
+        let right = depth(node.right)//right 为右子树的深度
+        res = Math.max(left + right, res) //计算l+r 更新res
+        return Math.max(left, right)+1 //返回该节点为根的子树的深度
+    }
+};
 
 console.log(diameterOfBinaryTree(a1))
