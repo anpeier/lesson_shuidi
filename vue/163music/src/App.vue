@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="user">
+    <lap-button type="primary">按钮</lap-button>
+    <!-- <div class="user">
       <div class="back" @click="back">
         <i class="fa fa-angle-left"></i>
       </div>
@@ -9,7 +10,7 @@
       :currentIndex="currentIndex"
        @switch="changeItem"></switches>
     </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
