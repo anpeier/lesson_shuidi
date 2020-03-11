@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img width="893" height="391"
+  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAECAYAAAC3OK7NAAAAAklEQVR4AewaftIAAACUSURBVAXB0QrBUBzA4d9/52zLthK1kjTl3hvYE4hn8FZehSTJQ3CluJhiM9QS2Tm+T7LN3Cpl8Js3vPCN1ke+z4KfHtFo9ykzl/L0QNciiPiIsZjrlspLWa4N+/OB2bgFToSIoI2FGvj8Emw9QWRA0g1Y7FZcijsuFZ7robVSIBYDOGGPV54Td2Km6RDfdQjCCOUIf1XhMMa8r80zAAAAAElFTkSuQmCC"
+   alt="" data-src="/in.png" class="lazyload">
+  <script>
+  window.onload = function() {
+    const img = document.querySelector('.lazyload');
+    const real_src = img.getAttribute('data-src');
+    const oImg = document.createElement('img');
+    oImg.onload = function() {
+      // setTimeout(() => {
+        img.src = real_src
+      // }, 3000)
+    }
+    oImg.src = real_src;
+  }
+  </script>
+</body>
+</html>
