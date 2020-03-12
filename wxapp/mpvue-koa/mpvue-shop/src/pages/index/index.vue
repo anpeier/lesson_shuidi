@@ -18,14 +18,35 @@
         duration="500"
       >
         <block v-for="(item, idx) in banner" :key="idx">
-          <swiper-itme class="swiper-item">
-            <image
-              :src="item.image_url"
-              class="slider-image">
-            </image>
-          </swiper-itme>
+          <swiper-item class="swiper-item">
+            <image :src="item.image_url" class="slider-image"> </image>
+          </swiper-item>
         </block>
       </swiper>
+    </div>
+    <div class="channel">
+      <div
+        v-for="(item, idx) in channel"
+        :key="idx"
+        @click="categoryList(item.id)"
+      >
+        <img :src="item.icon_url" alt="" />
+        <p>{{ item.name }}</p>
+      </div>
+    </div>
+    <div class="brand">
+      <div class="head">
+        品牌制造商直供
+      </div>
+      <div class="content">
+        <div v-for="(item,idx) in brandList" :key="idx" @click="goTobrandDetail(item.id)">
+          <div>
+            <p>{{item.name}}</p>
+            <p>{{item.floor_price}}元起</p>
+          </div>
+          <img :src="item.new_pic_url || item.pic_url" alt="">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,15 +54,18 @@
 <script>
 import amapFile from "../../utils/amap-wx";
 import { mapState, mapMutations } from "vuex";
-import { get } from '../../utils'
+import { get } from "../../utils";
 export default {
   data() {
     return {
-      banner: []
+      banner: [],
+      channel: [],
+      brandList: []
     };
   },
   mounted() {
     this.getCityName();
+    this.getData();
   },
   computed: {
     ...mapState(["cityName"])
@@ -91,8 +115,17 @@ export default {
       });
     },
     async getData() {
-      const data = await get('/index/index') //http://localhost:5757/lm/index/index
-      console.log(data)
+      const data = await get("/index/index"); //http://localhost:5757/lm/index/index
+      // console.log(data);
+      this.banner = data.banner;
+      this.channel = data.channel;
+      this.brandList = data.brandList
+    },
+    categoryList(id) {
+      wx.navigateTo({ url: `/pages/category/main?id=${id}` });
+    },
+    goTobrandDetail(id) {
+      wx.navigateTo({ url: `/pages/branddeatil/main?id=${id}` });
     }
   }
 };

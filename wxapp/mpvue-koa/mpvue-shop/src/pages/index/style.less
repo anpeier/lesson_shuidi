@@ -1,8 +1,8 @@
-.index{
+.index {
   width: 100%;
   overflow: hidden;
   position: relative;
-  .search{
+  .search {
     width: 100%;
     box-sizing: border-box;
     padding: 0 25rpx 0 10rpx;
@@ -14,35 +14,100 @@
     align-items: center;
     background-color: #fff;
     div:nth-child(1) {
-        width: 115rpx;
-        text-align: center;
-        overflow: hidden;
-        word-spacing: normal;
-        text-overflow: ellipsis;
-        font-size: 20rpx;
-        padding-right: 15rpx;
+      width: 115rpx;
+      text-align: center;
+      overflow: hidden;
+      word-spacing: normal;
+      text-overflow: ellipsis;
+      font-size: 20rpx;
+      padding-right: 15rpx;
     }
     div:nth-child(2) {
-        flex: 1;
+      flex: 1;
+      position: relative;
+      input {
+        width: 100%;
+        height: 56rpx;
+        border-radius: 8rpx;
+        background-color: #ededed;
+        box-sizing: border-box;
+        padding-left: 40rpx;
+      }
+      .icon {
+        position: absolute;
+        top: 15rpx;
+        left: 10rpx;
+        background: url("../../../static/images/search.png") no-repeat center;
+        background-size: 100%;
+        width: 28rpx;
+        height: 28rpx;
+        margin-right: 10rpx;
+      }
+    }
+  }
+  .swiper{
+    width: 100%;
+    height: 417rpx;
+    margin-top: 80rpx;
+    .swiper-container{
+      width: 100%;
+      height: 100%;
+      .swiper-item{
+        width: 100%;
+        height: 100%;
+        .slider-image{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .channel{
+    display:flex;
+    padding: 20rpx 0;
+    background-color: #fff;
+    div{
+      flex: 1;
+      text-align: center;
+      img{
+        width: 58rpx;
+        height: 58rpx;
+        display: inline-block;
+      }
+    }
+  }
+  .brand{
+    width: 100%;
+    margin-top: 20rpx;
+    background-color: #fff;
+    .head{
+      text-align: center;
+      padding: 40rpx 0;
+    }
+    .content{
+      width: 730rpx;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      div{
+        width: 360rpx;
+        height: 235rpx;
+        margin-bottom: 10rpx;
         position: relative;
-        input{
-            width: 100%;
-            height: 56rpx;
-            border-radius: 8rpx;
-            background-color: #ededed;
-            box-sizing: border-box;
-            padding-left: 40rpx;
+        div{
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 10rpx;
+          p:nth-child(2) {
+            font-size: 24rpx;
+          }
         }
-        .icon{
-            position: absolute;
-            top: 15rpx;
-            left: 10rpx;
-            background: url('../../../static/images/search.png') no-repeat center;
-            background-size: 100%;
-            width: 28rpx;
-            height: 28rpx;
-            margin-right: 10rpx;
+        img{
+          width: 100%;
+          height: 100%;
         }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 const CONF = {
-    port: '3001',
+    port: '3000',
     mysql: {
         host: 'localhost',
         port: 3306,
