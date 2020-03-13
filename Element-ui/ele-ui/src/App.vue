@@ -5,16 +5,27 @@
       上传
       <i class="el-icon-upload el-icon--right"></i>
     </el-button>
+    <div>
+      <el-button-group>
+        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
+        <el-button type="primary">
+          下一页
+          <i class="el-icon-arrow-right el-icon--right"></i>
+        </el-button>
+      </el-button-group>
+    </div>
   </div>
 </template>
 
 <script>
 import ElButton from "./components/ElButton.vue";
+import ElButtonGroup from "./components/ElButtonGroup.vue";
 
 export default {
   name: "App",
   components: {
-    ElButton
+    ElButton,
+    ElButtonGroup
   },
   methods: {
     print(evt) {

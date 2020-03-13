@@ -1,5 +1,4 @@
 <template>
-<div>
   <button
     class="el-button"
     @click="handleClick"
@@ -20,11 +19,11 @@
   <i :class="icon" v-if="icon && !loading"></i>
   <span v-if="$slots.default"><slot></slot></span>
   </button>
-  </div>
 </template>
 
 <script>
 export default {
+  name: 'ElButton',
   props: {
     type: {
       type: String,
