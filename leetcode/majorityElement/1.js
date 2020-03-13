@@ -39,7 +39,7 @@ var majorityElement = function(nums) {
     }
     if(count < 0){
       res = nums[i]
-      count=0
+      count=1
     }
   }
   return res
