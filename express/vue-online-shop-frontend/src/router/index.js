@@ -30,6 +30,20 @@ export default new Router({
           path: 'edit/:id',
           name: 'Edit',
           component: () => import('@/pages/admin/Edit')
+        },{
+          path: 'manufacturers',
+          name: 'Manufacturers',
+          component: () => import('@/pages/admin/manufacturers')
+        },
+        {
+          path: 'manufacturers/edit/:id',
+          name: 'EditManufacturers',
+          component: () => import('@/pages/admin/EditManufacturers')
+        },
+        {
+          path: 'manufacturers/new',
+          name: 'NewManufacturers',
+          component: () => import('@/pages/admin/NewManufacturers')
         }
       ]
     },
