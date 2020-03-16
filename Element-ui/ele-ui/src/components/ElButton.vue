@@ -5,6 +5,7 @@
     :type="nativeType"
     :class="[
     type ? 'el-button--' + type : '',
+    size ? 'el-button--' + size : '',
     {
        'is-round': round,
        'is-plain': plain,
@@ -35,6 +36,10 @@ export default {
     circle: Boolean,
     icon: String,
     loading: Boolean,
+    size: {
+      type: String,
+      default: 'meduim'
+    },
     nativeType: {
       type: String,
       default: 'button'
