@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="brand">
-      <div class="head">
+      <div class="head" @click="toBrandList">
         品牌制造商直供
       </div>
       <div class="content">
@@ -46,6 +46,26 @@
           </div>
           <img :src="item.new_pic_url || item.pic_url" alt="">
         </div>
+      </div>
+    </div>
+    <div class="newgoods">
+      <div class="newgoods-top">
+        <div class="top">
+        <p>新品首发</p>
+        <p>查看全部</p>
+        </div>
+      </div>
+      <div class="list">
+        <ul>
+          <scroll-view class="scroll-view" :scroll-x="true">
+            <li v-for="(item,idx) in newGoods" :key="idx">
+              <img :src="item.list_pic_url" alt="">
+              <p>{{item.name}}</p>
+              <p>{{item.goods_brief}}</p>
+              <p>￥{{item.retail_price}}</p>
+            </li>
+          </scroll-view>
+        </ul>
       </div>
     </div>
   </div>
@@ -60,7 +80,8 @@ export default {
     return {
       banner: [],
       channel: [],
-      brandList: []
+      brandList: [],
+      newGoods: []
     };
   },
   mounted() {
@@ -116,16 +137,20 @@ export default {
     },
     async getData() {
       const data = await get("/index/index"); //http://localhost:5757/lm/index/index
-      // console.log(data);
+      console.log(data);
       this.banner = data.banner;
       this.channel = data.channel;
       this.brandList = data.brandList
+      this.newGoods = data.newGoods
     },
     categoryList(id) {
       wx.navigateTo({ url: `/pages/category/main?id=${id}` });
     },
     goTobrandDetail(id) {
       wx.navigateTo({ url: `/pages/branddeatil/main?id=${id}` });
+    },
+    toBrandList() {
+      wx.navigateTo({ url: '/pages/brandlist/main' });
     }
   }
 };

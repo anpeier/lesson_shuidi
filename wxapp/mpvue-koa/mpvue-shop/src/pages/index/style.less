@@ -110,4 +110,72 @@
       }
     }
   }
+  .newgoods{
+    width: 100%;
+    &-top{
+      margin-top: 20rpx;
+      height: 260rpx;
+      width: 100%;
+      // background: url('../../../static/images/bgnew.png') no-repeat;
+      background-color: rgba(0, 238, 255, 0.377);
+      background-size: contain;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .top{
+        p{ 
+          color: #8c9bae;
+        font-size: 32rpx;
+        }
+        p:nth-child(2) {
+          width: 180rpx;
+          height: 50rpx;
+          line-height: 50rpx;
+          margin: 27rpx auto 0 auto;
+          font-size: 22rpx;
+          background: #d8e4f0;
+        }
+      }
+    }
+    .list{
+      margin-top: 20rpx;
+      background-color: #fff;
+      padding-bottom: 10rpx;
+      ul{
+        width: 100%;
+        white-space: nowrap; // 不换行展示
+        li{
+          width: 280rpx;
+          height: 416rpx;
+          margin: 5rpx 0 5rpx 25rpx;
+          display: inline-block;
+          img{
+            width: 200rpx;
+            height: 200rpx;
+          }
+          p{
+            width: 94%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-top: 8rpx;
+            text-indent: 1em;
+          }
+          p:nth-child(2){
+            font-size: 30rpx;
+            font-weight: bold;
+          }
+          p:nth-child(3){
+            font-size: 24rpx;
+            color: #8a8a8a;
+          }
+          p:nth-child(4){
+            font-size: 24rpx;
+            color: #9c3232;
+          }
+        }
+      }
+    }
+  }
 }
