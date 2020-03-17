@@ -25,8 +25,11 @@ export default {
   },
   methods: {
     addProduct(model) {
+      console.log(this.model)
       this.$store.dispatch('addProduct', {
         product: model,
+      }).then(() => {
+        this.$router.push('/admin')
       })
     },
   },

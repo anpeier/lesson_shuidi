@@ -8,6 +8,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
+      <!-- 该标签默认渲染为a标签 tag="div"：去除下划线 -->
       <el-menu-item index="1"><router-link to="/" tag="div">Home</router-link></el-menu-item>
       <el-submenu index="2">
         <template slot="title">Admin</template>

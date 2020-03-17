@@ -34,7 +34,7 @@ mongoose.connect(`mongodb://localhost:27017/test`);
 
 // 跨域
 app.use(cors({
-    origin:['http://127.0.0.1:8080'],  //指定接收的地址
+    origin:['http://localhost:8080'],  //指定接收的地址
     credentials: true
 }))
 
