@@ -14,4 +14,4 @@ services:
     build: client
     restart: always
     ports:
-      - 8080:80
+      - 8090:80

@@ -18,10 +18,10 @@ ENV MONGO_URI=mongodb://db:27017/test
 ENV MONGO_USER=mongoadmin
 ENV MONGO_PASSWORD=secret
 ENV HOST=0.0.0.0
-ENV PORT=3000
+ENV PORT=3001
 
 # 开放 3000 端口
-EXPOSE 3000
+EXPOSE 3001
 
 # 设置镜像运行命令
 CMD [ "node", "./bin/www" ]
