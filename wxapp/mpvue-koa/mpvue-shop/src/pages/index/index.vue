@@ -3,8 +3,8 @@
     <!-- 头部的搜索 -->
     <div class="search">
       <div @click="toMappage">{{ cityName }}</div>
-      <div>
-        <input type="text" placeholder="搜索商品" />
+      <div  @click="toSearch">
+        <input type="text" placeholder="搜索商品"/>
         <span class="icon"></span>
       </div>
     </div>
@@ -239,6 +239,9 @@ export default {
     },
     topicDetail(id) {
       wx.navigateTo({ url: "/pages/topicdetail/main?id=" + id });
+    },
+    toSearch() {
+      wx.navigateTo({ url: '/pages/search/main' });
     }
   }
 };
