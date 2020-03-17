@@ -39,33 +39,105 @@
         品牌制造商直供
       </div>
       <div class="content">
-        <div v-for="(item,idx) in brandList" :key="idx" @click="goTobrandDetail(item.id)">
+        <div
+          v-for="(item, idx) in brandList"
+          :key="idx"
+          @click="goTobrandDetail(item.id)"
+        >
           <div>
-            <p>{{item.name}}</p>
-            <p>{{item.floor_price}}元起</p>
+            <p>{{ item.name }}</p>
+            <p>{{ item.floor_price }}元起</p>
           </div>
-          <img :src="item.new_pic_url || item.pic_url" alt="">
+          <img :src="item.new_pic_url || item.pic_url" alt="" />
         </div>
       </div>
     </div>
     <div class="newgoods">
-      <div class="newgoods-top">
+      <div class="newgoods-top" @click="goodsList('new')">
         <div class="top">
-        <p>新品首发</p>
-        <p>查看全部</p>
+          <p>新品首发</p>
+          <p>查看全部</p>
         </div>
       </div>
       <div class="list">
         <ul>
           <scroll-view class="scroll-view" :scroll-x="true">
-            <li v-for="(item,idx) in newGoods" :key="idx">
-              <img :src="item.list_pic_url" alt="">
-              <p>{{item.name}}</p>
-              <p>{{item.goods_brief}}</p>
-              <p>￥{{item.retail_price}}</p>
+            <li v-for="(item, idx) in newGoods" :key="idx">
+              <img :src="item.list_pic_url" alt="" />
+              <p>{{ item.name }}</p>
+              <p>{{ item.goods_brief }}</p>
+              <p>￥{{ item.retail_price }}</p>
             </li>
           </scroll-view>
         </ul>
+      </div>
+    </div>
+    <div class="newgoods hotgoods">
+      <div class="newgoods-top" @click="goodsList('hot')">
+        <div class="top">
+          <p>
+            人气推荐
+            <span></span>
+            好物精选
+          </p>
+          <p>查看全部</p>
+        </div>
+      </div>
+      <div class="list">
+        <ul>
+          <scroll-view class="scroll-view" :scroll-x="true">
+            <li v-for="(item, idx) in hotGoods" :key="idx">
+              <img :src="item.list_pic_url" alt="" />
+              <p>{{ item.name }}</p>
+              <p>{{ item.goods_brief }}</p>
+              <p>￥{{ item.retail_price }}</p>
+            </li>
+          </scroll-view>
+        </ul>
+      </div>
+    </div>
+    <div class="topicList">
+      <div class="topicList-top">
+        专题精选
+        <span class="icon"></span>
+      </div>
+      <div class="list">
+        <ul>
+          <scroll-view class="scroll-view" :scroll-x="true">
+            <li
+              v-for="(item, idx) in topicList"
+              :key="idx"
+              @click="topicDetail(item.id)"
+            >
+              <img :src="item.item_pic_url" alt="" />
+              <div class="btom">
+                <div>
+                  <p class="title">{{ item.title }}</p>
+                  <p class="desc">{{ item.subtitle }}</p>
+                </div>
+                <div>{{ item.price_info }}元起</div>
+              </div>
+            </li>
+          </scroll-view>
+        </ul>
+      </div>
+    </div>
+    <div class="newcategory">
+      <div class="list" v-for="item in newCategoryList" :key="item.id">
+        <div class="head">{{item.name}}好物</div>
+        <div class="sublist">
+          <div  v-for="(subItem,jdx) in item.goodsList" :key="jdx">
+            <img :src="subItem.list_pic_url" alt="">
+            <p>{{subItem.name}}</p>
+            <p>{{subItem.retail_price}}</p>
+          </div>
+          <div>
+            <div class="last">
+              <p>{{item.name}}好物</p>
+              <span class="icon"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -81,7 +153,10 @@ export default {
       banner: [],
       channel: [],
       brandList: [],
-      newGoods: []
+      newGoods: [],
+      hotGoods: [],
+      topicList: [],
+      newCategoryList: []
     };
   },
   mounted() {
@@ -140,8 +215,11 @@ export default {
       console.log(data);
       this.banner = data.banner;
       this.channel = data.channel;
-      this.brandList = data.brandList
-      this.newGoods = data.newGoods
+      this.brandList = data.brandList;
+      this.newGoods = data.newGoods;
+      this.hotGoods = data.hotGoods;
+      this.topicList = data.topicList;
+      this.newCategoryList = data.newCategoryList
     },
     categoryList(id) {
       wx.navigateTo({ url: `/pages/category/main?id=${id}` });
@@ -150,7 +228,17 @@ export default {
       wx.navigateTo({ url: `/pages/branddeatil/main?id=${id}` });
     },
     toBrandList() {
-      wx.navigateTo({ url: '/pages/brandlist/main' });
+      wx.navigateTo({ url: "/pages/brandlist/main" });
+    },
+    goodsList(info) {
+      if (info == "hot") {
+        wx.navigateTo({ url: "/pages/newgoods/main?isHot=" + 1 });
+      } else {
+        wx.navigateTo({ url: "/pages/newgoods/main?isNew=" + 1 });
+      }
+    },
+    topicDetail(id) {
+      wx.navigateTo({ url: "/pages/topicdetail/main?id=" + id });
     }
   }
 };
