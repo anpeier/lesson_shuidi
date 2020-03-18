@@ -21,5 +21,10 @@ const _products = [
 export default {
   getProducts(cb) {
     setTimeout(() => cb(_products), 1000);
+  },
+  buyProducts(products,cb,errorCb) {
+    setTimeout(() => {
+      (Math.random() > 0.5) ? cb() : errorCb()
+    }, 1000);
   }
 };

@@ -2,9 +2,11 @@
   <div>
     <ul>
       <li v-for="product in products" :key="product.id">
-        {{product.title}} - {{product.price}}
+        {{product.title}} - {{product.price}} - {{product.inventory}}
         <br />
-        <button @click="addProductToCart(product)">addToCart</button>
+        <button
+          :disabled="!product.inventory"
+          @click="addProductToCart(product)">addToCart</button>
       </li>
     </ul>
   </div>
@@ -27,4 +29,7 @@ export default {
 </script>
 
 <style>
+[disabled]{
+  cursor: not-allowed;
+}
 </style>
