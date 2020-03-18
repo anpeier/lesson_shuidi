@@ -1,5 +1,5 @@
 const webp = require('webp-converter');
-webp.cwebp("test.jpg", "test.webp", "-q 80",
+webp.cwebp("img8.jpg", "img8.webp", "-q 50",
  function(status, error) {
   console.log(status, error);
 })
