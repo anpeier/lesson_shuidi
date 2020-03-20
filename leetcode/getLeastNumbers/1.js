@@ -10,7 +10,7 @@
 
 // var getLeastNumbers = function(arr, k) {
 //   if(k == 0) return []
-//   arr = arr.sort((a,b)=> {return a-b})
+//   arr = arr.sort((a,b)=> a-b)
 //   let res = []
 //   for (let i = 0; i < k; i++) {
 //     res.push(arr[i])
@@ -116,4 +116,4 @@ function quikSort(arr, left, right) {
   arr[left] = pivot;
   return left;
 }
-console.log(getLeastNumbers([0, 1, 2, 1], 0));
+console.log(getLeastNumbers([3, 1, 2, 1], 2));
