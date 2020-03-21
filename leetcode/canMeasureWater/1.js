@@ -14,11 +14,11 @@
 // 输出: False
 
 var canMeasureWater = function(x, y, z) {
-  if(z == 0)return true
-  if(x + y < z) return false
-  if(z % Math.abs(x%y-y) == 0) return true
-  else return false
+    if(x+y<z)return false
+    if(x==0|y==0) return z==0||x+y==z
+    return z%(gcd(x,y))==0
 };
+let gcd = (a, b) => (b === 0 ? a : gcd(b, a % b))
 
 console.log(canMeasureWater(34,5,6))
 console.log(canMeasureWater(13,11,1))
