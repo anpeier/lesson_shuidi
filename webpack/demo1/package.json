@@ -1,0 +1,21 @@
+{
+  "name": "demo1",
+  "version": "1.0.0",
+  "description": "- es6 node babel loader\r - 前端生产工艺 CI CD\r - src 开发目录\r     入口文件 main.js\r     webpack bundle\r - js 与其他类型文件可以相容\r     1. 文本\r     2. {}",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.4.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
