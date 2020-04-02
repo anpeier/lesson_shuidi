@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   函数是一等公民 new Object()
+      //   函数构造函数来用的，如何限制，函数的调用方式一定是new ？
+      // function Person(name) {
+      //   if (new.target !== undefined) {
+      //     this.name = name;
+      //   } else {
+      //     throw new Error("必须使用new命令，才能生成实例");
+      //   }
+      // }
+      // console.log(new Person("李哥"));
+      // Person("李哥");
+
+      const Person = function(name) {
+        if (new.target !== undefined) {
+          this.name = name;
+        } else {
+          throw new Error("必须使用new命令，才能生成实例");
+        }
+      };
+      Person.prototype.sayName = function() {
+        console.log(`我是${this.name}`);
+      };
+      const lg = new Person("李哥");
+      console.log(lg.name);
+      // Person("李哥"); throw error
+      // 函数跟方法不一样
+      // 原型链顶端是{} Object()
+      var o = Object();
+      console.log(o);
+      console.log(o.__proto__ == Object.prototype); // true
+
+      function MyObj() {}
+      typeof MyObj; // function
+      var mo = new MyObj();
+      console.log(mo.__proto__ == MyObj.prototype);
+    </script>
+  </body>
+</html>
