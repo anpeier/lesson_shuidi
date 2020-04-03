@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .out {
+      /* position: absolute; top: 50%;
+      transform: translateY(-50%);  */
+      background-color: blue;
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 10px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .in {
+      /* padding 百分比 相对于自己的 宽度来计算的 */
+      height: 0;
+      padding: 25% 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="out">
+    <div class="in">
+      A
+    </div>
+  </div>
+  <script>
+    function foo() {
+      console.log(arguments)
+      console.log(Array.from(arguments));
+      console.log([...arguments])
+      console.log(Array.prototype.slice.call(arguments));
+      console.log(Array.prototype.splice.call(arguments, 0));
+      let a = []
+      a.slice()
+    }
+    foo(1, 2, 3, 4, 5)
+
+    // 
+    let a = [1], b = [1], c = 4, d = 4;
+    // 基本数据类型
+    // 变量 和 变量对应的值 都存在 栈内存里面
+    // 复杂数据类型
+    // 变量 存在栈内存里面，但是值 存在 堆内存里面
+    c == d  // true
+    a == b // false
+    let e = {}, f = {}
+    e == f
+
+    
+  </script>
+</body>

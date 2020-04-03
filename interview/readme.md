@@ -116,6 +116,5 @@
     CommonJs 的 this 是当前模块，ES6 Module的 this 是 undefined
 - Cookie Token 和 Session的区别
     参考阿里呀羽 https://github.com/mqyqingfeng/Blog/issues/157
-- 如何选中图片格式
+- 如何选择图片格式
     https://juejin.im/post/5e7426d15188254967069c00
-
