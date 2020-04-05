@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="https://api.map.baidu.com/api?v=2.0&ak=47FQtS6XkphGqmZ5nSEj6WTSTwE8SGaT"
+    ></script>
+    <style>
+      /* 元素有些默认属性， 我们将他重置掉 css reset 工作流程 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        /* 占据怎个屏幕 ? */
+        width: 80vw;
+        /* 来自移动时代的新的单位 px vierport width  
+    根据视窗出相对单位iphoneXR inphone X ipad  */
+        height: 100vh;
+        /* background-color: pink; */
+      }
+      .suggestion {
+        position: absolute;
+        top: 0;
+        right: 10vw;
+        width: 10vw;
+        height: 10vh;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. 展示一个地图 来自百度  -->
+    <!-- emmet html 快捷方式 -->
+    <!-- <div id="map"></div> -->
+    <!-- 容器 地图 在这里显示 -->
+    <!-- <div>
+      <div id="map"></div>
+      <div class="suggestion">
+        <div id="r-result">
+          请输入:
+          <input type="text" id="suggestId" size="20" value="百度" />
+        </div>
+      </div>
+    </div>-->
+    <script>
+
+      window.onload = function() {
+          function  getLocation() {
+            // is 浏览器嗅探  支持lbs 功能
+            if (navigator.geolocation) { // h5 localStorage
+              navigator.geolocation.getCurrentPosition(showPostion,
+              showError);
+            }
+          }
+
+          function showPostion(position) {
+            console.log(position);
+          }
+          // 关了定位功能， 或不支持
+          function showError(err) {
+
+          }
+          getLocation();
+      }
+          //   const myLongitude = "115.941261", //我的经度
+          //     myLatitude = "28.556865";
+          //   const kfcLongitude = "115.950531", //肯德基
+          //     kfcLatitude = "28.549066";
+          //   window.onload = function() {
+          //     const map = new BMap.Map();
+          //     const pointA = new BMap.Point(myLongitude, myLatitude);
+          //     const pointB = new BMap.Point(kfcLongitude, kfcLatitude);
+          //     console.log(map.getDistance(pointA, pointB).toFixed(2) + "米");
+          //   };
+    </script>
+  </body>
+</html>
