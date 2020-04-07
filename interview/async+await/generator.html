@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function foo(params) {
+        return "foo";
+      }
+      function* test(params) {
+        console.log("start");
+        // a 和 yield 没有关系 通过next()方法传值
+        let a = yield foo();
+        console.log("a" + a);
+        // return 11;
+        console.log("middle");
+        let b = yield 2;
+        console.log("b" + b);
+        console.log("end");
+      }
+      //   console.log(test())
+      //   while (!g.next().done) {
+      //     console.log(g.next().value);
+      //     g.next();
+      //   }
+
+      //   const g = test();
+      //   g.next();
+      //   g.next("AAA");
+      //   g.next("BBB");
+
+      function generatorAutoRun(gen) {
+        let g = gen();
+        function next(value) {
+          let res = g.next(value);
+          console.log('res')
+          console.log(res)
+          if (res.done) return;
+          next(res.value);
+        }
+        next();
+      }
+      generatorAutoRun(test);
+      // 协程
+    </script>
+  </body>
+</html>
