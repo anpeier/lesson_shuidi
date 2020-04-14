@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        margin-top: 1500px;
+        width: 265px;
+        height: 265px;
+        border: 1px solid #000;
+        display: inline-block;
+      }
+      .wrapper {
+        width: 500px;
+        height: 500px;
+        overflow: scroll;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <img
+        src="default.png"
+        target-src="https://yanxuan-item.nosdn.127.net/91a264d84fed57f97c48dc107370e941.png?imageView&thumbnail=265x265&quality=95"
+        alt=""
+      />
+      <img
+        src="default.png"
+        target-src="https://yanxuan-item.nosdn.127.net/a517938254c7d2f480827debf355127a.png?imageView&thumbnail=265x265&quality=95"
+        alt=""
+      />
+    </div>
+    <script>
+      const observer = new IntersectionObserver(
+        function (entry) {
+          // console.log(entry);
+          entry.forEach((node) => {
+            if (node.isIntersecting) {
+              console.log("我出现了");
+              const targetSrc = node.target.getAttribute("target-src");
+              node.target.src = targetSrc;
+            }
+          });
+        },
+        {
+          root: document.querySelector(".wrapper"),
+          rootMargin: "0px 0px 100px 0px", // 让我们计算某个出现在可视区域之内，是按照 margin 的规则排列之后计算的 mb 让我们提前 100px 加载
+          // threshold: [1, 0.5]   // 阀值 0 ~ 1 50% || 100%
+        }
+      );
+      const img = document.querySelectorAll("img");
+      img.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
