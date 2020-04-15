@@ -8,11 +8,11 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
   return (
     // new VueRouter()
     <HashRouter>
-      <div className="container-fluid">
+      <Switch>
         {/* routes 数组 */}
-        <Route path="/" component={App} />
-        <Route path="/about" component={hello} />
-      </div>
+        <Route exact path="/" component={App} />
+        <Route exact path="/about" component={hello} />
+      </Switch>
     </HashRouter>
   );
 };
