@@ -1,0 +1,62 @@
+.input {
+  border: 3px solid #ae7000;
+}
+
+.show {
+  animation: show-item 2s ease-in forwards;
+}
+
+.hidden {
+  animation: hidden-item 2s ease-in forwards;
+}
+
+.boss-text-enter {
+  opacity: 0;
+}
+.boss-text-enter-active {
+  opacity: 0.5;
+  transition: opacity 1000;
+}
+.boss-text-enter-done {
+  opacity: 1;
+}
+.boss-text-exit {
+  opacity: 1;
+}
+.boss-text-exit-active {
+  opacity: 0.5;
+  transition: opacity 1000;
+}
+.boss-text-exit-done {
+  opacity: 0;
+}
+
+@keyframes hidden-item {
+  0% {
+    opacity: 1;
+    color: yellow;
+  }
+  50% {
+    opacity: 0.5;
+    color: red;
+  }
+  100% {
+    opacity: 0;
+    color: green;
+  }
+}
+
+@keyframes show-item {
+  0% {
+    opacity: 0;
+    color: yellow;
+  }
+  50% {
+    opacity: 0.5;
+    color: red;
+  }
+  100% {
+    opacity: 1;
+    color: green;
+  }
+}
