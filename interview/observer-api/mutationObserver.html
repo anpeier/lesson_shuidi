@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const target = document.getElementById("kolor-kolor");
+      const observer = new MutationObserver(function (muationList, observe) {
+        console.log(muationList);
+        if (muationList[0].type === "attributes") {
+          let ans = target.style.backgroundColor;
+          document.querySelectorAll("#kolor-options a").forEach((node) => {
+            if (node.style.backgroundColor === ans) {
+              node.click();
+            }
+          });
+        }
+      });
+      observer.observe(target, {
+        attributes: true,
+      });
+    </script>
+  </body>
+</html>

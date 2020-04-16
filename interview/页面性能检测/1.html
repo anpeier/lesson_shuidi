@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="https://ke-image.ljcdn.com/materials/appindexconf/3e212c36001ab3b156be754bc48745fb.jpg" alt="">
+  <script>
+    // api
+    // .getEntries() 可以拿到页面加载的性能指标的
+    // 只能拿到 js 以前发生的性能指标(网页加载，TCP握手...)
+    // performance
+    // .getEntries()
+    // .forEach(e => {
+    //   console.table(e);
+    // })
+    const observer = new PerformanceObserver((lists) => {
+      lists.getEntries().forEach((entry) => {
+        console.log(entry);
+        // console.log('TCP 耗时:', entry.connectEnd - entry.connectStart)
+        // console.log('DOM 解析耗时', entry.domInteractive - entry.responseEnd)
+        // console.log('页面完全加载', entry.loadEventStart - entry.fetchStart)
+      })
+    });
+    observer.observe({
+      entryTypes: ['measure', 'mark', 'longtask']
+    })
+    performance.mark('cal-start');
+    let a = 0;
+    for (let i = 0; i < 10000000; i ++) {
+      a = Math.random();
+    }
+    performance.mark('cal-end');
+    performance.measure('for-spend', 'cal-start', 'cal-end')
+    
+
+
+    // 
+    // ？？
+    // 往后的性能指标拿不到了、
+    const img = document.createElement('img');
+    img.src = 'https://www.fundebug.com/assets/images/landing/paid_user_logo_list.45f7f49a.jpg'
+    document.body.appendChild(img);
+    // 整个页面加载完
+    window.onload = function() {
+
+    }
+  </script>
+</body>
+</html>
