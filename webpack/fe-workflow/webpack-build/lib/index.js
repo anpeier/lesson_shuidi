@@ -1,6 +1,7 @@
 let fs = require("fs");
 let join = require("path").join;
 
+// 递归查找文件夹下的文件
 function findSync(startPath) {
   let result = [];
   function finder(path) {

@@ -14,7 +14,7 @@ module.exports = (config, resolve) => {
   return () => {
     baseRule
       .use("babel")
-      // 将 js文件
+      // 将 js文件 用babel编译
       .loader(require.resolve("babel-loader"))
       .options(
         babelConf({
