@@ -25,3 +25,10 @@ webpack 编译  nginx docker  阿里云 build  node
   babel 
   jSX 良好表现的template 语法
 - dist 目录不删除再生成？ 历史版本都留下， 利于回滚代码
+
+- react 语法 ts
+  router + redux + api 类型约束
+- <{}> 怎么理解
+  1. App AppRouter 引入的路由根组件，类型定义 header html React.statelessComponent<{}> 定义文件 type 声明的类型
+- bootstarp entey 多入口入口
+- react-router
