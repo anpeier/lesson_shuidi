@@ -20,9 +20,7 @@ class Boss extends Component {
           classNames="boss-text"
           unmountOnExit
         >
-          <div>
-            Boss级人物-孙悟空
-          </div>
+          <div>Boss级人物-孙悟空</div>
         </CSSTransition>
 
         <div>
