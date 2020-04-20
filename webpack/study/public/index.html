@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <% if(htmlWebpackPlugin.options.config.header) { %>
+    <link rel="stylesheet" type="text/css" href="//common/css/header.css" />
+    <% } %>
+    <title><%= (htmlWebpackPlugin.options.config.title) %></title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+  </head>
+
+  <body>
+    <img src="<%= require('./dlam.jpg') %>" />
+  </body>
+  <% if(htmlWebpackPlugin.options.config.header) { %>
+  <script src="//common/header.min.js" type="text/javascript"></script>
+  <% } %>
+</html>
