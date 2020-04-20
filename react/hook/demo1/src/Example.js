@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router,Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function Index() {
+  // useEffect Hook 看做 componentDidMount，
+  // componentDidUpdate 和 componentWillUnmount的组合
   useEffect(() => {
-    console.log('useEffect => 来了老弟')
-    return () => {
-      console.log('溜了溜了')
-    }
-  },[])
-  return (
-    <h2>首页</h2>
-  )
+    console.log("useEffect => 来了老弟");
+    return () => { // 组件卸载时执行操作
+      console.log("溜了溜了----------");
+    };
+  }, []); // 传递空数组表示不依赖props或state 只在组件挂载或卸载时执行
+  return <h2>首页</h2>;
 }
 
 function List() {
   useEffect(() => {
-    console.log('useEffect => 来了老弟List')
+    console.log("useEffect => 来了老弟List");
     return () => {
-      console.log('溜了溜了List')
-    }
-  },[])
-  return (
-    <h2>列表</h2>
-  )
+      console.log("溜了溜了List");
+    };
+  }, []);
+  return <h2>列表</h2>;
 }
 
 function Example() {
@@ -31,9 +29,9 @@ function Example() {
   useEffect(() => {
     console.log(`Didupdate => 你点击了${count}次`);
     return () => {
-      console.log('--------------')
-    }
-  },[count]); // 第二个参数变化时执行
+      console.log("--------------");
+    };
+  }, [count]); // 第二个参数变化时执行
   return (
     <div>
       <p>你点击了{count}次</p>
@@ -47,8 +45,12 @@ function Example() {
 
       <Router>
         <ul>
-          <li><Link to="/">首页</Link></li>
-          <li><Link to="/list">列表</Link></li>
+          <li>
+            <Link to="/">首页</Link>
+          </li>
+          <li>
+            <Link to="/list">列表</Link>
+          </li>
         </ul>
         <Route path="/" exact component={Index}></Route>
         <Route path="/list" exact component={List}></Route>

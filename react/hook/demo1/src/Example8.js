@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 
 function Example8() {
+  // useRef 返回一个可变的ref对象 并且该对象在整个生命周期内保持不变。
   const inputEl = useRef(null);
   const onButtonClick = () => {
     inputEl.current.value = "hello";
@@ -11,6 +12,7 @@ function Example8() {
   const textRef = useRef();
 
   useEffect(() => {
+    // 保存可变值
     textRef.current = text;
     console.log("textCur:" + textRef.current);
   });

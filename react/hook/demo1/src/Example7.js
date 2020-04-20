@@ -30,6 +30,7 @@ function ChildComponent({ name, children }) {
     return name + "小红向我们走来了";
   }
 
+  // 返回一个 memoized 值 第二个参数改变时触发执行 类似于useEffect
   const actionXiaohong = useMemo(() => changeXiao(name), [name]);
   return (
     <>

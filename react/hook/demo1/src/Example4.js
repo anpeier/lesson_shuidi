@@ -1,9 +1,10 @@
 import React, { useState, createContext, useContext } from "react";
 
+// 创建上下文
 const CountContext = createContext();
 
 function Counter() {
-  let count = useContext(CountContext);
+  let count = useContext(CountContext); // 通过useContext拿到CountContext上下文
   return <h2>{count}</h2>;
 }
 
@@ -21,6 +22,7 @@ function Example4() {
       >
         click me
       </button>
+      {/* 提供上下文给包裹的组件 */}
       <CountContext.Provider value={count}>
         <Counter></Counter>
       </CountContext.Provider>
