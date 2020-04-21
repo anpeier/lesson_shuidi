@@ -2,6 +2,11 @@ import Nav from "../components/Nav";
 import Lap from "../components/Lap";
 import Link from "next/link";
 import Router from "next/router";
+import MyHeader from "../components/myHeader";
+import "../static/test.css";
+
+// babel-plugin-import
+
 const IndexPage = () => {
   // Lazy Loading
 
@@ -51,6 +56,7 @@ const IndexPage = () => {
   }
   return (
     <>
+      <MyHeader title="anpeier" charSet="utf-8" />
       <div>我是首页</div>
       <div>
         <Link href={{ pathname: "xiaojiejie", query: { name: "结衣" } }}>
