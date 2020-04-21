@@ -8,7 +8,9 @@
   },
   "author": "Remy Sharp <remy@leftlogic.com>",
   "dependencies": {
-    "next": "latest",
+    "axios": "^0.19.2",
+    "moment": "^2.24.0",
+    "next": "^9.3.5",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },

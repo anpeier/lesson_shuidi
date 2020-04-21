@@ -3,6 +3,8 @@ import Lap from "../components/Lap";
 import Link from "next/link";
 import Router from "next/router";
 const IndexPage = () => {
+  // Lazy Loading
+
   // function goToL() {
   //   Router.push("/lap");
   // }
@@ -19,6 +21,25 @@ const IndexPage = () => {
   //     <button onClick={goToL}>安培儿页面</button>
   //   </>
   // );
+  Router.events.on("routeChangeStart", (...args) => {
+    console.log("1.routeChangeStart-> 路由开始变化，参数为：", ...args);
+  });
+
+  Router.events.on("routeChangeComplete", (...args) => {
+    console.log("2.routeChangeComplete-> 路由变化结束，参数为：", ...args);
+  });
+
+  Router.events.on("beforeHistoryChange", (...args) => {
+    console.log("3.beforeHistoryChange-> 路由开始变化，参数为：", ...args);
+  });
+
+  Router.events.on("hashChangeStart", (...args) => {
+    console.log("1.hashChangeStart-> 路由开始变化，参数为：", ...args);
+  });
+
+  Router.events.on("hashChangeComplete", (...args) => {
+    console.log("2.hashChangeComplete-> 路由变化结束，参数为：", ...args);
+  });
 
   function toXiaojiejie() {
     Router.push({
@@ -42,6 +63,11 @@ const IndexPage = () => {
         </Link>
       </div>
       <button onClick={toXiaojiejie}>选择井空</button>
+      <div>
+        <Link href="#/jjj">
+          <a>不搞鸡</a>
+        </Link>
+      </div>
     </>
   );
 };
