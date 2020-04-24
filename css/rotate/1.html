@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin: 50px auto;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      div.rotate {
+        /* 旋转360度 */
+        transform: rotate(360deg);
+        /* all表示所有属性,1s表示在一秒的时间完成动画 */
+        transition: all 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="d1"></div>
+    <script>
+      //   document.getElementById("d1").addEventListener("click", function () {
+      //     document.getElementById("d1").innerHTML = "Hello World";
+      //   });
+      var d = document.getElementsByTagName("div")[0];
+      d.addEventListener("mouseenter", function () {
+        d.classList.add("rotate");
+      });
+      d.addEventListener("mouseout", function () {
+        d.classList.remove("rotate");
+      });
+    </script>
+  </body>
+</html>
