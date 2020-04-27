@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let getUserData = function (data) {
+        console.log(data);
+      };
+      // 将方法名传给后端
+      let url = "http://localhost:3000?code=123&callback=getUserData";
+      // 创建script标签，设置其属性
+      let script = document.createElement("script");
+      script.setAttribute("src", url);
+      // 把script标签加入head，此时调用开始
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

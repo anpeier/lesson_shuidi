@@ -44,3 +44,5 @@
      6. 在当前标签页则移除之前的页面 body 到了 渲染进程渲染 页面的重绘和重排 提交
         确定文档消息
         标签页
+- cookie,session,localstorage,sessionstorage有什么区别
+   sessionStorage 的作用域还被限定在了窗口中，也就是说，只有同一浏览器、同一窗口的同源文档才能共享数据。

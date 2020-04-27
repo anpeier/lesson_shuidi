@@ -10,3 +10,6 @@
     可以返回一个用于销毁副作用的函数，相当于 Class 组件的 unmount
   3. useLayoutEffect
     useLayoutEffect中的副作用会在DOM更新之后同步执行。
+- react 优化
+  使用纯组件 React 提供了 PureComponent 基类
+  使用 React.memo 进行组件记忆
