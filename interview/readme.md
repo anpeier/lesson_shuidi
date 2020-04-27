@@ -3,7 +3,7 @@
   2. 浏览器先查看浏览器缓存-系统缓存-路由器缓存，如果缓存中有，会直接在屏幕中显示页面内容。若没有，则跳到第三步操作。
   3. 在发送 http 请求前，需要域名解析(DNS 解析)(DNS（域名系统，Domain Name System）是互联网的一项核心服务，它作为可以将域名和 IP 地址相互映射的一个分布式数据库，能够使人更方便的访问互联网，而不用去记住 IP 地址。)，解析获取相应的 IP 地址。
   4. 浏览器向服务器发起 tcp 连接，与浏览器建立 tcp 三次握手。（TCP 即传输控制协议。TCP连接是互联网连接协议集的一种。）
-  5. 握手成功后，浏览器向服务器发送 http 请求，请求数据包。
+  5. 握手成功后，浏览器向服务器发送 http 请求，请求数据包 POST请求的话，发送完请求头之后，还会发送请求体。
   6. 服务器处理收到的请求，将数据返回至浏览器
   7. 浏览器收到 HTTP 响应
   8. 读取页面内容，浏览器渲染，解析 html 源码
@@ -118,3 +118,39 @@
     参考阿里呀羽 https://github.com/mqyqingfeng/Blog/issues/157
 - 如何选择图片格式
     https://juejin.im/post/5e7426d15188254967069c00
+- javascript 事件触发的三个阶段
+    CAPTURING_PHASE，即捕获阶段
+    AT_TARGET，即目标阶段
+    BUBBLING_PHASE，即冒泡阶段
+    1. 事件监听
+        HTML 内联属性
+        DOM属性绑定
+        事件监听函数
+            type：监听事件类型的字符串
+            listener：是一个实现了 EventListener 接口的对象，或者是一个函数。
+            options(可选)：
+                capture:  Boolean，表示 listener 会在该类型的事件捕获阶段传播到该 EventTarget 时触发。
+                once:  Boolean，表示 listener 在添加之后最多只调用一次。如果是 true， listener 会在其被调用之后自动移除。
+                passive: Boolean，设置为true时，表示 listener 永远不会调
+            useCapture：true为捕获false为冒泡
+        移除事件监听：removeEventListener
+        事件代理：只监听父节点的事件触发，以来代理对其后代节点的监听，通过currentTarget属性得到触发元素并作出回应
+- 异步解决方案：
+    回调函数(callback)
+    promise
+    async/await
+- 进程通信
+    管道
+    信号量：信号量是一个计数器，可以用来控制多个进程对共享资源的访问，主要作为进程同步的手段。
+    消息队列
+    套接字通信
+- 跨域
+    1. jsonp
+    2. CORS 跨域资源共享
+      简单请求：
+        请求方法：HEAD GET POST
+        头部信息：Accept Accept-Language Content-Language Last-Event-ID
+          Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain
+      非简单请求
+    3. nginx代理
+      本质是服务器端通信没有跨域问题
