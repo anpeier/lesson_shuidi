@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="router" to="/home">首页</button>
+    <button class="router" to="/content">内容</button>
+    <div class="router-view"></div>
+
+    <script>
+      var btn = document.getElementsByClassName("router");
+      var view = document.getElementsByClassName("router-view")[0];
+
+      routes = [
+        { path: "/home", component: "<p>我是首页的组件</p>" },
+        { path: "/content", component: "<p>我是内容的组件</p>" },
+      ];
+
+      // 当hash值发生改变时，显示不同的内容  这是进入页面时触发的
+      var hash = window.location.hash;
+      if (hash) {
+        var url = hash.substring(1);
+        renderView(url);
+      } else {
+        window.location.hash = "/";
+      }
+
+      // 点击时，使得hash值发生改变，也就使得显示改变
+      for (var i = 0; i < btn.length; i++) {
+        btn[i].onclick = function () {
+          var hash = this.getAttribute("to");
+          renderView(hash);
+        };
+      }
+
+      //hash值改变时  这是hash值发生改变时触发的
+      // 历史回退
+      window.onhashchange = function () {
+        var hash = window.location.hash;
+        if (hash) {
+          var url = hash.substring(1);
+          renderView(url);
+        } else {
+          window.location.hash = "/";
+        }
+      };
+
+      function renderView(url) {
+        for (var i = 0; i < routes.length; i++) {
+          if (routes[i]["path"] == url) {
+            view.innerHTML = routes[i]["component"];
+            window.location.hash = url;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

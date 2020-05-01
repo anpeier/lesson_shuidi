@@ -34,6 +34,8 @@
             5. middle内容被left、right覆盖未显示，所以把middle内容拉回来，content:{padding: 0 200px};
             6. 此时lefe和right都跟着被拉回来了，左右空出了200px。所以用相对定位把left,right拉回来
         代码：html5/exer/sblayout
+    4. flex布局
+        顺着主轴依次放3列，内容在最前，通过order控制显示顺序，通过flex-grow让中间占据全部剩余空间，通过flex-basis设置左、右div的宽度。
 - 如何在低版本浏览器使用箭头函数
     1. 下载polyfill
         npm install babel-polyfill --save
@@ -80,6 +82,9 @@
         Max-Age，是以秒为单位的，Max-Age为正数时，cookie会在Max-Age秒之后，被删除，当Max-Age为负数时，表示的是临时储存，不会生出cookie文件，只会存在浏览器内存中，且只会在打开的浏览器窗口或者子窗口有效，一旦浏览器关闭，cookie就会消失，当Max-Age为0时，会删除cookie，它实现的就是让cookie失效。
     - 服务端操作
         setCookie
+    - Domain和path
+        Domain 标识指定了哪些主机可以接受Cookie。如果不指定，默认为当前文档的主机（不包含子域名）。如果指定了Domain，则一般包含子域名。
+        Path 标识指定了主机下的哪些路径可以接受Cookie（该URL路径必须存在于请求URL中）。以字符 %x2F ("/") 作为路径分隔符，子路径也会被匹配。
 - sessionStorage
     - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据
     - 语法

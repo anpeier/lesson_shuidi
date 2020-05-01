@@ -123,6 +123,7 @@
       - deactivated：被缓存的组件停用时调用
 
       不能在函数式组件使用
+      keep-alive的中还运用了LRU(Least Recently Used)算法。
 
    7. mixin
 

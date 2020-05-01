@@ -63,7 +63,7 @@ console.log(child2.colors); // ["red", "blue", "green"]
 
 // 寄生组合继承
 function Parent(name) {
-    this.name = [name]
+    this.name = name
 }
 Parent.prototype.getName = function() {
     return this.name
@@ -81,4 +81,6 @@ Child.prototype.constructor = Child
 const child = new Child()
 const parent = new Parent()
 child.getName()                  // ['zhangsan']
-parent.getName()                 // 报错, 找不到getName()
+// parent.getName()                 // 报错, 找不到getName()
+
+
