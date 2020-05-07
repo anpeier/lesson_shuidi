@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css4 varible</title>
+  <style>
+    :root{ /* 定义变量的地方 css in js bg_color = #343356 */
+      --bgcolor: blue;
+      --color: red;
+    }
+    p{
+      color: var(--color);
+    }
+    div{
+      background-color: var(--bgcolor);
+      color: var(--color);
+    }
+  </style>
+</head>
+<body>
+  <p>怎么成功？30岁之前财富自由？</p>
+  <div>买本书，如何让富婆爱上你？</div>
+</body>
+</html>

@@ -159,3 +159,7 @@
       非简单请求
     3. nginx代理
       本质是服务器端通信没有跨域问题
+- 如何保证高质量代码
+    编程风格：eslint
+    设计模式
+    保证代码的正确性 TDD 测试驱动开发 Test Drive Development

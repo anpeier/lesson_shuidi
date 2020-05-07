@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./button.css">
+</head>
+<body>
+  <!-- BFC -->
+  <button class="button">按钮</button>
+  <script>
+    // 如何实现这个效果
+    // 如何使用纯css做抛物线？
+    // css4 varible css js 交互过程
+    // 总结能力
+      // 1. 环形渐变
+      // 2. js mousemove事件
+      // 3. css 变量 js 改变
+      //  4. transition
+    document.querySelector('.button').onmousemove = (e) => {
+      const x = e.pageX - e.target.offsetLeft;
+      const y = e.pageY - e.target.offsetTop;
+      // js 设置 css 变量代码
+      e.target.style.setProperty('--x',`${x}px`)
+      e.target.style.setProperty('--y',`${y}px`)
+    }
+  </script>
+</body>
+</html>
