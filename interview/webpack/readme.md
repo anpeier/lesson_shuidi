@@ -9,6 +9,8 @@
       optimize-css-assets-webpack-plugin 压缩css
       copy-webpack-plugin 拷贝文件插件
       html-webpack-plugin
+  1. loader运行在打包文件之前（loader为在模块加载时的预处理文件）
+  2. plugins在整个编译周期都起作用。
 - 优化
     1. 缓存
       babel-loader 中，可以通过设置 cacheDirectory 来开启缓存，将每次的编译结果写进硬盘文件

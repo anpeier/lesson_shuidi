@@ -1,0 +1,16 @@
+{
+  "name": "mocha",
+  "version": "1.0.0",
+  "description": "mocha 写出更好的代码 TDD开发工具 测试驱动开发 Test Develop Drive\r 开发者在开发时，先写测试，写代码让测试通过来提高代码质量。",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/mocha/data.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^7.1.2",
+    "should": "^13.2.3"
+  }
+}

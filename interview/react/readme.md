@@ -13,3 +13,4 @@
 - react 优化
   使用纯组件 React 提供了 PureComponent 基类
   使用 React.memo 进行组件记忆
+- 函数组件和类组件的区别
