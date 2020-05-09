@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>网易云音乐api服务 - 应用概览</title>
+  <meta name="csrf-token" content="UNet4I0O-YYh799C9mVpUHDxWoBM_z2DOvzQ">
+
+<!-- global files -->
+
+  <script src="/public/scripts/common.8e50c938.min.js"></script>
+<link rel="stylesheet" href="/public/styles/common.0ada8c13.min.css" media="all" />
+
+
+<!-- global files ends -->
+
+<!-- common files -->
+
+  <!-- dashboard common css -->
+  <link rel="stylesheet" href="/public/styles/dashboard/dashboard_common.b0eab5e2.min.css" media="all" />
+
+  <!-- dashboard common css ends -->
+
+  <!-- dashboard common js -->
+  
+    <script src="/public/scripts/dashboard/dashboard_common.8d018d0d.min.js"></script>
+
+
+      
+        <script src="/public/scripts/dashboard/sidebar.1406d993.min.js"></script>
+
+        <script src="/public/scripts/dashboard/registry_sidebar.e120effb.min.js"></script>
+
+      
+  
+  <!-- dashboard common js ends -->
+
+<!-- common files ends -->
+
+
+<!-- visualization libs  -->
+  
+    <script src="/public/scripts/dashboard/visualization.afc5e4a2.min.js"></script>
+<link rel="stylesheet" href="/public/styles/dashboard/visualization.e68a920f.min.css" media="all" />
+
+  
+<!-- visualization libs ends  -->
+
+
+
+  <!-- app page files -->
+  <script src="/public/scripts/app/app.c7bb600f.min.js"></script>
+<link rel="stylesheet" href="/public/styles/app/app.f22529de.min.css" media="all" />
+
+
+</head>
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=142425%2a%2a%2a%2a%40qq%2ecom&5e03617781555&trid=0bc3b4ae15890259789468392e44b4&asid=AQAAAAC7nLZeD2M2VwAAAACNr3cVgqJ9JA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <nav class="alinode-navbar navbar navbar-default navbar-fixed-top">
+  <div class="alinode-navbar-container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <span class="nav-logo-wrapper">
+          <img src="/public/images/logo.33ab90f2.hashed.png" class="nav-logo"/>
+        </span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span>文档</span>
+            <span class="glyphicon glyphicon-menu-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a target="_blank" href="https://help.aliyun.com/product/60298.html">帮助文档</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a target="_blank" href="https://help.aliyun.com/knowledge_detail/60811.html">运行时版本对应关系</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://alinode.aliyun.com/doc/node_versions">Node 安全版本</a>
+            </li>
+          </ul>
+        </li>
+
+        
+          <li class="active"><a href="/dashboard">控制台</a></li>
+        
+        
+          <li><a href="/registry/home">模块仓库<small>(beta)</small></a></li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle account" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <img width="20" height="20" src="https://account.aliyun.com/common/header.htm?username=1424254461">
+            <span id="alinode-nav-username">1424254461</span>
+            <span class="glyphicon glyphicon-menu-down"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="https://account.aliyun.com/logout/logout.htm?oauth_callback=http%3A%2F%2Fnode.console.aliyun.com%2Fdashboard%2Fapps%2F82398" target="_self">退出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+  <div class="dashboard-sidebar-wrapper">
+    <script type="text/template" id="agent-tab-template">
+  <div class="agent_tab agent-tab" v-bind:data-id="id">
+    <a class="agent-tab-id"
+       v-bind:href="path">
+      <span class="agent-tab-status"></span>
+      <div :class="'agent-tab-id-text' + (online ? ' online' : ' offline')">
+         {{ display }}
+      </div>
+    </a>
+    <div class="agent-tab-views">
+      <a title="进程" class="agent-tab-view agent_tab_view"
+        v-bind:href="path + '/processes'">
+        <i class="ai ai-heartbeat"></i></a>
+      <a title="系统" class="agent-tab-view agent_tab_view"
+        v-bind:href="path + '/system-info'">
+        <i class="ai ai-server"></i></a>
+      <a title="异常" class="agent-tab-view agent_tab_view"
+        v-bind:href="path + '/error-log'">
+        <i class="ai ai-warning-triangle"></i></a>
+      <a title="慢日志" class="agent-tab-view agent_tab_view"
+        v-bind:href="path + '/slow-http'">
+        <i class="ai ai-log"></i></a>
+      <a title="依赖" class="agent-tab-view agent_tab_view"
+        v-bind:href="path + '/packages'">
+        <i class="ai ai-organization-right"></i></a>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="activity-tab-template">
+  <div class="agent_tab agent-tab" v-bind:data-id="id">
+    <a class="agent-tab-id"
+       v-bind:href="path">
+      <span class="agent-tab-status"></span>
+      <div class="agent-tab-id-text">
+         {{ name }}
+      </div>
+    </a>
+  </div>
+</script>
+
+<script type="text/template" id="agent-list-template">
+  <div class="dashboard-sidebar-submenu">
+    <div class="dashboard-form-row">
+      <label for="search-key">搜索实例</label>
+      <input type="text" class="dashboard-input" v-model="searchKey" placeholder="关键字">
+    </div>
+    <ul class="agent-list">
+      <li v-if="hasAgents"
+          v-for="agent in filteredAgents"
+          v-bind:class="{'agent-tab-wrapper': true, 'active': agent.agentid === activeAgent}">
+        <agent-tab
+          v-bind:agent="agent"
+          v-bind:appid="82398">
+        </agent-tab>
+      </li>
+      <li v-if="!hasAgents || filteredAgents.length === 0"
+        class="agent-tab-wrapper">
+        <div class="empty-agents">
+          无符合条件的实例
+        </div>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="activity-type-list-template">
+  <div class="dashboard-sidebar-submenu">
+    <div class="dashboard-form-row">
+      <label for="search-key">文件类型</label>
+    </div>
+    <ul class="agent-list">
+      <li v-for="activity in activityTypes"
+          v-bind:class="{'agent-tab-wrapper': true, 'active': activity.type === activeType}">
+          <activity-tab
+            v-bind:type="activity.type"
+            v-bind:name="activity.name"
+            v-bind:appid="82398"></activity-tab>
+      </li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="dashboard-sidebar-template">
+  <div class="dashboard-sidebar">
+    <ul class="dashboard-sidebar-menu" id="stacked-menu">
+      <li class="active dashboard-sidebar-menu-item">
+        <a class="dashboard-sidebar-menu-link" href="/dashboard/apps/82398">
+          <i class="ai ai-dashboard"></i>
+          <span class="dashboard-sidebar-menu-text">应用</span>
+        </a>
+      </li>
+
+      <li class="dashboard-sidebar-menu-item ">
+        <a class="dashboard-sidebar-menu-link">
+          <span class="ai ai-triple-right"></span>
+          <span class="dashboard-sidebar-menu-text">实例</span>
+        </a>
+        <agent-list
+          v-bind:agents="agents"
+          v-bind:active-agent="activeAgent"></agent-list>
+      </li>
+
+      <li class="dashboard-sidebar-menu-item ">
+        <a class="dashboard-sidebar-menu-link" href="/dashboard/apps/82398/activities">
+          <i class="ai ai-files"></i>
+          <span class="dashboard-sidebar-menu-text">文件</span>
+        </a>
+        <activity-type-list
+          v-bind:agents="agents"
+          v-bind:active-type="activeType"></activity-type-list>
+      </li>
+      <li class="dashboard-sidebar-menu-item ">
+        <a class="dashboard-sidebar-menu-link" href="/dashboard/apps/82398/alarm">
+          <i class="ai ai-alarm"></i>
+          <span class="dashboard-sidebar-menu-text">报警</span>
+        </a>
+      </li>
+      <li class="dashboard-sidebar-menu-item ">
+        <a class="dashboard-sidebar-menu-link" href="/dashboard/apps/82398/team">
+          <i class="ai ai-member"></i>
+          <span class="dashboard-sidebar-menu-text">团队</span>
+        </a>
+      </li>
+    
+      <li class="dashboard-sidebar-menu-item ">
+        <a class="dashboard-sidebar-menu-link" href="/dashboard/apps/82398/setting">
+          <i class="ai ai-setting"></i>
+          <span class="dashboard-sidebar-menu-text">设置</span>
+        </a>
+      </li>
+    
+  </div>
+</script>
+
+<div id="dashboard-sidebar">
+  <dashboard-sidebar></dashboard-sidebar>
+</div>
+
+<script id="agent-list-data">
+  var alinode = window.alinode = window.alinode || {};
+  
+    alinode.agentList = {};
+  
+</script>
+
+  </div>
+  <div class="dashboard-content">
+      <script type="text/x-template" id="dashboard-section-template">
+  <div class="section-node" v-el:section-node></div>
+</script>
+
+<script type="text/template" id="dashboard-scatter-template">
+  <div class="scatter-node" v-el:scatter-node></div>
+</script>
+
+<!-- item template -->
+<script type="text/template" id="dashboard-spinner-template">
+  <div class="dashboard-spinner-wrapper">
+    <div class="dashboard-spinner">
+      <div v-bind:style="{'background-color': spinnerColor}" class="dashboard-spinner-spin dashboard-spinner-1"></div>
+      <div v-bind:style="{'background-color': spinnerColor}" class="dashboard-spinner-spin dashboard-spinner-2"></div>
+      <div v-bind:style="{'background-color': spinnerColor}" class="dashboard-spinner-spin dashboard-spinner-3"></div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+Vue.component('dashboard-spinner', {
+  template: '#dashboard-spinner-template',
+  props: {
+    spinnerColor: {
+      type: null,
+      default: '#abb5e7'
+    }
+  }
+})
+</script>
+<script type="text/template" id="agent-summary-template">
+  <div class="agent-summary-item">
+    <!-- Header -->
+    <div class="agent-summary-header-wrapper"
+        v-bind:style="{'border-left-color': nodeColor(agent)}">
+      <div class="agent-summary-header">
+        <div class="agent-summary-header-id">
+          <div class="agent-summary-header-id-text">
+            {{ agentname }}
+          </div>
+        </div>
+        <!--<div class="agent-summary-header-status">状态：{{agent.connected ? '监控中' : '未监控'}}</div>-->
+        <div class="agent-summary-header-links">
+          <a class="agent-summary-header-link"
+             target = "_blank"
+             v-bind:href="'/dashboard/apps/' + appid + '/agents/#!/' + agent.agentid + '/processes'">
+            <i class="ai ai-heartbeat"></i>
+            进程
+          </a>
+          <a class="agent-summary-header-link"
+             target = "_blank"
+             v-bind:href="'/dashboard/apps/' + appid + '/agents/#!/' + agent.agentid + '/system-info'">
+            <i class="ai ai-server"></i>
+            系统
+          </a>
+          <a class="agent-summary-header-link"
+             target = "_blank"
+             v-bind:href="'/dashboard/apps/' + appid + '/agents/#!/' + agent.agentid + '/error-log'">
+            <i class="ai ai-warning-triangle"></i>
+            异常
+          </a>
+          <a class="agent-summary-header-link"
+             target = "_blank"
+             v-bind:href="'/dashboard/apps/' + appid + '/agents/#!/' + agent.agentid + '/slow-http'">
+            <i class="ai ai-log"></i>
+            慢日志
+          </a>
+          <a class="agent-summary-header-link"
+             target = "_blank"
+             v-bind:href="'/dashboard/apps/' + appid + '/agents/#!/' + agent.agentid + '/packages'">
+            <i class="ai ai-organization-right"></i>
+            依赖
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-summary-panel">
+      <div class="dashboard-summary-row">
+        <!-- Apdex -->
+        <div class="dashboard-summary-data">
+          <div class="dashboard-summary-label">Apdex</div>
+          <div class="dashboard-summary-value">
+            <span v-bind:class="['dashboard-summary-value-bordered', getStatus('apdex')]">
+              {{ agent.apdex | placeholder '-'}}
+            </span>
+          </div>
+        </div>
+
+        <!-- GC -->
+        <div class="dashboard-summary-data">
+          <div class="dashboard-summary-label">GC(avg / max)</div>
+          <div class="dashboard-summary-value">
+            <span v-bind:class="['dashboard-summary-value-bordered', getStatus('gc_avg')]">
+              {{ (agent.gc_time_during_last_min_avg / (60 * 1000)) * 100 | decimal 2 | nanholder '-' | }}%
+            </span>
+            /
+            <span v-bind:class="['dashboard-summary-value-bordered', getStatus('gc_max')]">
+              {{ (agent.gc_time_during_last_min_max / (60 * 1000)) * 100 | decimal 2 | nanholder '-' }}%
+            </span>
+          </div>
+        </div>
+
+        <!-- QPS -->
+        <div class="dashboard-summary-data">
+          <div class="dashboard-summary-label">QPS</div>
+          <div class="dashboard-summary-value">
+            {{ agent.http_response_sent_sum / 60 | decimal 1 | nanholder '-'}}
+          </div>
+        </div>
+
+        <!-- Load -->
+        <div class="dashboard-summary-data">
+          <div class="dashboard-summary-label">load1 / 5 / 15</div>
+          <div class="dashboard-summary-value">
+            {{ agent.load1 | decimal 2 | placeholder '-'}}
+            /
+            {{ agent.load5 | decimal 2 | placeholder '-'}}
+            /
+            {{ agent.load15 | decimal 2 | placeholder '-'}}
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-summary-row">
+        <div class="dashboard-summary-visualization">
+          <div class="dashboard-summary-label">CPU使用率</div>
+          <dashboard-section
+            v-if="cpuSectionData.length > 0"
+            v-bind:data="cpuSectionData"
+            v-bind:config="sectionConfig"
+            v-bind:chart-constructor="Gauge">
+          </dashboard-section>
+          <div v-else class="dashboard-exception">
+            <span class="ai ai-info dashboard-info-icon"></span>
+            暂无数据
+          </div>
+        </div>
+
+        <div class="dashboard-summary-visualization">
+          <div class="dashboard-summary-label">内存使用率</div>
+          <dashboard-section
+            v-if="memorySectionData.length > 0"
+            v-bind:data="memorySectionData"
+            v-bind:config="sectionConfig"
+            v-bind:chart-constructor="Gauge">
+          </dashboard-section>
+          <div v-else class="dashboard-exception">
+            <span class="ai ai-info dashboard-info-icon"></span>
+            暂无数据
+          </div>
+        </div>
+
+        <div class="dashboard-summary-visualization">
+          <div class="dashboard-summary-label">磁盘使用率</div>
+          <dashboard-section
+            v-if="diskSectionData.length > 0"
+            v-bind:data="diskSectionData"
+            v-bind:config="sectionConfig"
+            v-bind:chart-constructor="Gauge">
+          </dashboard-section>
+          <div v-else class="dashboard-exception">
+            <span class="ai ai-info dashboard-info-icon"></span>
+            暂无数据
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="agent-overview-template">
+  <div class="agent-overview">
+    <h3 class="dashboard-section-header">实例概览
+      <div class="dashboard-header-search">
+        <input type="text" class="dashboard-input" v-model="searchKey" placeholder="搜索实例">
+      </div>
+    </h3>
+
+    <div class="agent-summary-list"
+      v-if="loadStatus === 'done' && hasAgents"
+      v-cloak>
+      <agent-summary v-for="agent in filteredAgents" v-bind:appid="appid" v-bind:agent="agent"></agent-summary>
+
+      <div class="dashboard-exception" v-show="filteredAgents.length === 0">
+        <p>
+          无符合条件的实例
+        </p>
+      </div>
+
+    </div>
+
+    <dashboard-spinner v-show="loadStatus === 'loading'"></dashboard-spinner>
+
+    <div class="dashboard-exception" v-show="loadStatus | isFailedStatus" v-cloak>
+      <p>
+        <span class="ai ai-info dashboard-warning-icon"></span> {{loadStatus}}
+      </p>
+    </div>
+
+    <div class="dashboard-exception" v-show="loadStatus === 'done' && !hasAgents" v-cloak>
+      <p>
+        <span class="ai ai-info dashboard-info-icon"></span>
+        <span>您的应用没有实例，请参照<a target="_blank" href="https://help.aliyun.com/knowledge_detail/61214.html">部署向导</a>进行部署。</span>
+      </p>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="notification-list-template">
+  <div class="notification-list">
+    <ul class="timeline">
+      <li v-for="notification in notifications"
+        v-bind:style="{color: nodeColor(notification)}"
+        class="timeline-entry">
+        <div class="timeline-time">
+          <div class="notification-date">{{notification.timestamp | date 'MM-DD'}}</div>
+          <div class="notification-time">{{notification.timestamp | date 'HH:mm'}}</div>
+         </div>
+        <div class="notification-content">
+          <div class="timeline-point"></div>
+          <div class="notification-priority">{{notification.priority}}</div>
+          <div class="notification-agent">
+            <a class="notification-agent-link"
+              v-bind:href="'/dashboard/apps/' + notification.appid + '/agents/#/' + notification.agentid">
+              {{notification.agentid}}
+            </a>
+          </div>
+          <div class="notification-info">
+            {{notification.info}}
+          </div>
+        </div>
+       </li>
+    </ul>
+  </div>
+</script>
+<script type="text/template" id="notification-distribution-tooltip-template">
+  <div class="scatter-node-info">
+    <div class="scatter-node-title">
+      <div class="scatter-node-title-text">类型: {{d.type}}</div>
+    </div>
+    <table class="scatter-node-info-list">
+      <tr>
+        <td class="scatter-node-key">来自实例</td>
+        <td class="scatter-node-value">{{d.agentid}}</td>
+      </tr>
+      <tr>
+        <td class="scatter-node-key">时间</td>
+        <td class="scatter-node-value">{{d.date}}</td>
+      </tr>
+      <tr>
+      <tr>
+        <td class="scatter-node-key">等级</td>
+        <td class="scatter-node-value">{{d.priority}}</td>
+      </tr>
+      <tr>
+        <td class="scatter-node-key">报警说明</td>
+        <td class="scatter-node-value">{{d.info}}</td>
+      </tr>
+    </table>
+  </div>
+</script>
+
+<script type="text/template" id="notification-distribution-template">
+  <div class="notification-distribution">
+    <dashboard-scatter
+      v-bind:config="scatterConfig"
+      v-bind:data="scatterData"
+      v-bind:chart-constructor="Bubble"
+      v-bind:highlight-key="''"
+      v-bind:highlight-value="''">
+    </dashboard-scatter>
+  </div>
+</script>
+<script type="text/template" id="notification-overview-template">
+  <div class="notification-overview">
+    <div class="notification-overview-container"
+      v-if="loadStatus === 'done' && hasNotifications"
+      v-cloak>
+      <notification-distribution
+        v-bind:notifications="notifications"
+        v-bind:alarm-color="alarmColor"
+        v-bind:appid="appid"></notification-distribution>
+
+      <notification-list
+        v-bind:notifications="notifications"
+        v-bind:alarm-color="alarmColor"
+        v-bind:appid="appid">
+      </notification-list>
+    </div>
+
+    <dashboard-spinner v-show="loadStatus === 'loading'"></dashboard-spinner>
+
+    <div class="dashboard-exception" v-show="loadStatus | isFailedStatus" v-cloak>
+      <p>
+        <span class="ai ai-info dashboard-warning-icon"></span> {{loadStatus}}
+      </p>
+    </div>
+
+    <div class="dashboard-exception" v-show="loadStatus === 'done' && !hasNotifications" v-cloak>
+      <p>
+        <span class="ai ai-info dashboard-info-icon"></span>
+        <span>您的应用暂无报警</span>
+      </p>
+    </div>
+  </div>
+</script>
+
+
+<script type="text/template" id="app-overview-template">
+  <div class="app-overview">
+    <ul class="dashboard-route-tabs">
+      <li class="dashboard-route-tab">
+        <a class="dashboard-route-link" v-link="{ name: 'agents' }">
+          实例列表
+        </a>
+      </li>
+      <li class="dashboard-route-tab">
+        <a class="dashboard-route-link" v-link="{ name: 'notifications' }">
+          报警
+        </a>
+      </li>
+    </ul>
+
+    <router-view v-bind:appid="82398" keep-alive></router-view>
+
+  </div>
+</script>
+
+<div id="content">
+  
+<div class="clearfix page-title">
+  <h1 class="page-title-text">
+    
+      网易云音乐api服务(专业版)<span class="glyphicon glyphicon-menu-right"></span>
+    
+    <span>应用概览</span>
+  </h1>
+</div>
+
+
+
+  <div class="home main-content dashboard-main-content" id="app-overview">
+  </div>
+</div>
+
+
+      <!-- <footer class="alinode-footer" role="contentinfo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 footer-section footer-info">
+        <img src="/public/images/logo-with-text.f476e25e.hashed.svg" class="footer-logo"/>
+        <p>本站由阿里云 alinode 提供性能管理服务。</p>
+        <p>&copy; 2009-2020 Aliyun.com 版权所有<br> ICP证：浙B2-20080101</p>
+      </div>
+      <div class="col-xs-6 col-sm-2 footer-section">
+        <div class="footer-section-title">
+          alinode
+        </div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a target="_blank" href="/price" class="footer-link">功能介绍</a></li>
+          <li class="footer-list-item"><a target="_blank" href="https://profiler.alinode.aliyun.com/" class="footer-link">Node profiler</a></li>
+          <li class="footer-list-item"><a target="_blank" href="/doc/support" class="footer-link">技术支持</a></li>
+          <li class="footer-list-item"><a target="_blank" href="/blog" class="footer-link">团队博客</a></li>
+          <li class="footer-list-item"><a target="_blank" href="http://weibo.com/u/5723867786/" class="footer-link">微博：@alinode</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-6 col-sm-3 footer-section">
+        <div class="footer-section-title">
+          联系我们
+        </div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a target="_blank" href="mailto://alinode@service.aliyun.com" class="footer-link">Email</a></li>
+          <li class="footer-list-item"><a class="footer-link">旺旺群 1406236180</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-6 col-sm-3 footer-section">
+        <div class="footer-section-title">
+          友情链接
+        </div>
+        <ul class="footer-list">
+          <li class="footer-list-item"><a target="_blank" href="http://taobaofed.org/" class="footer-link">Taobao FED</a></li>
+          <li class="footer-list-item"><a target="_blank" href="https://cnodejs.org/" class="footer-link">CNode</a></li>
+          <li class="footer-list-item"><a target="_blank" href="http://npm.taobao.org/" class="footer-link">CNPM</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+<script id="cnzz-stat">
+'use strict';
+(function () {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';
+  ds.async = true;
+  ds.src = '//s95.cnzz.com/z_stat.php?id=1255643282&web_id=1255643282';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden">
+</div>
+<script>
+'use strict';
+(function (w, d, t) {
+  var s = d.createElement(t), m = d.getElementsByTagName(t)[0];
+  s.async = 1;
+  s.src = 'https://g.alicdn.com/sd/pointman/js/pt2.js?_=' + Math.floor((Date.now() / 36e5));
+  m.parentNode.insertBefore(s, m);
+
+  w._pointman_q = w._pointman_q || [];
+  w._pointman_q.push(['um', function (umx) {
+    var container = document.getElementById('_umfp');
+    umx.init({
+      timeout: 3000,
+      serviceLocation: 'cn',
+      appName: 'npp-console',
+      containers: {
+        flash: container,
+        dcp: container
+      }
+    });
+  }]);
+})(window, document, 'script');
+</script>
+
+<script type="text/javascript">
+'use strict';
+if (!window.UA_Opt) {
+  var UA_Opt = {};
+  UA_Opt.SendMethod = 9;
+  UA_Opt.FormId = 'login_submit_form';
+  UA_Opt.ExTarget = ['password'];
+  UA_Opt.LogVal = 'ua';
+  window[UA_Opt.LogVal] = '';
+  UA_Opt.Token = Date.now() + ':' + Math.random();
+  UA_Opt.MaxMCLog = 50;
+  UA_Opt.MaxKSLog = 50;
+  UA_Opt.MaxMPLog = 50;
+  UA_Opt.MaxTCLog = 50;
+  UA_Opt.MaxFocusLog = 50;
+  UA_Opt.ResHost = 'aeu.alicdn.com';
+  UA_Opt.Flag = 1670350;
+}
+
+function getUA() {
+  var tmp_ua = window[UA_Opt.LogVal];
+  UA_Opt.Token = Date.now() + ':' + Math.random();
+  UA_Opt.reload && UA_Opt.reload();
+  return tmp_ua;
+}
+
+(function(){
+  if (typeof window.acjs === 'undefined') {
+    var _script = document.createElement('script');
+    _script.src = '//af.alicdn.com/js/uac.js?t=' + Math.floor(Date.now() / 3600);
+    document.body.appendChild(_script);
+  }
+})();
+</script>
+<!--uac.js资源引入
+    1. http://af.alicdn.com/js/uac.js
+
+  </div>
+</body>
+</html>
