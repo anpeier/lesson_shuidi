@@ -92,12 +92,20 @@
         读取数据语法：sessionStorage.getItem("key")
         删除指定键的数据语法：sessionStorage.removeItem("key")
         删除所有数据：sessionStorage.clear()
+    - 场景
+        表单信息的保存，页面的浏览记录等
 - localStorage
     - localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去删除。
-    localStorage 属性是只读的。
+    localStorage 属性是只读的（length属性）
     保存数据语法：localStorage.setItem("key", "value")
     读取数据语法：localStorage.getItem("key")
     删除数据语法：localStorage.removeItem("key")
+    - 缺陷
+        1. 默认不支持过期时间，需要手动删除
+        2. 域名限制，localStorage无法跨域，也无法让子域名继承父域名的localStorage，而cookie在设置了withCredentials情况下可以跨域。
+        3. 存储在本地，有可能被窃取和篡改。
+    - 场景
+        内容稳定的资源，如logo，base64格式图片。
 - 一个tcp连接能发几个http请求
     - HTTP 1.0 版本协议
         一般情况下，不支持长连接，因此在每次请求发送完毕之后，TCP 连接即会断开，因此一个 TCP 发送一个 HTTP 请求，但是有一种情况可以将一条 TCP 连接保持在活跃状态，那就是通过 Connection 和 Keep-Alive 首部，在请求头带上 Connection: Keep-Alive，并且可以通过 Keep-Alive 通用首部中指定的，用逗号分隔的选项调节 keep-alive 的行为，如果客户端和服务端都支持，那么其实也可以发送多条，不过此方式也有限制，可以关注《HTTP 权威指南》4.5.5 节对于 Keep-Alive 连接的限制和规则。

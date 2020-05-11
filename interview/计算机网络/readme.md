@@ -13,6 +13,8 @@
     身份认证：第三方无法伪造服务端（客户端）身份
   HTTPS是HTTP通信接口部分用SSL和TLS协议代替的协议
   TLS/SSL 的功能实现主要依赖于三类基本算法：散列函数 、对称加密和非对称加密  其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性。
+  - 握手过程
+    
 - http1.1
   1. 缓存处理：Etag，If-Unmodified-Since, If-Match, If-None-Match
   2. 带宽优化及网络连接的使用：允许只请求资源的某个部分，状态码是206
@@ -39,3 +41,18 @@
      　 2） 服务器收到这个FIN，它发回一个ACK，确认号ack为收到的序号加1。
       　3） 关闭服务器到客户端的连接：也是发送一个FIN给客户端。
      　 4） 客户段收到FIN后，并发回一个ACK报文确认，并将确认序号seq设置为收到序号加1。
+- session，cookie和jwt认证方式的比较
+  1. session和cookie会话机制
+    session存在服务端，cookie存在客户端，用户登录成功的时候，生成session_id,以session_id为key，用户信息经过一系列的加密处理生成value,写入session,session信息可以写入文件，数据库。也可以写入memcached等等，推荐写入memcached，提高访问的速度，然后把session_id写入cookie存放在客户端，每次请求的时候，都会携带cookie，需要用户信息的时候，根据cookies里面的session_id直接从文件或者数据库或者memcached里面取出session信息即可。
+  2. session和cookie的优缺点
+    cooike的安全性不好，攻击者可以利用本地cookie进行欺骗和CSRF攻击
+    使用cookies，在多个域名的情况下会出现跨域的问题
+    session存放在服务器端，短时间内如果有大量的用户，会影响服务器的性能，推荐使用menchched缓存
+    当有多台服务器的情况下，如何共享session也会是一个问题
+  3. jwt
+    服务端根据用户的登录请求进行匹配，如果匹配成功，将相关的信息放入payload中，利用上述算法，加上服务端的密钥生成token，将其返回给客户端，客户端可以在下次请求时，将token一起交给服务端
+    - 优点
+      不易被攻击者利用，安全性提高。利用Authorization首部传输token，无跨域问题。额外信息存储在客户端，服务端占用资源不多，也不存在session共享问题
+    - 缺点
+      登录状态信息续签问题
+      JWT并不支持用户主动退出登录，可以在后端设置黑名单
