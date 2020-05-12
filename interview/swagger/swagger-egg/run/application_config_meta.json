@@ -1,0 +1,293 @@
+{
+  "swaggerdoc": {
+    "dirScanner": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "apiInfo": {
+      "title": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+      "description": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+      "version": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js"
+    },
+    "schemes": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "consumes": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "produces": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "enableSecurity": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "routerMap": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "basePath": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-swagger-doc\\config\\config.default.js",
+    "securityDefinitions": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-swagger-doc\\config\\config.default.js"
+  },
+  "sequelize": {
+    "dialect": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "host": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "port": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "database": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "username": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "password": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+    "define": {
+      "freezeTableName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js",
+      "timestamps": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\config\\config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-swagger-doc\\config\\config.default.js",
+      "type": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "keys": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "main": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    },
+    "keywords": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "author": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "egg-sequelize": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "egg-swagger-doc": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "mysql2": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "level": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\lvmeng_lesson\\lesson_shuidi\\interview\\swagger\\swagger-egg\\node_modules\\egg\\config\\config.default.js"
+}

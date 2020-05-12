@@ -2,17 +2,17 @@ function myIntanceof(L, R) {
   let LL = L.prototype;
   let RR = R.prototype;
   while (1) {
-    if (R == null) return false;
-    if (L === R) return true;
-    L = L.__proto__;
+    if (LL == null) return false;
+    if (LL === RR) return true;
+    LL = LL.__proto__;
   }
 }
 function Foo() {
 }
 
+console.log(new String('111') instanceof String) // true
+console.log(Function instanceof Function) // true
 console.log(Function instanceof Object) // true
-Function instanceof Function // true
-Function instanceof Object // true
-Foo instanceof Foo // false
-Foo instanceof Object // true
-Foo instanceof Function // true
+console.log(Foo instanceof Foo) // false
+console.log(Foo instanceof Object) // true
+console.log(Foo instanceof Function) // true
