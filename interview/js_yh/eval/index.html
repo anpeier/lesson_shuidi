@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // eval 不该用 安全相关
+    const xmlHttp = new XMLHttpRequest() // ie 6.0 还没json
+    xmlHttp.onreadystatechange = function(event) {
+      // console.log(event)
+      if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+        // console.log(event)
+        // 怎么把ajax text -> json
+
+        // JSON.parse es5 以后
+        // const data = JSON.parse(event.target.response)
+
+        // eval js 把字符串执行
+        const data = eval(event.target.responseText)
+        console.log(data)
+      }
+    }
+    xmlHttp.open('GET','./post.json',true);
+    xmlHttp.send(null)
+  </script>
+</body>
+</html>
