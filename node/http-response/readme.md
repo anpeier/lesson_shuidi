@@ -84,7 +84,7 @@ ok
 
 ```js
 浏览器得到 响应报文：
-HTTP/1.1 200 OK
+HTTP/1.1 200 OK \r\n  -> status-line
 Date: Mon, 11 May 2020 12:52:48 GMT
 Connection: keep-alive
 
@@ -96,6 +96,5 @@ Connection: keep-alive
 
 // 后面没内容了
 ```
-
-
-
+xhr.response
+xhr.status
