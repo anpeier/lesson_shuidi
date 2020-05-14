@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    二进制数据，包含非 ASCII 字符  form-urlencoded 低效
+   -->
+  <form action="/file" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <input type="submit" value="上传文件" />
+  </form>
+</body>
+
+</html>
