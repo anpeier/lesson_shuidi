@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: null
+    }
+    try { // 只能捕获同步错误 意料之中的错误
+      obj.name.a = 222
+    } catch (error) {
+      console.log(error)
+    }
+    console.log('s')
+    console.log('ss')
+    // 意料之外 全局捕获
+    
+  </script>
+</body>
+</html>
