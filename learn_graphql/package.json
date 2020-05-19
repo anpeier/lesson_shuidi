@@ -1,0 +1,26 @@
+{
+  "name": "learn_graphql",
+  "version": "1.0.0",
+  "description": "- 看下这个url设计科学吗  文章posts  查看某一篇文章  /postsow/1\r   RESTFul  url里不要有动词\r   不科学   /posts/1\r   因为 RESTFUL  它是后端暴露资源的解决方案， 多年来一直受追捧\r   URL 设计之美\r   1. HTTP动词\r     GET/POST/DELETE/PATCH/PUT\r   2. 每一个URL 代表一种资源 /posts/1  名词\r   3. 客户端通过http动词， 对服务器资源进行操作，实现表现层状态转化\r     设计一个URL  网上汇款，从账户1向账户2汇款500元？ URL？\r     /account/1/transfer/500/2   transfer 动词\r     /transaction  交易 -> website 独立模块  http1.1\r     POST  状态转化  from=1&to=2&mount=500.00  req body",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js --exec babel-node --presets env",
+    "json-server": "./node_modules/.bin/json-server --watch db.json --port 3300"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "json-server": "^0.16.1"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
