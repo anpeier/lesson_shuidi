@@ -1,63 +1,37 @@
 // ts -> .d.ts翻译文件 -> js
 import superagent from "superagent";
-import cheerio from "cheerio";
+
 import fs from "fs";
 import path from "path";
+import DellAnalyzer from "./dellAnalyzer";
 
-interface courseResult {
-  time: number;
-  data: Array<string>;
-}
-interface content {
-  [propName: number]: Array<string>;
+export interface Analyze {
+  analyze: (html: string, filePath: string) => string;
 }
 class Crowller {
-  private secret = "secretKey";
-  private url = `http://www.dell-lee.com/typescript/demo.html?secret=${this.secret}`;
-  private rawHtml = "";
-  getCourseInfo(html: string) {
-    const $ = cheerio.load(html);
-    const courseItems = $(".course-item");
-    const courseInfo: string[] = [];
-    courseItems.map((index, element) => {
-      const descs = $(element).find(".course-desc");
-      const title = descs.eq(0).text();
-      courseInfo.push(title);
-    });
-    const result = {
-      time: new Date().getTime(),
-      data: courseInfo,
-    };
-    return result;
-  }
-  async getRawHtml() {
+  private filePath = path.resolve(__dirname, "../data/course.json");
+
+  private async getRawHtml() {
     const result = await superagent.get(this.url);
     return result.text;
   }
 
-  generateJsonContent(courseInfo: courseResult) {
-    const filePath = path.resolve(__dirname, "../data/course.json");
-    let fileContent: content = {};
-    if (fs.existsSync(filePath)) {
-      fileContent = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-    }
-    fileContent[courseInfo.time] = courseInfo.data
-    return fileContent
-    
+  private writeFile(content: string) {
+    fs.writeFileSync(this.filePath, content);
   }
 
-  async initSpiderProcess() {
-    const filePath = path.resolve(__dirname, "../data/course.json");
-
+  private async initSpiderProcess() {
     const html = await this.getRawHtml();
-    const courseInfo = this.getCourseInfo(html);
-    const fileContent = this.generateJsonContent(courseInfo);
-    fs.writeFileSync(filePath, JSON.stringify(fileContent))
+    const fileContent = this.analyze.analyze(html, this.filePath);
+    this.writeFile(fileContent);
   }
 
-  constructor() {
+  constructor(private url: string, private analyze: Analyze) {
     this.initSpiderProcess();
   }
 }
 
-const crowller = new Crowller();
+const secret = "secretKey";
+const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
+const analyze = DellAnalyzer.getInstance();
+new Crowller(url, analyze);
