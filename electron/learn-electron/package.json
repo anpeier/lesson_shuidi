@@ -1,0 +1,12 @@
+{
+  "name": "learn-electron",
+  "version": "1.0.0",
+  "description": "1. chrome navigator.userAgent 为什么有 mozilla 字段？\r   Mozilla 开拓了 浏览器内置devtool",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
