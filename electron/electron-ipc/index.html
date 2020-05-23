@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <script>
+      // html -> chromium 文件来运行
+      const events = require("events");
+      const { ipcRenderer } = require("electron");
+      // node 异步事件循环机制的实现 createServer on listen
+      console.log(ipcRenderer instanceof events.EventEmitter);
+      // 订阅发布者模式
+      // msg_name msg_obj
+      ipcRenderer.send("greet", {
+        message: "hello main ~",
+      });
+
+      ipcRenderer.on("greet", (event, args) => {
+        console.log(args);
+      });
+    </script>
+  </body>
+</html>
