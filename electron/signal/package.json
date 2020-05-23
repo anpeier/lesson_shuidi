@@ -1,0 +1,15 @@
+{
+  "name": "signal",
+  "version": "1.0.0",
+  "description": "- 如果微博(sina)有新的头条或评论，你怎么去得到？",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.3.0"
+  }
+}
