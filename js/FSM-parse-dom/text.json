@@ -1,0 +1,112 @@
+[
+  {
+    "type": "document",
+    "children": [
+      {
+        "type": "element",
+        "children": [
+          {
+            "type": "text",
+            "content": "\n "
+          },
+          {
+            "type": "element",
+            "children": [
+              {
+                "type": "text",
+                "content": "\n  "
+              },
+              {
+                "type": "element",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "\n    body div #myId {\n      width: 100px;\n      background-color: #fff;\n    }\n  "
+                  }
+                ],
+                "attribute": [],
+                "tagName": "style"
+              },
+              {
+                "type": "text",
+                "content": "\n "
+              }
+            ],
+            "attribute": [],
+            "tagName": "head"
+          },
+          {
+            "type": "text",
+            "content": "\n "
+          },
+          {
+            "type": "element",
+            "children": [
+              {
+                "type": "text",
+                "content": "\n    "
+              },
+              {
+                "type": "element",
+                "children": [
+                  {
+                    "type": "text",
+                    "content": "\n      "
+                  },
+                  {
+                    "type": "element",
+                    "children": [
+                      {
+                        "type": "text",
+                        "content": "\n        123\n        "
+                      },
+                      {
+                        "type": "element",
+                        "children": [
+                          {
+                            "type": "text",
+                            "content": "\n        "
+                          }
+                        ],
+                        "attribute": [],
+                        "tagName": "span"
+                      },
+                      {
+                        "type": "text",
+                        "content": "\n      "
+                      }
+                    ],
+                    "attribute": [],
+                    "tagName": "div"
+                  },
+                  {
+                    "type": "text",
+                    "content": "\n    "
+                  }
+                ],
+                "attribute": [],
+                "tagName": "div"
+              },
+              {
+                "type": "text",
+                "content": "\n "
+              }
+            ],
+            "attribute": [],
+            "tagName": "body"
+          },
+          {
+            "type": "text",
+            "content": "\n"
+          }
+        ],
+        "attribute": [],
+        "tagName": "html"
+      },
+      {
+        "type": "text",
+        "content": "\n"
+      }
+    ]
+  }
+]
