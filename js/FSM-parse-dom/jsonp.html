@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 前端定义方法名
+      // 2. script jsonp:callback=方法名 保证方法名唯一
+      // 3. 后端返回：`onRes({code:1,data:[]})`
+      // 4. 使用的是script 浏览器就会把字符串当 JS 执行
+      function jsonp(url, options) {
+        return new Promise((resolve, reject) => {
+          let scriptNode,
+            methodName = null,
+            timeout;
+          methodName = `jQuery${Date.now()}`;
+          window[methodName] = function (res) {
+            resolve(res);
+            // 清理 事件绑定 setInterval
+            delete window[methodName];
+            document.body.removeChild(scriptNode);
+            clearTimeout(timeout);
+          };
+          scriptNode = document.createElement("script");
+          scriptNode.src = `url?callback=${methodName}`;
+          document.body.appendChild(scriptNode);
+          timeout = setTimeout(() => {
+            // 超时
+            reject("net error, timeout");
+            delete window[methodName];
+            document.body.removeChild(scriptNode);
+          }, 3000);
+          scriptNode.onerror = function (err) {
+            reject(err);
+            delete window[methodName];
+            document.body.removeChild(scriptNode);
+          };
+        });
+      }
+    </script>
+  </body>
+</html>

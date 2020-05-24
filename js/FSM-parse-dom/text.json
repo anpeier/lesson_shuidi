@@ -14,26 +14,29 @@
             "children": [
               {
                 "type": "text",
-                "content": "\n  "
+                "content": "\n   "
               },
               {
                 "type": "element",
                 "children": [
                   {
                     "type": "text",
-                    "content": "\n    body div #myId {\n      width: 100px;\n      background-color: #fff;\n    }\n  "
+                    "content": "\n    body div #myid {\n      width: 100px;\n      
+background-color: #fff; \n    }\n    .text {\n      color: #888\n    }\n   "       
                   }
                 ],
-                "attribute": [],
-                "tagName": "style"
+                "attributes": [],
+                "tagName": "style",
+                "computerStyle": {}
               },
               {
                 "type": "text",
                 "content": "\n "
               }
             ],
-            "attribute": [],
-            "tagName": "head"
+            "attributes": [],
+            "tagName": "head",
+            "computerStyle": {}
           },
           {
             "type": "text",
@@ -51,57 +54,78 @@
                 "children": [
                   {
                     "type": "text",
-                    "content": "\n      "
+                    "content": "\n      123\n      "
                   },
                   {
                     "type": "element",
                     "children": [
                       {
                         "type": "text",
-                        "content": "\n        123\n        "
+                        "content": "\n        "
                       },
                       {
                         "type": "element",
-                        "children": [
+                        "children": [],
+                        "attributes": [
                           {
-                            "type": "text",
-                            "content": "\n        "
+                            "name": "class",
+                            "value": "text"
                           }
                         ],
-                        "attribute": [],
-                        "tagName": "span"
+                        "tagName": "span",
+                        "computerStyle": {
+                          "color": {
+                            "value": "#888"
+                          }
+                        }
                       },
                       {
                         "type": "text",
                         "content": "\n      "
                       }
                     ],
-                    "attribute": [],
-                    "tagName": "div"
+                    "attributes": [
+                      {
+                        "name": "id",
+                        "value": "myid"
+                      }
+                    ],
+                    "tagName": "div",
+                    "computerStyle": {
+                      "width": {
+                        "value": "100px"
+                      },
+                      "background-color": {
+                        "value": "#fff"
+                      }
+                    }
                   },
                   {
                     "type": "text",
                     "content": "\n    "
                   }
                 ],
-                "attribute": [],
-                "tagName": "div"
+                "attributes": [],
+                "tagName": "div",
+                "computerStyle": {}
               },
               {
                 "type": "text",
                 "content": "\n "
               }
             ],
-            "attribute": [],
-            "tagName": "body"
+            "attributes": [],
+            "tagName": "body",
+            "computerStyle": {}
           },
           {
             "type": "text",
             "content": "\n"
           }
         ],
-        "attribute": [],
-        "tagName": "html"
+        "attributes": [],
+        "tagName": "html",
+        "computerStyle": {}
       },
       {
         "type": "text",
