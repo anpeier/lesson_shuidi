@@ -1,0 +1,15 @@
+{
+  "name": "3-layout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "css-computer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "images": "^3.0.2"
+  }
+}
