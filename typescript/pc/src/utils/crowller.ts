@@ -1,15 +1,13 @@
 // ts -> .d.ts翻译文件 -> js
 import superagent from "superagent";
-
 import fs from "fs";
 import path from "path";
-import DellAnalyzer from "./dellAnalyzer";
 
 export interface Analyze {
   analyze: (html: string, filePath: string) => string;
 }
 class Crowller {
-  private filePath = path.resolve(__dirname, "../data/course.json");
+  private filePath = path.resolve(__dirname, "../../data/course.json");
 
   private async getRawHtml() {
     const result = await superagent.get(this.url);
@@ -30,8 +28,4 @@ class Crowller {
     this.initSpiderProcess();
   }
 }
-
-const secret = "secretKey";
-const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`;
-const analyze = DellAnalyzer.getInstance();
-new Crowller(url, analyze);
+export default Crowller;

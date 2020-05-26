@@ -47,7 +47,7 @@ var Crowller = /** @class */ (function () {
     function Crowller(url, analyze) {
         this.url = url;
         this.analyze = analyze;
-        this.filePath = path_1.default.resolve(__dirname, "../data/course.json");
+        this.filePath = path_1.default.resolve(__dirname, "../../data/course.json");
         this.initSpiderProcess();
     }
     Crowller.prototype.getRawHtml = function () {
