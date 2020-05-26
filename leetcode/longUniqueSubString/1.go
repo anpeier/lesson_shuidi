@@ -12,22 +12,22 @@ import "fmt"
 // 如：abcdbefg，当第二个b出现时，无需在map中删除c和d的位置信息。
 
 func lengthOfNoRepeatSubStr(s string) int {
- lastOccurred := make(map[byte]int)
+	lastOccurred := make(map[rune]int)
 	start := 0
 	maxLength := 0
-	for i, ch := range []byte(s) {
+	for i, ch := range []rune(s) {
 		if lastI, ok := lastOccurred[ch]; ok && lastI >= start {
 			start = lastI + 1
 		}
-		if i - start+1 > maxLength {
-			maxLength = i-start+1
+		if i-start+1 > maxLength {
+			maxLength = i - start + 1
 		}
 		lastOccurred[ch] = i
 	}
 	return maxLength
 }
 
-func main()  {
-	res := lengthOfNoRepeatSubStr("abcabca")
+func main() {
+	res := lengthOfNoRepeatSubStr("abcabca我我你他睡回溯")
 	fmt.Println(res)
 }
