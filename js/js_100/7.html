@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function defineReactive(target, key, value) {
+        observer(value);
+        Object.defineProperty(target, key, {
+          get() {
+            return value;
+          },
+          set(newVal) {
+            observer(value);
+            if (newVal !== value) {
+              value = newVal;
+              updateView(); //更新视图
+            }
+          },
+        });
+      }
+
+      function updateView() {
+        console.log("更新");
+      }
+      // MVVM defineProperty get set 能力 元编程
+      function observer(target) {
+        if (typeof target !== "object" || target === null) {
+          return target;
+        }
+
+        // push -> 改写原型
+        if (Array.isArray(target)) {
+          target.__proto__ = arrProto;
+        }
+
+        for (const key in target) {
+          defineReactive(target, key, target[key]);
+        }
+      }
+
+      const oldArrayProperty = Array.prototype;
+      const arrProto = Object.create(oldArrayProperty);
+      ["push", "pop", "shift", "unshift"].forEach((methodName) => {
+        arrProto[methodName] = function () {
+          oldArrayProperty[methodName].call(this, ...arguments);
+          updateView();
+        };
+      });
+
+      const data = {
+        name: "lap",
+        nums: [1, 2, 3],
+        info: {
+          address: "beijing",
+        },
+      };
+      observer(data);
+      // data.nums[0] = 11; // 不需要响应
+      data.nums.push(40);
+      // data.name = 'sss'
+      // data.info.address = 'shenzheng'
+    </script>
+  </body>
+</html>
