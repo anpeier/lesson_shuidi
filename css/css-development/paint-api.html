@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #text {
+        /* 定义值 */
+        --circle-color: blue;
+        font-size: 36px;
+        background-image: paint(circle);
+      }
+    </style>
+  </head>
+  <body>
+    <textarea name="" id="text" cols="30" rows="10"></textarea>
+    <script>
+      CSS.registerProperty({
+        name: "--circle-color",
+        sytanx: "<color>",
+        initialValue: "black",
+        inherits: false,
+      });
+      CSS.paintWorklet.addModule("./cicle.js");
+    </script>
+  </body>
+</html>
