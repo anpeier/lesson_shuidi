@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 选择器 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+      }
+      /* selector_group */
+      div,
+      #id {
+      }
+      /* 复合选择器 */
+      div#id {
+      }
+      /* 兄弟选择器 */
+      div#id + span {}
+      /* 直接子元素选择器 */
+      div#id > {}
+      /* .box div + div::before {
+        content: '|';
+      } */
+      .box {
+        width: 50px;
+      }
+      .box div:not(:last-child) {
+        border-right: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+    <div id="id">
+      <span></span>
+      <div>
+        <span></span>
+      </div>
+    </div>
+    <script>
+      const dom = document.querySelectorAll("#id");
+      console.log(dom)
+    </script>
+  </body>
+</html>
