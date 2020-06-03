@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="login()">GitHub登录</button>
+    <script>
+      function login() {
+        const link = `https://github.com/login/oauth/authorize?client_id=<%= client_id %>&scope=<%= scope %>&state=${Date.now()}`;
+        window.open(link,'','width=800,height=500,location=no,menubar=no')
+      }
+    </script>
+  </body>
+</html>
