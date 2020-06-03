@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="qrcode" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      let host = "http://localhost:8888";
+      function geneQRCode() {
+        let url = `${host}/qrcode/gene`;
+        return axios
+          .get(url)
+          .then((res) => {
+            return res.data;
+          })
+          .catch((err) => err);
+      }
+      geneQRCode().then((data) => {
+        // console.log(data);
+        const oImg = document.getElementById("qrcode");
+        oImg.onload = function () {};
+        oImg.src = data.data.qrcodeUrl;
+      });
+    </script>
+  </body>
+</html>
