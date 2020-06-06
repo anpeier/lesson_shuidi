@@ -3,8 +3,12 @@ import { Form, Input, Button } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import "./login.css";
 
+interface FormFields {
+  password: String;
+}
+
 const NormalLoginForm = () => {
-  const onFinish = (values: any) => {
+  const onFinish = (values: FormFields) => {
     console.log("Received values of form: ", values);
   };
 
